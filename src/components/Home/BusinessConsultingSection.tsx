@@ -14,70 +14,67 @@ const BusinessConsultingSection = () => {
 
   const services: ServiceData[] = [
     {
-      category: 'BUSINESS DEVELOPMENT',
+      category: 'BUSINESS DEVELOPMENT ',
       items: [
-        'Strategic Value Consumer Analysis', 
-        'Market Opportunity Assessment', 
-        'Competitive Intelligence Mapping', 
-        'Business Strategy & Implementation'
+        'Strategic Value Consumer', 
+        'Mapping Competitive Intelligence', 
+        'SWOT Analysis', 
+        'Business Strategy and Implementation'
       ],
       image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80",
-      description: "Transform your business with strategic development solutions that drive sustainable growth and market leadership."
+      description: "Transform your business with strategic development solutions that drive sustainable growth and market leadership through comprehensive analysis and implementation."
     },
     {
-      category: 'BRAND STRATEGY',
+      category: 'BRAND STRATEGY ',
       items: [
-        'Brand Positioning & Identity', 
-        'Consumer Behavior Analysis', 
-        'Brand Architecture Development', 
-        'Marketing Communication Strategy'
+        'Brand Equity', 
+        'Campaign Strategy', 
+        'Marketing Mix Development', 
+        'Innovation Strategy',
+        'Concept to Execution'
       ],
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80",
-      description: "Build powerful brand strategies that resonate with your target audience and differentiate you from competitors."
+      description: "Build powerful brand strategies that resonate with your target audience and differentiate you from competitors through innovative campaigns and execution."
     },
     {
-      category: 'FINANCIAL PLANNING',
+      category: 'FINANCIAL PLANNING ',
       items: [
-        'Revenue Forecasting & Modeling', 
-        'Investment Strategy Planning', 
-        'Cost Optimization Analysis', 
-        'Financial Risk Assessment'
+        'Financial Modelling', 
+        'Planning and Tracking', 
+        'P&L Management'
       ],
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80",
-      description: "Strategic financial planning to maximize profitability and ensure long-term business sustainability."
+      description: "Strategic financial planning to maximize profitability and ensure long-term business sustainability through comprehensive modeling and P&L management."
     },
     {
-      category: 'DRIVING GROWTH',
+      category: 'DRIVING GROWTH ',
       items: [
-        'Growth Strategy Development', 
-        'Market Expansion Planning', 
-        'Customer Acquisition Strategies', 
-        'Revenue Stream Optimization'
+        'Strategic Growth Model', 
+        'Implementing Best Practices', 
+        'Leadership & CXO Advisory'
       ],
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80",
-      description: "Accelerate your business growth with data-driven strategies and proven methodologies."
+      description: "Accelerate your business growth with data-driven strategies, proven methodologies, and executive-level advisory services."
     },
     {
-      category: 'ROUTE TO MARKET',
+      category: 'ROUTE TO MARKET ',
       items: [
-        'Distribution Channel Strategy', 
-        'Go-to-Market Planning', 
-        'Channel Partner Development', 
-        'Market Entry Strategies'
+        'RTM Strategy', 
+        'Distributor Vetting and Management', 
+        'Food Service'
       ],
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&q=80",
-      description: "Optimize your path to market with strategic distribution and channel management solutions."
+      description: "Optimize your path to market with strategic distribution and channel management solutions tailored for your industry."
     },
     {
-      category: 'SUPPLY CHAIN AND LOGISTICS',
+      category: 'SUPPLY CHAIN & LOGISTICS ',
       items: [
-        'Supply Chain Optimization', 
-        'Vendor Management Systems', 
-        'Logistics Network Design', 
-        'Inventory Management Solutions'
+        'Integrated Business Planning (IBP)', 
+        'Procurement', 
+        'Logistics'
       ],
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80",
-      description: "Streamline operations with efficient supply chain and logistics management strategies."
+      description: "Streamline operations with efficient supply chain and logistics management strategies through integrated business planning."
     }
   ];
 
@@ -91,28 +88,28 @@ const BusinessConsultingSection = () => {
           </h2>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Tabs */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service, index) => (
-            <div key={index} className="relative">
-              <div
-                className={`p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${
-                  service.highlighted
-                    ? 'bg-teal-600 text-white border-teal-600'
-                    : 'bg-white text-gray-900 border-gray-300 hover:border-teal-600'
-                }`}
-              >
-                <h3 className="font-bold text-sm md:text-base mb-4 text-center">
-                  {service.category}
-                </h3>
-              </div>
-            </div>
+            <button
+              key={index}
+              onClick={() => setActiveService(index)}
+              className={`p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105 ${
+                activeService === index
+                  ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-300 hover:border-[var(--primary)]'
+              }`}
+            >
+              <h3 className="font-bold text-sm md:text-base text-center">
+                {service.category}
+              </h3>
+            </button>
           ))}
         </div>
 
         {/* Main Content Section */}
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Image and Content */}
+          {/* Left Side - Dynamic Image */}
           <div className="relative">
             {/* Yellow accent background */}
             <div className="absolute -right-4 -bottom-4 w-full h-full bg-yellow-400 rounded-lg -z-10"></div>
@@ -120,36 +117,30 @@ const BusinessConsultingSection = () => {
             {/* Main image container */}
             <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80"
-                alt="Business consultation meeting"
+                key={activeService} // Force re-render on service change
+                src={services[activeService].image}
+                alt={`${services[activeService].category} consultation`}
                 width={500}
                 height={320}
-                className="w-full h-64 md:h-80 object-cover"
+                className="w-full h-64 md:h-80 object-cover transition-opacity duration-500"
               />
             </div>
           </div>
 
-          {/* Right Side - Service Details */}
+          {/* Right Side - Dynamic Service Details */}
           <div className="space-y-6">
-            <div className="bg-teal-600 text-white p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-4">BUSINESS DEVELOPMENT</h3>
+            <div className="bg-[var(--primary)] text-white p-6 rounded-lg transition-all duration-500">
+              <h3 className="font-bold text-lg mb-2">{services[activeService].category}</h3>
+              <p className="text-blue-100 mb-4 text-sm">
+                {services[activeService].description}
+              </p>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">•</span>
-                  <span>Strategic Value Consumer</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">•</span>
-                  <span>Mapping Competitive Intelligence</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">•</span>
-                  <span>SWOT Analysis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-400 mr-2">•</span>
-                  <span>Business Strategy and Implementation</span>
-                </li>
+                {services[activeService].items.map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-yellow-400 mr-2">•</span>
+                    <span className="text-sm">{item}</span>
+                  </li>
+                ))}
               </ul>
               
               <button className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
@@ -157,10 +148,33 @@ const BusinessConsultingSection = () => {
               </button>
             </div>
 
-            
-            
+            {/* Service Categories */}
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 transition-colors duration-300">
+                <h4 className="font-semibold text-gray-900">MARKETING</h4>
+              </div>
+              <div className="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 transition-colors duration-300">
+                <h4 className="font-semibold text-gray-900">BUSINESS</h4>
+              </div>
+            </div> */}
           </div>
         </div>
+
+        {/* Bottom Navigation Indicator */}
+        {/* <div className="mt-12 flex justify-center">
+          <div className="flex space-x-2">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveService(index)}
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                  activeService === index ? 'bg-[var(--primary)]' : 'bg-gray-300'
+                }`}
+                aria-label={`Select ${services[index].category}`}
+              />
+            ))}
+          </div>
+        </div> */}
 
         {/* Bottom Note */}
         

@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '@/components/shared/Navbar';
 import HeroSection from '@/components/Home/Hero/HeroSection';
 import ServiceCard from '@/components/Home/Hero/ServiceCard';
 import ClientLogos from '@/components/Home/ClientLogos';
 import AnalyticsDashboard from '@/components/Home/AnalyticsDashboard';
 import ResearchSection from '@/components/Home/ResearchSection';
 import BusinessConsultingSection from '@/components/Home/BusinessConsultingSection';
+import ContactSection from '@/components/Home/ContactSection';
 
 const HomePage = () => {
   const services = [
@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      
       <HeroSection />
       
       {/* Services Section */}
@@ -53,6 +53,9 @@ const HomePage = () => {
       <AnalyticsDashboard />
       <ResearchSection />
        <BusinessConsultingSection />
+       
+       {/* Contact Section */}
+       <ContactSection />
     </div>
   );
 };
