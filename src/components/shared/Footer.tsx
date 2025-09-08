@@ -56,11 +56,16 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className="border-t mt-8 pt-4 text-center text-xs flex flex-col items-center gap-2"
+        className="border-t mt-8 pt-4 text-xs flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-2 relative"
         style={{ borderColor: 'rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)' }}
       >
-        <span>&copy; Copyright <span className="font-bold">Converse Global Consulting</span>. All Rights Reserved</span>
-        <a href="#" className="inline-block bg-slate-500 rounded p-1 hover:bg-slate-400 transition" aria-label="Back to top">
+        <span className="w-full text-center">&copy; Copyright <span className="font-bold">Converse Global Consulting</span>. All Rights Reserved</span>
+        <a
+          href="#"
+          className="inline-block bg-slate-500 rounded p-1 hover:bg-slate-400 transition md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:mr-4"
+          aria-label="Back to top"
+          style={{ right: 0 }}
+        >
           <FaArrowUp size={18} />
         </a>
       </div>
