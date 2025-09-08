@@ -16,6 +16,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #5c768d;
+  --button-primary: #007bff;
+  --button-primary-hover: #0056b3;
 }
 
 body {

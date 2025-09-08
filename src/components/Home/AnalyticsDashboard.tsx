@@ -1,38 +1,68 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useInView, animate } from 'framer-motion';
 
-const AnalyticsDashboard = () => {
-  const [count, setCount] = useState(0);
-  const targetCount = 23381630; // The number shown in the image
+interface CounterDigitProps {
+  digit: string;
+  isComma?: boolean;
+}
+
+const CounterDigit = ({ digit, isComma }: CounterDigitProps) => {
+  if (isComma) {
+    return (
+      <span className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mx-1">
+        ,
+      </span>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-2 sm:p-3 lg:p-4 mx-0.5">
+      <span className="text-blue-900 text-4xl sm:text-5xl lg:text-6xl font-bold leading-none">
+        {digit}
+      </span>
+    </div>
+  );
+};
+
+interface AnimatedCounterProps {
+  targetNumber: number;
+}
+
+const AnimatedCounter = ({ targetNumber }: AnimatedCounterProps) => {
+  const [displayNumber, setDisplayNumber] = React.useState(0);
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
-    const duration = 3000; // Animation duration in milliseconds
-    const increment = targetCount / (duration / 50); // Update every 50ms
-    let current = 0;
+    if (!isInView) return;
 
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= targetCount) {
-        setCount(targetCount);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, 50);
+    animate(0, targetNumber, {
+      duration: 2.5,
+      onUpdate(value) {
+        setDisplayNumber(Math.floor(value));
+      },
+    });
+  }, [targetNumber, isInView]);
 
-    return () => clearInterval(timer);
-  }, []);
+  // Format the number with commas
+  const formattedNumber = displayNumber.toLocaleString();
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString();
-  };
+  return (
+    <div ref={ref} className="flex items-center justify-center gap-1">
+      {formattedNumber.split('').map((char, index) => (
+        <CounterDigit 
+          key={index} 
+          digit={char} 
+          isComma={char === ','} 
+        />
+      ))}
+    </div>
+  );
+};
 
-  const getDigits = (num: number) => {
-    const numStr = formatNumber(num);
-    return numStr.split('').map((char, index) => ({ char, index }));
-  };
-
+const AnalyticsDashboard = () => {
   // Sample client faces/avatars data (repeat for infinite effect)
   const clientFaces = [
     { id: 1, name: 'Client 1', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
@@ -96,48 +126,29 @@ const AnalyticsDashboard = () => {
             {/* Center - Main content */}
             <div className="flex-1 text-center px-2 sm:px-4 lg:px-8 w-full max-w-md lg:max-w-none mx-auto">
               {/* Perception Logo */}
-              <div className="mb-3 sm:mb-4 lg:mb-6">
-                <div className="inline-block">
-                  <Image 
-                    src="/perception.png" 
-                    alt="Perception" 
-                    width={120}
-                    height={48}
-                    className="h-6 sm:h-8 lg:h-12 w-auto"
-                  />
-                </div>
+              <div className="mb-3 sm:mb-4 lg:mb-6 flex justify-center">
+                <Image
+                  src="/perception.png"
+                  alt="Perception Logo"
+                  width={220}
+                  height={40}
+                  style={{ height: '40px', width: 'auto' }}
+                  priority
+                />
               </div>
 
               {/* Counter */}
               <div className="mb-3 sm:mb-4">
-                <p className="text-white/90 text-xs sm:text-sm lg:text-lg mb-2 sm:mb-3 lg:mb-4 px-2">
+                <p className="text-white text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8">
                   Number of online conversations analyzed
                 </p>
                 
-                {/* Mobile: Stack digits differently */}
-                <div className="flex justify-center items-center flex-wrap gap-0.5 sm:gap-1 mb-3 sm:mb-4 lg:mb-6">
-                  {getDigits(count).map(({ char, index }) => (
-                    char === ',' ? (
-                      <span key={index} className="text-white text-sm sm:text-lg lg:text-2xl font-bold mx-0.5 sm:mx-1">
-                        {char}
-                      </span>
-                    ) : (
-                      <div
-                        key={index}
-                        className="bg-white/90 rounded-md sm:rounded-lg p-1.5 sm:p-2 lg:p-4 min-w-[1.75rem] sm:min-w-[2.5rem] lg:min-w-[3rem] h-8 sm:h-12 lg:h-16 flex items-center justify-center shadow-lg"
-                      >
-                        <span className="font-bold text-sm sm:text-lg lg:text-2xl text-blue-900">
-                          {char}
-                        </span>
-                      </div>
-                    )
-                  ))}
+                {/* Animated Counter with individual digit boxes */}
+                <div className="mb-4">
+                  <AnimatedCounter targetNumber={23381630} />
                 </div>
 
                 {/* Red indicator dot */}
-                
-                
-                {/* Chevron down */}
                 
               </div>
 

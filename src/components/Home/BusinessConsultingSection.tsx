@@ -143,7 +143,16 @@ const BusinessConsultingSection = () => {
                 ))}
               </ul>
               
-              <button className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+              <button
+                className="mt-6 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                style={{
+                  backgroundColor: 'var(--button-primary)',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+                onMouseOver={e => (e.currentTarget.style.backgroundColor = 'var(--button-primary-hover)')}
+                onMouseOut={e => (e.currentTarget.style.backgroundColor = 'var(--button-primary)')}
+              >
                 Know More
               </button>
             </div>

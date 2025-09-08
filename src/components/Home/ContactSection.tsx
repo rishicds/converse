@@ -69,7 +69,7 @@ const ContactSection = () => {
             </p>
             <Button
               onClick={() => setIsPopupOpen(true)}
-              className="bg-[var(--primary)] text-white px-8 py-3 rounded-full border-2 border-[var(--primary)] hover:bg-[var(--foreground)] hover:text-[var(--primary)] transition-all duration-300 font-semibold"
+              className="bg-[var(--button-primary)] text-white px-8 py-3 rounded-full border-2 border-[var(--button-primary)] hover:bg-[var(--foreground)] hover:text-[var(--primary)] transition-all duration-300 font-semibold"
             >
               GET IN TOUCH
             </Button>

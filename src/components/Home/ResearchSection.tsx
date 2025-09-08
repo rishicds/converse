@@ -122,11 +122,11 @@ const ResearchSection = () => {
               </div>
               <button
                 style={{
-                  background: 'var(--primary)',
+                  background: 'var(--button-primary)',
                   color: 'var(--background)',
                   border: 'none'
                 }}
-                className="px-8 py-3 rounded-lg font-medium transition-colors duration-200 hover:opacity-90"
+                className="px-8 py-3 rounded-lg font-medium transition-colors duration-200 hover:bg-[var(--button-primary-hover)] hover:opacity-100"
               >
                 Know More
               </button>
