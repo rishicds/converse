@@ -10,6 +10,7 @@ interface ServiceCardProps {
   description: string;
   buttonText?: string;
   isLogo?: boolean;
+  targetId?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 
@@ -17,10 +18,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   title, 
   description, 
   buttonText = 'Know more',
-  isLogo = false 
+  isLogo = false,
+  targetId
 }) => {
   // Ensure alt is always a string
   const altText = typeof title === 'string' ? title : '';
+  const handleClick = () => {
+    if (targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
   return (
     <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full">
       <div className="relative w-full aspect-square">
@@ -38,7 +48,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="text-gray-600 mb-6 font-open-sans leading-relaxed flex-grow">
           {description}
         </p>
-        <Button variant="primary" className="w-auto mx-auto self-start">
+        <Button variant="primary" className="w-auto mx-auto self-start" onClick={handleClick}>
           {buttonText}
         </Button>
       </div>

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 const ResearchSection = () => {
   const [activeTab, setActiveTab] = useState('I WANT');
 
@@ -120,6 +120,7 @@ const ResearchSection = () => {
                   className="h-8 w-auto"
                 />
               </div>
+              <Link href="/perception" className="inline-block w-full">
               <button
                 style={{
                   background: 'var(--button-primary)',
@@ -130,6 +131,7 @@ const ResearchSection = () => {
               >
                 Know More
               </button>
+              </Link>
             </div>
           </div>
         </div>

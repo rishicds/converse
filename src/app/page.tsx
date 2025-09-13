@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import HeroSection from '@/components/Home/Hero/HeroSection';
 import ServiceCard from '@/components/Home/Hero/ServiceCard';
@@ -19,13 +20,15 @@ const HomePage = () => {
         </>
       ),
       description: "Unlock category and brand customer insights augmented by our LLM based AI tool that decodes authentic conversations.",
-      isLogo: true
+      isLogo: true,
+      targetId: 'research'
     },
     {
       id: 2,
       image: "/home/hero/business.png",
       title: "Business and Marketing Consulting",
-      description: "With deep CPG / FMCG expertise, we provide strategic consulting in marketing and operations, acting as an embedded extension of our clients' teams wherever support is needed."
+      description: "With deep CPG / FMCG expertise, we provide strategic consulting in marketing and operations, acting as an embedded extension of our clients' teams wherever support is needed.",
+      targetId: 'consulting'
     }
   ];
 
@@ -45,6 +48,7 @@ const HomePage = () => {
                 title={service.title}
                 description={service.description}
                 isLogo={service.isLogo}
+                targetId={service.targetId}
               />
             ))}
           </div>
@@ -59,8 +63,12 @@ const HomePage = () => {
 
       {/* Analytics Dashboard Section */}
       <AnalyticsDashboard />
-      <ResearchSection />
-       <BusinessConsultingSection />
+      <div id="research">
+        <ResearchSection />
+      </div>
+      <div id="consulting">
+        <BusinessConsultingSection />
+      </div>
        
        {/* Contact Section */}
        <ContactSection />

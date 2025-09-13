@@ -1,12 +1,14 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ServiceData {
   category: string;
   items: string[];
   image: string;
   description: string;
+  href: string; // route to the detailed service page
 }
 
 const BusinessConsultingSection = () => {
@@ -14,67 +16,73 @@ const BusinessConsultingSection = () => {
 
   const services: ServiceData[] = [
     {
-      category: 'BUSINESS DEVELOPMENT ',
+      category: 'BUSINESS DEVELOPMENT',
       items: [
-        'Strategic Value Consumer', 
-        'Mapping Competitive Intelligence', 
-        'SWOT Analysis', 
+        'Strategic Value Consumer',
+        'Mapping Competitive Intelligence',
+        'SWOT Analysis',
         'Business Strategy and Implementation'
       ],
-      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80",
-      description: "Transform your business with strategic development solutions that drive sustainable growth and market leadership through comprehensive analysis and implementation."
+      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80',
+      description: 'Transform your business with strategic development solutions that drive sustainable growth and market leadership through comprehensive analysis and implementation.',
+      href: '/services/business-development'
     },
     {
-      category: 'BRAND STRATEGY ',
+      category: 'BRAND STRATEGY',
       items: [
-        'Brand Equity', 
-        'Campaign Strategy', 
-        'Marketing Mix Development', 
+        'Brand Equity',
+        'Campaign Strategy',
+        'Marketing Mix Development',
         'Innovation Strategy',
         'Concept to Execution'
       ],
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80",
-      description: "Build powerful brand strategies that resonate with your target audience and differentiate you from competitors through innovative campaigns and execution."
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80',
+      description: 'Build powerful brand strategies that resonate with your target audience and differentiate you from competitors through innovative campaigns and execution.',
+      href: '/services/brand-strategy'
     },
     {
-      category: 'FINANCIAL PLANNING ',
+      category: 'FINANCIAL PLANNING',
       items: [
-        'Financial Modelling', 
-        'Planning and Tracking', 
+        'Financial Modelling',
+        'Planning and Tracking',
         'P&L Management'
       ],
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80",
-      description: "Strategic financial planning to maximize profitability and ensure long-term business sustainability through comprehensive modeling and P&L management."
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80',
+      description: 'Strategic financial planning to maximize profitability and ensure long-term business sustainability through comprehensive modeling and P&L management.',
+      href: '/services/financial-planning'
     },
     {
-      category: 'DRIVING GROWTH ',
+      category: 'DRIVING GROWTH',
       items: [
-        'Strategic Growth Model', 
-        'Implementing Best Practices', 
+        'Strategic Growth Model',
+        'Implementing Best Practices',
         'Leadership & CXO Advisory'
       ],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80",
-      description: "Accelerate your business growth with data-driven strategies, proven methodologies, and executive-level advisory services."
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80',
+      description: 'Accelerate your business growth with data-driven strategies, proven methodologies, and executive-level advisory services.',
+      href: '/services/driving-growth'
     },
     {
-      category: 'ROUTE TO MARKET ',
+      category: 'ROUTE TO MARKET',
       items: [
-        'RTM Strategy', 
-        'Distributor Vetting and Management', 
+        'RTM Strategy',
+        'Distributor Vetting and Management',
         'Food Service'
       ],
-      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&q=80",
-      description: "Optimize your path to market with strategic distribution and channel management solutions tailored for your industry."
+      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&q=80',
+      description: 'Optimize your path to market with strategic distribution and channel management solutions tailored for your industry.',
+      href: '/services/route-to-market'
     },
     {
-      category: 'SUPPLY CHAIN & LOGISTICS ',
+      category: 'SUPPLY CHAIN & LOGISTICS',
       items: [
-        'Integrated Business Planning (IBP)', 
-        'Procurement', 
+        'Integrated Business Planning (IBP)',
+        'Procurement',
         'Logistics'
       ],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80",
-      description: "Streamline operations with efficient supply chain and logistics management strategies through integrated business planning."
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80',
+      description: 'Streamline operations with efficient supply chain and logistics management strategies through integrated business planning.',
+      href: '/services/supply-chain-logistics'
     }
   ];
 
@@ -143,18 +151,18 @@ const BusinessConsultingSection = () => {
                 ))}
               </ul>
               
-              <button
-                className="mt-6 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+              <Link
+                href={services[activeService].href}
+                className="inline-block mt-6 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
                 style={{
                   backgroundColor: 'var(--button-primary)',
-                  border: 'none',
-                  cursor: 'pointer',
+                  border: 'none'
                 }}
-                onMouseOver={e => (e.currentTarget.style.backgroundColor = 'var(--button-primary-hover)')}
-                onMouseOut={e => (e.currentTarget.style.backgroundColor = 'var(--button-primary)')}
+                onMouseOver={e => (e.currentTarget instanceof HTMLElement && (e.currentTarget.style.backgroundColor = 'var(--button-primary-hover)'))}
+                onMouseOut={e => (e.currentTarget instanceof HTMLElement && (e.currentTarget.style.backgroundColor = 'var(--button-primary)'))}
               >
                 Know More
-              </button>
+              </Link>
             </div>
 
             {/* Service Categories */}
