@@ -83,7 +83,7 @@ const BusinessConsultingSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold" style={{ color: 'var(--primary)' }}>
             WE BUILD AND NURTURE OUR CLIENTS BRANDS AS IF THEY ARE OUR OWN
           </h2>
         </div>
@@ -96,11 +96,11 @@ const BusinessConsultingSection = () => {
               onClick={() => setActiveService(index)}
               className={`p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105 ${
                 activeService === index
-                  ? 'bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg'
-                  : 'bg-white text-gray-900 border-gray-300 hover:border-[var(--primary)]'
+                  ? 'bg-blue-900 text-white border-blue-900 shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-300 hover:border-blue-900'
               }`}
             >
-              <h3 className="font-bold text-sm md:text-base text-center">
+              <h3 className="font-bold text-center text-lg md:text-xl lg:text-xl">
                 {service.category}
               </h3>
             </button>
@@ -129,16 +129,16 @@ const BusinessConsultingSection = () => {
 
           {/* Right Side - Dynamic Service Details */}
           <div className="space-y-6">
-            <div className="bg-[var(--primary)] text-white p-6 rounded-lg transition-all duration-500">
-              <h3 className="font-bold text-lg mb-2">{services[activeService].category}</h3>
-              <p className="text-blue-100 mb-4 text-sm">
+            <div className="bg-blue-900 text-white p-8 rounded-lg transition-all duration-500">
+              <h3 className="font-bold text-2xl mb-4">{services[activeService].category}</h3>
+              <p className="text-blue-100 mb-6 text-lg">
                 {services[activeService].description}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {services[activeService].items.map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span className="text-sm">{item}</span>
+                    <span className="text-yellow-400 mr-3 text-lg">•</span>
+                    <span className="text-lg">{item}</span>
                   </li>
                 ))}
               </ul>

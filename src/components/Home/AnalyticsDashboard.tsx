@@ -80,59 +80,56 @@ const AnalyticsDashboard = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-8 shadow-2xl border border-blue-600/30">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4 lg:gap-8">
+    <section className="py-8 sm:py-12 lg:py-16 flex justify-center items-center bg-transparent">
+      <div className="bg-[#0c1e43] rounded-3xl shadow-2xl px-4 sm:px-6 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-4 lg:gap-6 max-w-7xl w-full" style={{borderRadius: '2rem'}}>
             
-            {/* Left side - Two columns of client faces with infinite scroll (hidden on mobile) */}
-            <div className="hidden lg:flex relative h-96 overflow-hidden w-48 flex-row items-center gap-2">
-              {/* First column */}
-              <div className="absolute left-0 top-0 h-full w-1/2 flex flex-col items-center animate-scroll-up">
-                {[...clientFaces, ...clientFaces].map((client, index) => (
-                  <div
-                    key={`left1-${client.id}-${index}`}
-                    className="w-24 h-28 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center shadow-lg mb-4 flex-shrink-0"
-                  >
-                    <Image
-                      src={client.avatar}
-                      alt={client.name}
-                      width={88}
-                      height={104}
-                      className="w-22 h-26 rounded-2xl object-cover shadow"
-                    />
-                  </div>
-                ))}
+        {/* Left side - Two columns of client faces (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
+        <div className="hidden md:flex h-96 overflow-hidden md:w-40 lg:w-64 md:gap-1 lg:gap-2">
+          {/* First column - always visible on md+ */}
+          <div className="flex-1 flex flex-col items-center">
+            {clientFaces.slice(0, 6).map((client, index) => (
+              <div
+                key={`left1-${client.id}-${index}`}
+                className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
+              >
+                <Image
+                  src={client.avatar}
+                  alt={client.name}
+                  width={80}
+                  height={96}
+                  className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg object-cover"
+                />
               </div>
-              {/* Second column, offset for staggered effect */}
-              <div className="absolute right-0 top-8 h-full w-1/2 flex flex-col items-center animate-scroll-up">
-                {[...clientFaces, ...clientFaces].map((client, index) => (
-                  <div
-                    key={`left2-${client.id}-${index}`}
-                    className="w-24 h-28 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center shadow-lg mb-4 flex-shrink-0"
-                  >
-                    <Image
-                      src={client.avatar}
-                      alt={client.name}
-                      width={88}
-                      height={104}
-                      className="w-22 h-26 rounded-2xl object-cover shadow"
-                    />
-                  </div>
-                ))}
+            ))}
+          </div>
+          
+          {/* Second column - only visible on lg+ */}
+          <div className="hidden lg:flex flex-1 flex-col items-center">
+            {clientFaces.slice(6, 12).map((client, index) => (
+              <div
+                key={`left2-${client.id}-${index}`}
+                className="w-20 h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
+              >
+                <Image
+                  src={client.avatar}
+                  alt={client.name}
+                  width={80}
+                  height={96}
+                  className="w-20 h-24 rounded-lg object-cover"
+                />
               </div>
-            </div>
-
-            {/* Center - Main content */}
-            <div className="flex-1 text-center px-2 sm:px-4 lg:px-8 w-full max-w-md lg:max-w-none mx-auto">
+            ))}
+          </div>
+        </div>            {/* Center - Main content */}
+            <div className="flex-1 text-center px-2 sm:px-4 md:px-6 lg:px-8 w-full max-w-md md:max-w-lg lg:max-w-none mx-auto">
               {/* Perception Logo */}
               <div className="mb-3 sm:mb-4 lg:mb-6 flex justify-center">
                 <Image
                   src="/perception.png"
                   alt="Perception Logo"
-                  width={220}
-                  height={40}
-                  style={{ height: '40px', width: 'auto' }}
+                  width={200}
+                  height={200}
+                  style={{ height: '120px', width: 'auto' }}
                   priority
                 />
               </div>
@@ -152,21 +149,21 @@ const AnalyticsDashboard = () => {
                 
               </div>
 
-              {/* Mobile client faces - horizontal scroll */}
-              <div className="lg:hidden w-full mb-4">
-                <div className="flex items-center justify-center gap-2 overflow-hidden">
-                  <div className="flex animate-scroll">
-                    {[...clientFaces, ...clientFaces].map((client, index) => (
+              {/* Mobile client faces - horizontal layout */}
+              <div className="md:hidden w-full mb-4">
+                <div className="flex items-center justify-center gap-1 overflow-hidden">
+                  <div className="flex">
+                    {clientFaces.slice(0, 8).map((client, index) => (
                       <div
                         key={`mobile-${client.id}-${index}`}
-                        className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg flex items-center justify-center shadow-lg mx-1"
+                        className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mx-0.5 overflow-hidden"
                       >
                         <Image
                           src={client.avatar}
                           alt={client.name}
-                          width={40}
-                          height={40}
-                          className="w-10 h-10 rounded-lg object-cover shadow"
+                          width={56}
+                          height={56}
+                          className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover"
                         />
                       </div>
                     ))}
@@ -175,51 +172,48 @@ const AnalyticsDashboard = () => {
               </div>
             </div>
 
-            {/* Right side - Two columns of client faces with infinite scroll (hidden on mobile) */}
-            <div className="hidden lg:flex relative h-96 overflow-hidden w-48 flex-row items-center gap-2">
-              {/* First column */}
-              <div className="absolute left-0 top-0 h-full w-1/2 flex flex-col items-center animate-scroll-down">
-                {[...clientFaces, ...clientFaces].map((client, index) => (
+            {/* Right side - Two columns of client faces (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
+            <div className="hidden md:flex h-96 overflow-hidden md:w-40 lg:w-64 md:gap-1 lg:gap-2">
+              {/* First column - always visible on md+ */}
+              <div className="flex-1 flex flex-col items-center">
+                {clientFaces.slice(0, 6).map((client, index) => (
                   <div
                     key={`right1-${client.id}-${index}`}
-                    className="w-24 h-28 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center shadow-lg mb-4 flex-shrink-0"
+                    className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
                   >
                     <Image
                       src={client.avatar}
                       alt={client.name}
-                      width={88}
-                      height={104}
-                      className="w-22 h-26 rounded-2xl object-cover shadow"
+                      width={80}
+                      height={96}
+                      className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg object-cover"
                     />
                   </div>
                 ))}
               </div>
-              {/* Second column, offset for staggered effect */}
-              <div className="absolute right-0 top-8 h-full w-1/2 flex flex-col items-center animate-scroll-down">
-                {[...clientFaces, ...clientFaces].map((client, index) => (
+             
+              {/* Second column - only visible on lg+ */}
+              <div className="hidden lg:flex flex-1 flex-col items-center">
+                {clientFaces.slice(6, 12).map((client, index) => (
                   <div
                     key={`right2-${client.id}-${index}`}
-                    className="w-24 h-28 bg-gradient-to-br from-gray-300 to-gray-400 rounded-2xl flex items-center justify-center shadow-lg mb-4 flex-shrink-0"
+                    className="w-20 h-24 pt-4 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
                   >
                     <Image
                       src={client.avatar}
                       alt={client.name}
-                      width={88}
-                      height={104}
-                      className="w-22 h-26 rounded-2xl object-cover shadow"
+                      width={80}
+                      height={96}
+                      className="w-20 h-24 rounded-lg object-cover"
                     />
                   </div>
                 ))}
               </div>
+              
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        
+      
     </section>
   );
 };

@@ -44,7 +44,7 @@ const ResearchSection = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
         {Object.keys(researchData).map((tab) => (
           <button
             key={tab}
@@ -52,8 +52,8 @@ const ResearchSection = () => {
             style={
               activeTab === tab
                 ? {
-                  background: 'var(--primary)',
-                  color: 'var(--background)',
+                  background: '#1e3a8a',
+                  color: 'white',
                   border: 'none'
                 }
                 : {
@@ -62,7 +62,7 @@ const ResearchSection = () => {
                   border: '1px solid #e5e7eb'
                 }
             }
-            className={`px-6 py-3 text-sm font-medium transition-colors duration-200 rounded`}
+            className={`px-8 py-4 text-base font-semibold transition-colors duration-200 rounded-lg min-w-[140px]`}
           >
             {tab}
           </button>
@@ -101,8 +101,8 @@ const ResearchSection = () => {
                 <ul className="space-y-3">
                   {researchData['I WANT'].points.map((point, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span className="text-gray-700 leading-relaxed">{point}</span>
+                      <span className="w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="text-black leading-relaxed">{point}</span>
                     </li>
                   ))}
                 </ul>

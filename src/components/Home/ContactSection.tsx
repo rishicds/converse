@@ -51,7 +51,7 @@ const ContactSection = () => {
   return (
     <>
       {/* Contact Section */}
-  <section className="py-16 relative overflow-hidden" style={{ background: 'var(--primary)' }}>
+  <section className="py-16 relative overflow-hidden" >
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-32 h-32 border border-[var(--foreground)] rounded-full"></div>
@@ -60,7 +60,7 @@ const ContactSection = () => {
         </div>
 
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="bg-[var(--background)]/80 rounded-lg p-8 backdrop-blur-sm border border-[var(--primary)]/30">
+          <div className="bg-[var(--background)]/80 rounded-lg p-8 backdrop-blur-sm ">
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--primary)' }}>
               Get in touch with us
             </h2>
@@ -79,8 +79,8 @@ const ContactSection = () => {
         <img
           src="/logo.png"
           alt="Converse Global Consulting Logo"
-          className="absolute left-8 bottom-8 w-48 h-auto z-20 hidden md:block"
-          style={{ maxWidth: '220px' }}
+          className="absolute left-8 bottom-8 w-62 h-auto z-20 hidden md:block"
+          style={{ maxWidth: '290px' }}
         />
       </section>
 

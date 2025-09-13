@@ -11,14 +11,19 @@ const HomePage = () => {
   const services = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80",
-      title: "Research and Analytics PERCEPTION",
+      image: "/home/hero/ai.png",
+      title: (
+        <>
+          Research and Analytics
+          <img src="/perception.png" alt="Perception Logo" className="inline-block h-6 w-24 ml-2 align-middle" style={{display:'inline'}} />
+        </>
+      ),
       description: "Unlock category and brand customer insights augmented by our LLM based AI tool that decodes authentic conversations.",
       isLogo: true
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&q=80",
+      image: "/home/hero/business.png",
       title: "Business and Marketing Consulting",
       description: "With deep CPG / FMCG expertise, we provide strategic consulting in marketing and operations, acting as an embedded extension of our clients' teams wherever support is needed."
     }
@@ -30,7 +35,7 @@ const HomePage = () => {
       <HeroSection />
       
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service) => (
@@ -45,6 +50,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <p className="max-w-5xl text-center mx-auto text-xl md:text-2xl text-[#5c768d] mb-8 font-raleway font-semibold">
+          We are a team of highly experienced marketers, strategic thinkers and research analysts creating value through insightful analytics
+        </p>
 
       {/* Client Logos Section */}
       <ClientLogos />
