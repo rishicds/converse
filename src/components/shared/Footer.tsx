@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { FaLinkedin, FaChevronRight, FaArrowUp } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -25,11 +26,14 @@ const Footer = () => {
         <div className="flex-1 min-w-[180px]">
           <h3 className="font-bold mb-2">Useful Links</h3>
           <ul className="space-y-1 text-sm">
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><a href="#" className="hover:underline">Home</a></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><a href="#" className="hover:underline">Services</a></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><a href="#" className="hover:underline">Clients</a></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><a href="#" className="hover:underline">About Converse</a></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><a href="#" className="hover:underline">Contact us</a></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/" className="hover:underline">Home</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception" className="hover:underline">Perception AI</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/brand-strategy" className="hover:underline">Brand Strategy</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/business-development" className="hover:underline">Business Development</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/driving-growth" className="hover:underline">Driving Growth</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/financial-planning" className="hover:underline">Financial Planning</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/route-to-market" className="hover:underline">Route to Market</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/supply-chain-logistics" className="hover:underline">Supply Chain & Logistics</Link></li>
           </ul>
         </div>
         {/* Our Services */}

@@ -91,12 +91,12 @@ const Navbar = () => {
                             <h3 className="font-semibold text-lg">Business/ Marketing</h3>
                           </div>
                           <ul className="space-y-2 text-sm">
-                            <li><a href="/services/business-development" className="hover:text-blue-200 transition-colors block py-1">Business Development</a></li>
-                            <li><a href="/services/brand-strategy" className="hover:text-blue-200 transition-colors block py-1">Brand Strategy</a></li>
-                            <li><a href="/services/financial-planning" className="hover:text-blue-200 transition-colors block py-1">Financial Planning</a></li>
-                            <li><a href="/services/driving-growth" className="hover:text-blue-200 transition-colors block py-1">Driving Growth</a></li>
-                            <li><a href="/services/supply-chain-logistics" className="hover:text-blue-200 transition-colors block py-1">Supply Chain & Logistics</a></li>
-                            <li><a href="/services/route-to-market" className="hover:text-blue-200 transition-colors block py-1">Route-to-market</a></li>
+                            <li><Link href="/services/business-development" className="hover:text-blue-200 transition-colors block py-1">Business Development</Link></li>
+                            <li><Link href="/services/brand-strategy" className="hover:text-blue-200 transition-colors block py-1">Brand Strategy</Link></li>
+                            <li><Link href="/services/financial-planning" className="hover:text-blue-200 transition-colors block py-1">Financial Planning</Link></li>
+                            <li><Link href="/services/driving-growth" className="hover:text-blue-200 transition-colors block py-1">Driving Growth</Link></li>
+                            <li><Link href="/services/supply-chain-logistics" className="hover:text-blue-200 transition-colors block py-1">Supply Chain & Logistics</Link></li>
+                            <li><Link href="/services/route-to-market" className="hover:text-blue-200 transition-colors block py-1">Route-to-market</Link></li>
                           </ul>
                         </div>
                       </div>
@@ -105,47 +105,20 @@ const Navbar = () => {
                 )}
               </div>
 
-              {/* PERCEPTION Dropdown */}
-              <div 
-                className="relative group"
-                onMouseEnter={handlePerceptionMouseEnter}
-                onMouseLeave={handlePerceptionMouseLeave}
+              {/* PERCEPTION Link (no dropdown) */}
+              <Link 
+                href="/perception" 
+                className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg flex items-center py-2"
               >
-                <Link 
-                  href="/perception" 
-                  className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg flex items-center py-2"
-                >
-                  PERCEPTION
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Link>
-                
-                {/* PERCEPTION Dropdown Menu */}
-                {isPerceptionOpen && (
-                  <div className="absolute top-full left-0 pt-1 w-80 z-50">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
-                      <div className="p-6 bg-blue-900 text-white rounded-lg">
-                        <div className="text-center mb-4">
-                          <Image src="/perception.png" alt="PERCEPTION Logo" width={60} height={60} className="mx-auto mb-2" />
-                          
-                        </div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="cursor-pointer hover:text-blue-200 transition-colors py-1">• Structured Data Analysis</li>
-                          <li className="cursor-pointer hover:text-blue-200 transition-colors py-1">• Unstructured Data Analysis</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+                PERCEPTION
+              </Link>
 
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              <Link href="/under-construction" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Company
-              </a>
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              </Link>
+              <Link href="/under-construction" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Contact us
-              </a>
+              </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -180,45 +153,27 @@ const Navbar = () => {
                   <div className="mt-2 ml-4 space-y-2">
                     <div className="text-sm font-semibold text-blue-900">Business/Marketing</div>
                     <div className="ml-4 space-y-1 text-sm text-gray-600">
-                      <div>Business Development</div>
-                      <div>Brand Strategy</div>
-                      <div>Financial Planning</div>
-                      <div>Driving Growth</div>
-                      <div>Supply Chain & Logistics</div>
-                      <div>Route-to-market</div>
+                      <Link href="/services/business-development" className="block hover:text-primary">Business Development</Link>
+                      <Link href="/services/brand-strategy" className="block hover:text-primary">Brand Strategy</Link>
+                      <Link href="/services/financial-planning" className="block hover:text-primary">Financial Planning</Link>
+                      <Link href="/services/driving-growth" className="block hover:text-primary">Driving Growth</Link>
+                      <Link href="/services/supply-chain-logistics" className="block hover:text-primary">Supply Chain & Logistics</Link>
+                      <Link href="/services/route-to-market" className="block hover:text-primary">Route-to-market</Link>
                     </div>
                   </div>
                 )}
               </div>
               
-              {/* Mobile PERCEPTION */}
-              <div>
-                <button 
-                  className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg w-full text-left flex items-center justify-between"
-                  onClick={() => setIsPerceptionOpen(!isPerceptionOpen)}
-                >
-                  PERCEPTION
-                  <svg className={`w-4 h-4 transition-transform ${isPerceptionOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isPerceptionOpen && (
-                  <div className="mt-2 ml-4 space-y-2 text-sm text-gray-600">
-                    <div>• Market Research</div>
-                    <div>• Data Analysis</div>
-                    <div>• Customer Journey Testing</div>
-                    <div>• Structured Data Analysis</div>
-                    <div>• Unstructured Data Analysis</div>
-                  </div>
-                )}
-              </div>
-              
-              <a href="#" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              {/* Mobile PERCEPTION Link (no dropdown) */}
+              <Link href="/perception" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+                PERCEPTION
+              </Link>
+              <Link href="/under-construction" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Company
-              </a>
-              <a href="#" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              </Link>
+              <Link href="/under-construction" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Contact us
-              </a>
+              </Link>
             </div>
           </div>
         )}
