@@ -13,40 +13,34 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'strategic-value-customer',
-    title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
+    id: 'brand-equity',
+    title: 'BRAND EQUITY',
+    description: "A strong brand is the most valuable asset for any business. Understand what's the value your brand carries, how consumers think, feel and act through the relationship they have with your brand. We'll help you influence and grow your brand worth over time.",
     image: '/services/brandstrat.png'
   },
   {
-    id: 'mapping-competitive-intelligence',
-    title: 'MAPPING COMPETITIVE INTELLIGENCE', 
-    description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
+    id: 'campaign-strategy',
+    title: 'CAMPAIGN STRATEGY', 
+    description: "Boost your campaign performance through the right mix of channel strategies (TV, radio, digital) and creative concepts. We'll guide you in crafting and executing marketing initiatives that effectively communicate your brand identity, resonate with your target audience and drive measurable outcomes. At the same time, we will ensure alignment between brand values and campaign execution, optimizing performance across platforms while adapting to evolving market dynamics.",
+    image: '/services/brandstrat.png'
   },
   {
-    id: 'business-development',
-    title: 'SWOT ANALYSIS',
-    description: "We'll help you develop comprehensive business strategies that drive sustainable growth and create competitive advantages in your market.",
-    image: '/services/drivegrowth.png'
+    id: 'marketing-mix-development',
+    title: 'MARKETING MIX DEVELOPMENT',
+    description: "Building a portfolio of products/ services in sync with Brand strategy by using our network of Legal, Regulatory, Procurement and Quality experts. Product, Packaging, Positioning, Pricing and Placement strategies that will make the mix distinctive in the market.",
+    image: '/services/brandstrat.png'
   },
   {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
-    image: '/services/finplan.png'
+    id: 'innovation-strategy',
+    title: 'INNOVATION STRATEGY',
+    description: "We'll guide you on how to create new ideas, that customers are willing to pay for, through innovation. We'll also develop a comprehensive strategy for harnessing marketing, operations, finance and R&D to ensure your innovation is a success.",
+    image: '/services/brandstrat.png'
   },
   {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
-    image: '/services/routetomarket.png'
-  },
-  {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
-    image: '/services/supplychain.png'
+    id: 'concept-to-execution',
+    title: 'CONCEPT TO EXECUTION',
+    description: "We'll work with you closely to put a robust plan of Activation. Getting the \"last mile\" right, with the right in-store and Online elements is key to making a good Concept successful. With you, at every step..",
+    image: '/services/brandstrat.png'
   }
 ]
 
@@ -65,7 +59,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
-      
+        
 
         {/* Services Section */}
         <div className="max-w-7xl mx-auto">
@@ -137,7 +131,7 @@ const ServicesPage = () => {
               <div className="relative h-96 w-full">
                 <Image
                   src="/services/brandstrat.png"
-                  alt="Business Development"
+                  alt="Brand Strategy"
                   fill
                   className="object-cover rounded-lg"
                 />

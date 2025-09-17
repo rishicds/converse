@@ -13,40 +13,22 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'strategic-value-customer',
-    title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
-    image: '/services/brandstrat.png'
-  },
-  {
-    id: 'mapping-competitive-intelligence',
-    title: 'MAPPING COMPETITIVE INTELLIGENCE', 
-    description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
-  },
-  {
-    id: 'business-development',
-    title: 'SWOT ANALYSIS',
-    description: "We'll help you develop comprehensive business strategies that drive sustainable growth and create competitive advantages in your market.",
-    image: '/services/drivegrowth.png'
-  },
-  {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
-    image: '/services/finplan.png'
-  },
-  {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
+    id: 'rtm-strategy',
+    title: 'RTM STRATEGY',
+    description: "Making products/ services available at the right place, at the right time is the key to success. We'll help you to understand your Shoppers and their buying habits and then develop a strategy that determines which distribution channels is best suited to deliver your products / services to your target customers.",
     image: '/services/routetomarket.png'
   },
   {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
-    image: '/services/supplychain.png'
+    id: 'distributor-vetting-management',
+    title: 'DISTRIBUTOR VETTING AND MANAGEMENT', 
+    description: "We'll vet and recommend a range of distributors most suitable for your product (based on the brand criteria) in our region. We'll manage this customer, be your eyes and ears in the market, ensuring your product is available, visible and supported.",
+    image: '/services/routetomarket.png'
+  },
+  {
+    id: 'food-service',
+    title: 'FOOD SERVICE',
+    description: "Working alongside the brands and distributors we forecast, create opportunities and manage different facets of the HORECA categories.",
+    image: '/services/routetomarket.png'
   }
 ]
 
@@ -65,13 +47,13 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
-      
+        
 
         {/* Services Section */}
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">
             SERVICES WE PROVIDE TO OUR CLIENTS IN THE AREAS OF<br />
-            ROUTE TO MARKET
+            ROUTE-TO-MARKET
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -136,8 +118,8 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/brandstrat.png"
-                  alt="Business Development"
+                  src="/services/routetomarket.png"
+                  alt="Route to Market"
                   fill
                   className="object-cover rounded-lg"
                 />

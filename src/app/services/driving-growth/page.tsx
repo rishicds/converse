@@ -13,40 +13,22 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'strategic-value-customer',
-    title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
-    image: '/services/brandstrat.png'
-  },
-  {
-    id: 'mapping-competitive-intelligence',
-    title: 'MAPPING COMPETITIVE INTELLIGENCE', 
-    description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
-  },
-  {
-    id: 'business-development',
-    title: 'SWOT ANALYSIS',
-    description: "We'll help you develop comprehensive business strategies that drive sustainable growth and create competitive advantages in your market.",
+    id: 'strategic-growth-model',
+    title: 'STRATEGIC GROWTH MODEL',
+    description: "We'll guide you on taking a fresh look at the business. Setting a Vision, long term goals. By using strategic frameworks, we will put together a Growth model that works for the customers and community it serves in a sustainable manner.",
     image: '/services/drivegrowth.png'
   },
   {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
-    image: '/services/finplan.png'
+    id: 'implementing-best-practices',
+    title: 'IMPLEMENTING BEST PRACTICES', 
+    description: "We'll expose the Leadership team to best-in-class management practices and processes that build a strong foundation for growth. Tools like IBP (Integrated business planning), ZBB (Zero based budgeting), I2M (Ideas to market) are some of the examples.",
+    image: '/services/drivegrowth.png'
   },
   {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
-    image: '/services/routetomarket.png'
-  },
-  {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
-    image: '/services/supplychain.png'
+    id: 'leadership-cxo-advisory',
+    title: 'LEADERSHIP & CXO ADVISORY',
+    description: "Provide hands on Leadership to the team by joining the Board as \"shadow\" CEO, CMO for 1–2-year assignments and train the next rung of leaders in Strategic thinking, Business acumen, People management and Financial discipline.",
+    image: '/services/drivegrowth.png'
   }
 ]
 
@@ -65,7 +47,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
-      
+        
 
         {/* Services Section */}
         <div className="max-w-7xl mx-auto">
@@ -136,8 +118,8 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/brandstrat.png"
-                  alt="Business Development"
+                  src="/services/drivegrowth.png"
+                  alt="Driving Growth"
                   fill
                   className="object-cover rounded-lg"
                 />

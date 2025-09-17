@@ -15,8 +15,8 @@ const services: ServiceItem[] = [
   {
     id: 'strategic-value-customer',
     title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
-    image: '/services/brandstrat.png'
+    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/ service to have the best chance of success.",
+    image: '/services/businessdev.png'
   },
   {
     id: 'mapping-competitive-intelligence',
@@ -28,25 +28,13 @@ const services: ServiceItem[] = [
     id: 'swot-analysis',
     title: 'SWOT ANALYSIS',
     description: "Deep dive into your proposition versus competition to understand how your Brand stacks up vis-à-vis others. This will help to understand the assets that are ownable and can be leveraged.",
-    image: '/services/drivegrowth.png'
+    image: '/services/businessdev.png'
   },
   {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
-    image: '/services/finplan.png'
-  },
-  {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
-    image: '/services/routetomarket.png'
-  },
-  {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
-    image: '/services/supplychain.png'
+    id: 'business-strategy-implementation',
+    title: 'BUSINESS STRATEGY & IMPLEMENTATION',
+    description: "We'll help you to put together a Go-to market strategy that best leverages strengths, whilst also tapping into \"low hanging fruits\" for a robust start. A time-based resource and action plan, that lays down clear KPIs and milestones for various functions to follow and deliver.",
+    image: '/services/businessdev.png'
   }
 ]
 

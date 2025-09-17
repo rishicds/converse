@@ -13,40 +13,22 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'strategic-value-customer',
-    title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
-    image: '/services/brandstrat.png'
-  },
-  {
-    id: 'mapping-competitive-intelligence',
-    title: 'MAPPING COMPETITIVE INTELLIGENCE', 
-    description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
-  },
-  {
-    id: 'business-development',
-    title: 'SWOT ANALYSIS',
-    description: "We'll help you develop comprehensive business strategies that drive sustainable growth and create competitive advantages in your market.",
-    image: '/services/drivegrowth.png'
-  },
-  {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
+    id: 'financial-modelling',
+    title: 'FINANCIAL MODELLING',
+    description: "Financial modeling and analysis play a crucial role in decision-making for businesses and investors. It provides a structured framework to forecast financial performance, assess investment opportunities and evaluate risk. Our experts in financial modelling will aid your business in making informed choices, optimizing resource allocation, and maximizing profitability, contributing significantly to informed financial planning and strategic decision-making.",
     image: '/services/finplan.png'
   },
   {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
-    image: '/services/routetomarket.png'
+    id: 'planning-tracking',
+    title: 'PLANNING AND TRACKING', 
+    description: "Bringing best-in-class processes like Zero based budgeting (ZBB) to yearly, Strategic planning (3–5-year plans) processes Setting KPIs for the business in terms of Revenue, Gross margins, Productivity, Cash flows to ensure a financially sustainable model in sync with business strategy. Presenting to Leadership team/ Board and setting in place systems, processes for implementation.",
+    image: '/services/finplan.png'
   },
   {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
-    image: '/services/supplychain.png'
+    id: 'pl-management',
+    title: 'P&L MANAGEMENT',
+    description: "Regular management and reporting of P&L as per global standards (e.g. US GAAP). Highlighting stress points, opportunities in product mix, and other analytical inputs for improving performance.",
+    image: '/services/finplan.png'
   }
 ]
 
@@ -65,7 +47,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
-      
+        
 
         {/* Services Section */}
         <div className="max-w-7xl mx-auto">
@@ -136,8 +118,8 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/brandstrat.png"
-                  alt="Business Development"
+                  src="/services/finplan.png"
+                  alt="Financial Planning"
                   fill
                   className="object-cover rounded-lg"
                 />

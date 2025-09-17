@@ -13,39 +13,21 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: 'strategic-value-customer',
-    title: 'STRATEGIC VALUE CUSTOMER',
-    description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/service to have the best chance of success.",
-    image: '/services/brandstrat.png'
+    id: 'integrated-business-planning',
+    title: 'INTEGRATED BUSINESS PLANNING (IBP)',
+    description: "IBP focuses on ensuring continuous alignment among demand, inventory, supply (manufacturing and dispatch) and maintenance plans on the one hand, and between the tactical and strategic business plans on the other, to maximize operational performance and meet financial objectives",
+    image: '/services/supplychain.png'
   },
   {
-    id: 'mapping-competitive-intelligence',
-    title: 'MAPPING COMPETITIVE INTELLIGENCE', 
-    description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
+    id: 'procurement',
+    title: 'PROCUREMENT', 
+    description: "We network with global experts/ consultants to ensure right products/ services are sourced (as per Marketing briefs) from Suppliers competitively.",
+    image: '/services/supplychain.png'
   },
   {
-    id: 'business-development',
-    title: 'SWOT ANALYSIS',
-    description: "We'll help you develop comprehensive business strategies that drive sustainable growth and create competitive advantages in your market.",
-    image: '/services/drivegrowth.png'
-  },
-  {
-    id: 'financial-planning',
-    title: 'FINANCIAL PLANNING',
-    description: "We'll help you create robust financial plans and strategies that ensure long-term business sustainability and growth.",
-    image: '/services/finplan.png'
-  },
-  {
-    id: 'route-to-market',
-    title: 'ROUTE TO MARKET',
-    description: "We'll help you identify and implement the most effective channels and strategies to bring your products and services to market.",
-    image: '/services/routetomarket.png'
-  },
-  {
-    id: 'supply-chain',
-    title: 'SUPPLY CHAIN OPTIMIZATION',
-    description: "We'll help you optimize your supply chain operations to improve efficiency, reduce costs, and enhance customer satisfaction.",
+    id: 'logistics',
+    title: 'LOGISTICS',
+    description: "We'll use our vast knowledge and connections to work with the most reliable, agile and cost-effective shipping companies to help your product reach its destination, ensure smooth clearance and availability for distribution.",
     image: '/services/supplychain.png'
   }
 ]
@@ -65,13 +47,13 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="container mx-auto px-4 py-16">
-      
+        
 
         {/* Services Section */}
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">
             SERVICES WE PROVIDE TO OUR CLIENTS IN THE AREAS OF<br />
-            SUPPLY CHAIN LOGISTICS
+            SUPPLY CHAIN AND LOGISTICS
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -136,8 +118,8 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/brandstrat.png"
-                  alt="Business Development"
+                  src="/services/supplychain.png"
+                  alt="Supply Chain and Logistics"
                   fill
                   className="object-cover rounded-lg"
                 />
