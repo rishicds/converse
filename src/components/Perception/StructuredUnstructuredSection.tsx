@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import React from 'react';
 
@@ -58,10 +59,16 @@ const StructuredUnstructuredSection: React.FC = () => {
             PERCEPTION AI technology augments established market research methodologies at every stage of the research process.
           </p>
           <div className="mt-8">
-            <Link href="/perception/structured" className="inline-block">
-            <button className="bg-[#0f4d63] hover:bg-[#0c3d4e] text-white px-6 py-3 rounded font-semibold transition text-sm" type="button">
-              Know more
-            </button>
+            <Link href="/perception#unstructured-perception" className="inline-block">
+              <button
+                className="text-white px-6 py-3 rounded font-semibold transition text-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                type="button"
+                style={{ background: 'var(--button-primary)' }}
+                onMouseOver={e => (e.currentTarget.style.background = 'var(--button-primary-hover)')}
+                onMouseOut={e => (e.currentTarget.style.background = 'var(--button-primary)')}
+              >
+                Know more
+              </button>
             </Link>
           
           </div>
@@ -96,9 +103,17 @@ const StructuredUnstructuredSection: React.FC = () => {
             </table>
           </div>
           <div className="mt-8">
-            <button className="bg-[#0f4d63] hover:bg-[#0c3d4e] text-white px-6 py-3 rounded font-semibold transition text-sm" type="button">
-              Know more
-            </button>
+            <Link href="/perception#unstructured-perception" className="inline-block">
+              <button
+                className="text-white px-6 py-3 rounded font-semibold transition text-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                type="button"
+                style={{ background: 'var(--button-primary)' }}
+                onMouseOver={e => (e.currentTarget.style.background = 'var(--button-primary-hover)')}
+                onMouseOut={e => (e.currentTarget.style.background = 'var(--button-primary)')}
+              >
+                Know more
+              </button>
+            </Link>
            
           </div>
         </div>
