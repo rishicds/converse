@@ -38,9 +38,19 @@ const ResearchSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-    <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--primary)' }}>
-            HUMAN BEHAVIOUR-LED RESEARCH, AUGMENTED BY PERCEPTION
-          </h2>
+    <h2 className="text-3xl md:text-4xl font-bold mb-6 flex flex-wrap items-center justify-center gap-2" style={{ color: 'var(--primary)' }}>
+      HUMAN BEHAVIOUR-LED RESEARCH, AUGMENTED BY
+      <span className="inline-block align-middle">
+        <Image
+          src="/perception.png"
+          alt="Perception logo"
+          width={128}
+          height={38}
+          className="inline h-12 w-auto align-middle"
+          style={{ display: 'inline', verticalAlign: 'middle' }}
+        />
+      </span>
+    </h2>
         </div>
 
         {/* Tab Navigation */}

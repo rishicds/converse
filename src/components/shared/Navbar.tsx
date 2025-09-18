@@ -113,10 +113,10 @@ const Navbar = () => {
                 PERCEPTION
               </Link>
 
-              <Link href="/under-construction" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              <Link href="/company" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Company
               </Link>
-              <Link href="/under-construction" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              <Link href="/#contact" className="text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Contact us
               </Link>
           </div>
@@ -168,10 +168,10 @@ const Navbar = () => {
               <Link href="/perception" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 PERCEPTION
               </Link>
-              <Link href="/under-construction" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              <Link href="/company" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Company
               </Link>
-              <Link href="/under-construction" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
+              <Link href="/#contact" className="block text-gray-700 hover:text-primary transition-colors font-open-sans text-lg">
                 Contact us
               </Link>
             </div>

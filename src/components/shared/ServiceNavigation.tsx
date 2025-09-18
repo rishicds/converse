@@ -12,15 +12,16 @@ interface ServiceTab {
 
 const serviceTabs: ServiceTab[] = [
   {
-    id: 'brand-strategy',
-    name: 'Brand Strategy',
-    href: '/services/brand-strategy'
-  },
-  {
     id: 'business-development',
     name: 'Business Development',
     href: '/services/business-development'
   },
+  {
+    id: 'brand-strategy',
+    name: 'Brand Strategy',
+    href: '/services/brand-strategy'
+  },
+  
   {
     id: 'driving-growth',
     name: 'Driving Growth',

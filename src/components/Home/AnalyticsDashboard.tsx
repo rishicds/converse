@@ -63,37 +63,41 @@ const AnimatedCounter = ({ targetNumber }: AnimatedCounterProps) => {
 };
 
 const AnalyticsDashboard = () => {
-  // Sample client faces/avatars data (repeat for infinite effect)
-  const clientFaces = [
-    { id: 1, name: 'Client 1', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-    { id: 2, name: 'Client 2', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
-    { id: 3, name: 'Client 3', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-    { id: 4, name: 'Client 4', avatar: 'https://randomuser.me/api/portraits/women/4.jpg' },
-    { id: 5, name: 'Client 5', avatar: 'https://randomuser.me/api/portraits/men/5.jpg' },
-    { id: 6, name: 'Client 6', avatar: 'https://randomuser.me/api/portraits/women/6.jpg' },
-    { id: 7, name: 'Client 7', avatar: 'https://randomuser.me/api/portraits/men/7.jpg' },
-    { id: 8, name: 'Client 8', avatar: 'https://randomuser.me/api/portraits/women/8.jpg' },
-    { id: 9, name: 'Client 9', avatar: 'https://randomuser.me/api/portraits/men/9.jpg' },
-    { id: 10, name: 'Client 10', avatar: 'https://randomuser.me/api/portraits/women/10.jpg' },
-    { id: 11, name: 'Client 11', avatar: 'https://randomuser.me/api/portraits/men/11.jpg' },
-    { id: 12, name: 'Client 12', avatar: 'https://randomuser.me/api/portraits/women/12.jpg' },
+  // Client images data
+  const clientImages = [
+    { id: 1, name: 'AAK Refinery', image: '/clientpics/aak_refinery.jpg' },
+    { id: 2, name: 'Abudawood Warehouse', image: '/clientpics/abudawood_warehouse.jpg' },
+    { id: 3, name: 'Alhilal Team', image: '/clientpics/alhilal_team.jpg' },
+    { id: 4, name: 'Allergan Headquarters', image: '/clientpics/allergan_headquarters.jpg' },
+    { id: 5, name: 'Amazon Building', image: '/clientpics/amazon_building.jpg' },
+    { id: 6, name: 'Amazon Workers', image: '/clientpics/amazon_workers2.jpg' },
+    { id: 7, name: 'Britannia Product', image: '/clientpics/britannia_product.jpg' },
+    { id: 8, name: 'Emirates Dairy Farm', image: '/clientpics/emirates_dairy_farm2.jpg' },
+    { id: 9, name: 'Foodco Supermarket', image: '/clientpics/foodco_supermarket3.jpg' },
+    { id: 10, name: 'Imagine Vegan Burger', image: '/clientpics/imagine_vegan_burger.jpg' },
+    { id: 11, name: 'Kelloggs Factory', image: '/clientpics/kelloggs_factory_women.jpg' },
+    { id: 12, name: 'Laurel Perfume Bottles', image: '/clientpics/laurel_perfume_bottles2.jpg' },
+    { id: 13, name: 'Maaza Bottles', image: '/clientpics/maaza_bottles.jpg' },
+    { id: 14, name: 'Mondelez Cadbury', image: '/clientpics/mondelez_cadbury.jpg' },
+    { id: 15, name: 'Perfume Ad', image: '/clientpics/perfume_ad2.jpg' },
+    { id: 16, name: 'SABB Bank Building', image: '/clientpics/sabb_bank_building.jpg' },
   ];
 
   return (
     <section className="py-8 sm:py-12 lg:py-16 flex justify-center items-center bg-transparent">
       <div className="bg-[#0c1e43] rounded-3xl shadow-2xl px-4 sm:px-6 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-4 lg:gap-6 max-w-7xl w-full" style={{borderRadius: '2rem'}}>
             
-        {/* Left side - Two columns of client faces (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
+        {/* Left side - Two columns of client images (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
         <div className="hidden md:flex h-96 overflow-hidden md:w-40 lg:w-64 md:gap-1 lg:gap-2">
           {/* First column - always visible on md+ */}
           <div className="flex-1 flex flex-col items-center">
-            {clientFaces.slice(0, 6).map((client, index) => (
+            {clientImages.slice(0, 4).map((client, index) => (
               <div
                 key={`left1-${client.id}-${index}`}
                 className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
               >
                 <Image
-                  src={client.avatar}
+                  src={client.image}
                   alt={client.name}
                   width={80}
                   height={96}
@@ -105,13 +109,13 @@ const AnalyticsDashboard = () => {
           
           {/* Second column - only visible on lg+ */}
           <div className="hidden lg:flex flex-1 flex-col items-center">
-            {clientFaces.slice(6, 12).map((client, index) => (
+            {clientImages.slice(4, 8).map((client, index) => (
               <div
                 key={`left2-${client.id}-${index}`}
                 className="w-20 h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
               >
                 <Image
-                  src={client.avatar}
+                  src={client.image}
                   alt={client.name}
                   width={80}
                   height={96}
@@ -149,17 +153,17 @@ const AnalyticsDashboard = () => {
                 
               </div>
 
-              {/* Mobile client faces - horizontal layout */}
+              {/* Mobile client images - horizontal layout */}
               <div className="md:hidden w-full mb-4">
                 <div className="flex items-center justify-center gap-1 overflow-hidden">
                   <div className="flex">
-                    {clientFaces.slice(0, 8).map((client, index) => (
+                    {clientImages.slice(0, 16).map((client, index) => (
                       <div
                         key={`mobile-${client.id}-${index}`}
                         className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mx-0.5 overflow-hidden"
                       >
                         <Image
-                          src={client.avatar}
+                          src={client.image}
                           alt={client.name}
                           width={56}
                           height={56}
@@ -172,17 +176,17 @@ const AnalyticsDashboard = () => {
               </div>
             </div>
 
-            {/* Right side - Two columns of client faces (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
+            {/* Right side - Two columns of client images (hidden on mobile/small tablets, show single column on md, two columns on lg+) */}
             <div className="hidden md:flex h-96 overflow-hidden md:w-40 lg:w-64 md:gap-1 lg:gap-2">
               {/* First column - always visible on md+ */}
               <div className="flex-1 flex flex-col items-center">
-                {clientFaces.slice(0, 6).map((client, index) => (
+                {clientImages.slice(8, 12).map((client, index) => (
                   <div
                     key={`right1-${client.id}-${index}`}
                     className="md:w-16 md:h-18 lg:w-20 lg:h-24 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
                   >
                     <Image
-                      src={client.avatar}
+                      src={client.image}
                       alt={client.name}
                       width={80}
                       height={96}
@@ -194,13 +198,13 @@ const AnalyticsDashboard = () => {
              
               {/* Second column - only visible on lg+ */}
               <div className="hidden lg:flex flex-1 flex-col items-center">
-                {clientFaces.slice(6, 12).map((client, index) => (
+                {clientImages.slice(12, 16).map((client, index) => (
                   <div
                     key={`right2-${client.id}-${index}`}
                     className="w-20 h-24 pt-4 rounded-lg flex items-center justify-center mb-1 flex-shrink-0 overflow-hidden"
                   >
                     <Image
-                      src={client.avatar}
+                      src={client.image}
                       alt={client.name}
                       width={80}
                       height={96}
@@ -213,7 +217,7 @@ const AnalyticsDashboard = () => {
             </div>
           </div>
         
-      
+        
     </section>
   );
 };

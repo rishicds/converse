@@ -71,7 +71,9 @@ const HomePage = () => {
       </div>
        
        {/* Contact Section */}
-       <ContactSection />
+       <div id="contact">
+         <ContactSection />
+       </div>
     </div>
   );
 };

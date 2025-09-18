@@ -29,15 +29,16 @@ const Footer = () => {
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/" className="hover:underline">Home</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception" className="hover:underline">Perception AI</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/company" className="hover:underline">Company</Link></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/contact" className="hover:underline">Contact US</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/#contact" className="hover:underline">Contact US</Link></li>
           </ul>
         </div>
         {/* Our Services */}
         <div className="flex-1 min-w-[220px]">
           <h3 className="font-bold mb-2">Our Services</h3>
           <ul className="space-y-1 text-sm">
-           <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/brand-strategy" className="hover:underline">Brand Strategy</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/business-development" className="hover:underline">Business Development</Link></li>
+           <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/brand-strategy" className="hover:underline">Brand Strategy</Link></li>
+            
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/driving-growth" className="hover:underline">Driving Growth</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/financial-planning" className="hover:underline">Financial Planning</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/route-to-market" className="hover:underline">Route to Market</Link></li>
