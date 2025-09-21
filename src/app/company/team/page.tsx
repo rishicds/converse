@@ -5,6 +5,17 @@ import Link from 'next/link';
 
 const members = [
   {
+    name: 'Krishnashish Ray (Kray)',
+    title: 'Founder at Converse Global Consulting',
+    blurb: '(ex Mondelez International, Kraft Foods, Unilever).',
+    bullets: [
+      '35+ years of experience in leading businesses',
+      'Core areas: Strategic planning and Analytics',
+      'Started CGC in 2016, and AI analytics tool PERCEPTION in 2017/18.'
+    ],
+    image: '/company/team/kray.png'
+  },
+  {
     name: 'Adriana Rohalova',
     title: 'CMO at Converse Global Consulting',
     blurb: '(Visual artist, ex Mondelez International, Kraft Foods).',
@@ -57,7 +68,6 @@ const members = [
     ],
     image: '/company/team/harish.png'
   }
-  // Add Kray Ray and Dina Dali with updated details if available
 ];
 
 const TeamPage: React.FC = () => {
