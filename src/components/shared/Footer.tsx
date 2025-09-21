@@ -48,13 +48,43 @@ const Footer = () => {
         {/* Case Studies */}
         <div className="flex-1 min-w-[220px]">
           <h3 className="font-bold mb-2">Case Studies</h3>
-          <ul className="space-y-1 text-sm">
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><span>Category Study in Snacks</span></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><span>Fan Engagement in Football</span></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><span>Automobile in India</span></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><span>Banking in Saudi Arabia</span></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><span>AI in Financial Services</span></li>
-          </ul>
+          {/** Case Study Links */}
+          {(() => {
+            const caseStudies = [
+              {
+                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION+Snacking+GCC.pdf",
+                title: "Category Study in Snacks",
+              },
+              {
+                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Fan_Engagement_Football_SA.pdf",
+                title: "Fan Engagement in Football",
+              },
+              {
+                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Automobiles_India.pdf",
+                title: "Automobile in India",
+              },
+              {
+                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Banking_Saudi_Arabia.pdf",
+                title: "Banking in Saudi Arabia",
+              },
+              {
+                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/Fintech_smart_by_CGC.pdf",
+                title: "AI in Financial Services",
+              },
+            ];
+            return (
+              <ul className="space-y-1 text-sm">
+                {caseStudies.map((item) => (
+                  <li key={item.url} className="flex items-center gap-2">
+                    <FaChevronRight size={14} />
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            );
+          })()}
         </div>
       </div>
       <div
