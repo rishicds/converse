@@ -42,7 +42,7 @@ const members = [
     title: 'Technical Consultant',
     blurb: '(ex Telephone Networks Professional at Major Telecom Service Providers).',
     bullets: [
-      '25+ years in Telecom and Network Management',
+      '28+ years in Telecom and Network Management',
       'Core areas: Managing large technology operations across geographies. Innovation. Technology and organizational transformation'
     ],
     image: '/company/team/vivaswan.png'
