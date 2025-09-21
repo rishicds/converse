@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import WhoWeAre from './WhoWeAre';
+import MeetTheTeam from './MeetTheTeam';
 
 const founders = [
   {
@@ -101,6 +102,7 @@ export const CompanyPageWrapper: React.FC = () => {
       </section>
 
       <WhoWeAre />
+      <MeetTheTeam />
 
       {/* Contact CTA */}
       <section className="py-20 bg-blue-900 text-blue-50">

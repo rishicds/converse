@@ -78,6 +78,14 @@ const WhoWeAre: React.FC = () => {
           style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
         />
       </div>
+       <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 my-10">Area of expertise</h2>
+      <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+        <img
+          src="/company/areaofexpertise.png"
+          alt="Business meeting illustration"
+          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
+        />
+      </div>
     </>
   );
 };
