@@ -93,10 +93,11 @@ const Navbar = () => {
                           <ul className="space-y-2 text-sm">
                             <li><Link href="/services/business-development" className="hover:text-blue-200 transition-colors block py-1">Business Development</Link></li>
                             <li><Link href="/services/brand-strategy" className="hover:text-blue-200 transition-colors block py-1">Brand Strategy</Link></li>
-                            <li><Link href="/services/financial-planning" className="hover:text-blue-200 transition-colors block py-1">Financial Planning</Link></li>
                             <li><Link href="/services/driving-growth" className="hover:text-blue-200 transition-colors block py-1">Driving Growth</Link></li>
+                            <li><Link href="/services/financial-planning" className="hover:text-blue-200 transition-colors block py-1">Financial Planning</Link></li>
+<li><Link href="/services/route-to-market" className="hover:text-blue-200 transition-colors block py-1">Route-to-market</Link></li>
                             <li><Link href="/services/supply-chain-logistics" className="hover:text-blue-200 transition-colors block py-1">Supply Chain & Logistics</Link></li>
-                            <li><Link href="/services/route-to-market" className="hover:text-blue-200 transition-colors block py-1">Route-to-market</Link></li>
+                            
                           </ul>
                         </div>
                       </div>
@@ -155,10 +156,12 @@ const Navbar = () => {
                     <div className="ml-4 space-y-1 text-sm text-gray-600">
                       <Link href="/services/business-development" className="block hover:text-primary">Business Development</Link>
                       <Link href="/services/brand-strategy" className="block hover:text-primary">Brand Strategy</Link>
+<Link href="/services/driving-growth" className="block hover:text-primary">Driving Growth</Link>
                       <Link href="/services/financial-planning" className="block hover:text-primary">Financial Planning</Link>
-                      <Link href="/services/driving-growth" className="block hover:text-primary">Driving Growth</Link>
+<Link href="/services/route-to-market" className="block hover:text-primary">Route-to-market</Link>
+                      
                       <Link href="/services/supply-chain-logistics" className="block hover:text-primary">Supply Chain & Logistics</Link>
-                      <Link href="/services/route-to-market" className="block hover:text-primary">Route-to-market</Link>
+                      
                     </div>
                   </div>
                 )}
