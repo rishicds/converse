@@ -46,7 +46,7 @@ const ResearchSection = () => {
           alt="Perception logo"
           width={128}
           height={38}
-          className="inline h-12 w-auto align-middle"
+          className="inline h-16 w-auto align-middle"
           style={{ display: 'inline', verticalAlign: 'middle' }}
         />
       </span>

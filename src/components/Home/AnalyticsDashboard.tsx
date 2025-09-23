@@ -65,22 +65,22 @@ const AnimatedCounter = ({ targetNumber }: AnimatedCounterProps) => {
 const AnalyticsDashboard = () => {
   // Client images data
   const clientImages = [
-    { id: 1, name: 'AAK Refinery', image: '/clientpics/aak_refinery.jpg' },
-    { id: 2, name: 'Abudawood Warehouse', image: '/clientpics/abudawood_warehouse.jpg' },
-    { id: 3, name: 'Alhilal Team', image: '/clientpics/alhilal_team.jpg' },
-    { id: 4, name: 'Allergan Headquarters', image: '/clientpics/allergan_headquarters.jpg' },
-    { id: 5, name: 'Amazon Building', image: '/clientpics/amazon_building.jpg' },
-    { id: 6, name: 'Amazon Workers', image: '/clientpics/amazon_workers2.jpg' },
-    { id: 7, name: 'Britannia Product', image: '/clientpics/britannia_product.jpg' },
-    { id: 8, name: 'Emirates Dairy Farm', image: '/clientpics/emirates_dairy_farm2.jpg' },
-    { id: 9, name: 'Foodco Supermarket', image: '/clientpics/foodco_supermarket3.jpg' },
-    { id: 10, name: 'Imagine Vegan Burger', image: '/clientpics/imagine_vegan_burger.jpg' },
-    { id: 11, name: 'Kelloggs Factory', image: '/clientpics/kelloggs_factory_women.jpg' },
-    { id: 12, name: 'Laurel Perfume Bottles', image: '/clientpics/laurel_perfume_bottles2.jpg' },
-    { id: 13, name: 'Maaza Bottles', image: '/clientpics/maaza_bottles.jpg' },
-    { id: 14, name: 'Mondelez Cadbury', image: '/clientpics/mondelez_cadbury.jpg' },
-    { id: 15, name: 'Perfume Ad', image: '/clientpics/perfume_ad2.jpg' },
-    { id: 16, name: 'SABB Bank Building', image: '/clientpics/sabb_bank_building.jpg' },
+    { id: 1, name: 'Client 1', image: '/clientpics/c1.png' },
+    { id: 2, name: 'Client 2', image: '/clientpics/c2.png' },
+    { id: 3, name: 'Client 3', image: '/clientpics/c3.png' },
+    { id: 4, name: 'Client 4', image: '/clientpics/c4.png' },
+    { id: 5, name: 'Client 5', image: '/clientpics/c5.png' },
+    { id: 6, name: 'Client 6', image: '/clientpics/c6.png' },
+    { id: 7, name: 'Client 7', image: '/clientpics/c7.png' },
+    { id: 8, name: 'Client 8', image: '/clientpics/c8.png' },
+    { id: 9, name: 'Client 9', image: '/clientpics/c9.png' },
+    { id: 10, name: 'Client 10', image: '/clientpics/c10.png' },
+    { id: 11, name: 'Client 11', image: '/clientpics/c11.png' },
+    { id: 12, name: 'Client 12', image: '/clientpics/c12.png' },
+    { id: 13, name: 'Client 13', image: '/clientpics/c13.png' },
+    { id: 14, name: 'Client 14', image: '/clientpics/c14.png' },
+    { id: 15, name: 'Client 15', image: '/clientpics/c15.png' },
+    { id: 16, name: 'Client 16', image: '/clientpics/c16.png' },
   ];
 
   return (

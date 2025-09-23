@@ -47,7 +47,7 @@ const BusinessConsultingSection = () => {
         'Planning and Tracking',
         'P&L Management'
       ],
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80',
+      image: '/services/finplan.png',
       description: 'Strategic financial planning to maximize profitability and ensure long-term business sustainability through comprehensive modeling and P&L management.',
       href: '/services/financial-planning'
     },
@@ -58,7 +58,7 @@ const BusinessConsultingSection = () => {
         'Implementing Best Practices',
         'Leadership & CXO Advisory'
       ],
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80',
+      image: '/services/drivegrowth.png',
       description: 'Accelerate your business growth with data-driven strategies, proven methodologies, and executive-level advisory services.',
       href: '/services/driving-growth'
     },
@@ -80,7 +80,7 @@ const BusinessConsultingSection = () => {
         'Procurement',
         'Logistics'
       ],
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80',
+      image: '/services/supplychain.png',
       description: 'Streamline operations with efficient supply chain and logistics management strategies through integrated business planning.',
       href: '/services/supply-chain-logistics'
     }

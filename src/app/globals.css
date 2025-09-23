@@ -40,7 +40,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    /* translate by exactly one duplicated group's width; fall back to -50% when --group-width is not available */
+    transform: translateX(calc(var(--group-width, 50%) * -1));
   }
 }
 
@@ -63,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-scroll {
+  /* duration stays the same; the animation now uses --group-width when available */
   animation: scroll 30s linear infinite;
 }
 
@@ -72,4 +74,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-scroll-down {
   animation: scroll-down 20s linear infinite;
+}
+
+/* Marquee helpers: make the scrolling container size stable so the
+   duplicated groups line up exactly and avoid a visible "bounce" when
+   the animation restarts. Force GPU acceleration to reduce jank. */
+.animate-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.animate-scroll > div {
+  /* Each duplicated group should keep its intrinsic width and not
+     stretch. This makes the total width equal to the sum of both
+     groups so translateX(-50%) moves exactly one group. */
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.animate-scroll > div > * {
+  /* Prevent children from growing/shrinking during load */
+  flex: 0 0 auto;
 }

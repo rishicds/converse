@@ -32,16 +32,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     }
   };
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col h-full">
-      <div className="relative w-full aspect-square">
-        <Image 
-          src={image} 
-          alt={altText}
-          fill
-          className="object-fit"
-        />
-      </div>
-      <div className="p-6 flex flex-col h-full">
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
+      {isLogo ? (
+        <div className="flex-shrink-0 flex items-center justify-center p-6">
+          <div className="relative w-28 h-28 sm:w-32 sm:h-32">
+            <Image
+              src={image}
+              alt={altText}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="relative w-full h-40 sm:h-56">
+          <Image
+            src={image}
+            alt={altText}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-bold text-gray-900 mb-3 font-raleway">
           {title}
         </h3>
