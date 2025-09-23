@@ -47,7 +47,7 @@ const HowBigDataAnalysisWorks = () => {
           id="how-big-data-analysis-works"
           className="inline-block bg-gray-100 px-8 py-4 font-semibold tracking-wide text-xl md:text-2xl"
         >
-          HOW PERCEPTION BIG DATA ANALYSIS WORKS
+          PERCEPTION BIG DATA ANALYSIS STEP-BY-STEP
         </h2>
       </div>
   <ol aria-label="Process steps" className="grid gap-12 md:gap-20 md:grid-cols-3 relative">
@@ -56,16 +56,7 @@ const HowBigDataAnalysisWorks = () => {
             key={step.number}
             className="flex flex-col space-y-4 relative"
           >
-            {/* Connector line (desktop) */}
-            {idx < steps.length - 1 && (
-              <span
-                aria-hidden="true"
-                className="hidden md:block absolute top-5 left-10 right-[-3.5rem] h-px bg-gray-300 z-0 pointer-events-none"
-                style={{
-                  display: (idx % 3 === 2) ? 'none' : undefined
-                }}
-              />
-            )}
+            {/* connector lines removed */}
             <div className="flex items-center space-x-4 relative z-10 bg-white md:bg-transparent">
               <div className="flex-shrink-0 h-10 w-10 rounded-full border border-gray-400 flex items-center justify-center text-gray-700 font-semibold bg-white z-10">
                 {step.number}

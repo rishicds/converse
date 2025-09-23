@@ -91,24 +91,13 @@ const Section: React.FC<{ item: InsightItem; reverse?: boolean }> = ({ item, rev
 export default function UnstructuredPerceptionPage() {
 		return (
 			<main className="px-4 md:px-8 lg:px-14 py-12 md:py-20 max-w-7xl mx-auto">
-				<header className="mb-14 md:mb-20 max-w-3xl">
-					<h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Unstructured Perception Insights</h1>
-					<p className="text-base md:text-lg text-neutral-700 leading-relaxed">
-						Harness the power of AI and data science to decode what audiences truly say and feel across open text, images and conversations. Below are key insight programs we deliver to drive sharper decisions and faster growth.
-					</p>
-				</header>
+				
 				<div className="grid gap-16 md:gap-20">
 					{insightItems.map((item, idx) => (
 						<Section key={item.title} item={item} reverse={idx % 2 === 1} />
 					))}
 				</div>
-				<div className="flex justify-center mt-16">
-					<Link href="/perception">
-						<button className="px-6 py-3 rounded-md bg-neutral-800 text-white font-semibold hover:bg-neutral-700 transition-colors shadow-md">
-							&larr; Back to Perception
-						</button>
-					</Link>
-				</div>
+				
 			</main>
 		);
 }
