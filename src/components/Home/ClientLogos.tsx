@@ -41,6 +41,11 @@ const ClientLogos = () => {
     };
   }, []);
 
+  const trackStyle: React.CSSProperties & Record<string, string | undefined> = {
+    // set CSS variable that the keyframes use; fall back to undefined if not measured yet
+    ...(groupWidth ? { ['--group-width']: `${groupWidth}px` } : {})
+  };
+
   return (
     <section className="pb-8 pt-4 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,10 +58,7 @@ const ClientLogos = () => {
           <div
             ref={trackRef}
             className="flex items-center animate-scroll will-change-transform"
-            style={{
-              // set CSS variable that the keyframes use; fall back to 50% if not measured yet
-              ['--group-width' as any]: groupWidth ? `${groupWidth}px` : undefined
-            }}
+            style={trackStyle}
           >
             <div ref={firstGroupRef} className="flex items-center">
               {logos.map((logo, i) => (
