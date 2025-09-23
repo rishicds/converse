@@ -22,14 +22,8 @@ const PerceptionOverview: React.FC = () => {
             At CGC we augment traditional research with NextGen technology.
           </p>
         </div>
-        <div className="w-full max-w-xl mx-auto relative aspect-[4/3] shadow-md">
-          <Image
-            src="/perception/heroperp.png"
-            alt="AI powered analytics visualization"
-            fill
-            className="object-cover rounded"
-            priority
-          />
+        <div className="relative w-full aspect-video bg-black flex items-center justify-center text-center text-white text-xl font-medium rounded-sm">
+          <span>video(work in progress)</span>
         </div>
       </div>
     </>
