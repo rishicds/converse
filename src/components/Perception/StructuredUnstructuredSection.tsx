@@ -64,7 +64,7 @@ const StructuredUnstructuredSection: React.FC = () => {
                 </tbody>
               </table>
             </div>
-            <div className="mt-8 flex justify-start">
+            <div className="mt-8 flex justify-center">
               <Link href="/perception#unstructured-perception" className="inline-block">
                 <button
                   className="text-white px-6 py-3 rounded font-semibold transition text-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -116,7 +116,7 @@ const StructuredUnstructuredSection: React.FC = () => {
             <p className="mt-6 font-semibold text-[#1d2d3a] font-raleway">
               PERCEPTION AI technology augments established market research methodologies at every stage of the research process.
             </p>
-            <div className="mt-8 flex justify-start">
+            <div className="mt-8 flex justify-center">
               <Link href="/perception/structured" className="inline-block">
                 <button
                   className="text-white px-6 py-3 rounded font-semibold transition text-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
