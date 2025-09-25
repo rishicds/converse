@@ -29,7 +29,7 @@ const Footer = () => {
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/" className="hover:underline">Home</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception" className="hover:underline">Perception AI</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/company" className="hover:underline">Company</Link></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/#contact" className="hover:underline">Contact US</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/#contact" className="hover:underline">Contact Us</Link></li>
           </ul>
         </div>
         {/* Our Services */}
