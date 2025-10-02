@@ -43,6 +43,8 @@ const Footer = () => {
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/financial-planning" className="hover:underline">Financial Planning</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/route-to-market" className="hover:underline">Route to Market</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/supply-chain-logistics" className="hover:underline">Supply Chain & Logistics</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception/structured" className="hover:underline">Structured Data Analysis</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception/unstructured" className="hover:underline">Unstructured Data Analysis</Link></li>
           </ul>
         </div>
         {/* Case Studies */}

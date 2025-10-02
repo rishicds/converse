@@ -78,13 +78,21 @@ const StructuredUnstructuredSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="md:w-1/2 pt-50 flex-shrink-0">
+          <div className="md:w-1/2 pt- flex-shrink-0">
             <Image
               src="/perception/uns.png"
               alt="Unstructured data visualization"
-              width={960}
-              height={640}
+              width={660}
+              height={340}
               className="w-full h-auto object-contain rounded"
+              priority
+            />
+             <Image
+              src="/perception/uns2.png"
+              alt="Unstructured data visualization"
+              width={660}
+              height={340}
+              className="w-full pt-4 h-auto object-contain rounded"
               priority
             />
           </div>

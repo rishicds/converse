@@ -53,11 +53,7 @@ const ContactSection = () => {
       {/* Contact Section */}
   <section className="py-16 relative overflow-hidden" >
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 w-32 h-32 border border-[var(--foreground)] rounded-full"></div>
-          <div className="absolute bottom-20 left-20 w-24 h-24 border border-[var(--foreground)] rounded-full"></div>
-          <div className="absolute top-1/2 right-1/3 w-16 h-16 border border-[var(--foreground)] rounded-full"></div>
-        </div>
+       
 
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="bg-[var(--background)]/80 rounded-lg p-8 backdrop-blur-sm ">

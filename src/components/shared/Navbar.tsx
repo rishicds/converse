@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isPerceptionOpen, setIsPerceptionOpen] = useState(false);
+  const [isPerceptionOpen, setIsPerceptionOpen] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -24,18 +24,7 @@ const Navbar = () => {
     }, 150);
   };
 
-  const handlePerceptionMouseEnter = () => {
-    if (perceptionTimeoutRef.current) {
-      clearTimeout(perceptionTimeoutRef.current);
-    }
-    setIsPerceptionOpen(true);
-  };
-
-  const handlePerceptionMouseLeave = () => {
-    perceptionTimeoutRef.current = setTimeout(() => {
-      setIsPerceptionOpen(false);
-    }, 150);
-  };
+  // Remove unused handlePerceptionMouseEnter/Leave
 
   useEffect(() => {
     return () => {
@@ -77,30 +66,87 @@ const Navbar = () => {
                 
                 {/* Services Dropdown Menu */}
                 {isServicesOpen && (
-                  <div className="absolute top-full left-0 pt-1 w-96 z-50">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
-                      <div className="grid grid-cols-1 gap-0">
-                        {/* Business/Marketing */}
-                        <div className="p-6 bg-blue-900 text-white rounded-lg">
-                          <div className="flex items-center mb-4">
-                            <div className="w-8 h-8 bg-blue-700 rounded mr-3 flex items-center justify-center">
-                              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                              </svg>
-                            </div>
-                            <h3 className="font-semibold text-lg">Business/ Marketing</h3>
-                          </div>
-                          <ul className="space-y-2 text-sm">
-                            <li><Link href="/services/business-development" className="hover:text-blue-200 transition-colors block py-1">Business Development</Link></li>
-                            <li><Link href="/services/brand-strategy" className="hover:text-blue-200 transition-colors block py-1">Brand Strategy</Link></li>
-                            <li><Link href="/services/driving-growth" className="hover:text-blue-200 transition-colors block py-1">Driving Growth</Link></li>
-                            <li><Link href="/services/financial-planning" className="hover:text-blue-200 transition-colors block py-1">Financial Planning</Link></li>
-<li><Link href="/services/route-to-market" className="hover:text-blue-200 transition-colors block py-1">Route-to-market</Link></li>
-                            <li><Link href="/services/supply-chain-logistics" className="hover:text-blue-200 transition-colors block py-1">Supply Chain & Logistics</Link></li>
-                            
-                          </ul>
+                  <div className={`absolute top-full left-1/2 -translate-x-1/4 pt-2 w-[520px] z-50 ${isPerceptionOpen ? 'bg-white' : 'bg-transparent'}`}
+                    onMouseLeave={() => setIsPerceptionOpen(null)}
+                  >
+                    <div className="  rounded-lg overflow-hidden flex">
+                      {/* Left Column: Main menu */}
+                      <div className="min-w-[220px] w-[240px] bg-[#002B5C] text-white flex flex-col divide-y divide-blue-800">
+                        <div
+                          className={`p-6 cursor-pointer transition-colors flex items-center ${
+                            isPerceptionOpen === 'research' ? 'bg-blue-800' : 'hover:bg-blue-700'
+                          }`}
+                          onMouseEnter={() => { setIsPerceptionOpen('research'); }}
+                        >
+                          <span className="font-bold text-base leading-tight">Research & Analytics</span>
+                          <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div
+                          className={`p-6 cursor-pointer transition-colors flex items-center ${
+                            isPerceptionOpen === 'business' ? 'bg-blue-800' : 'hover:bg-blue-700'
+                          }`}
+                          onMouseEnter={() => { setIsPerceptionOpen('business'); }}
+                        >
+                          <span className="font-bold text-base leading-tight break-words whitespace-normal">Business/Marketing</span>
+                          <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                         </div>
                       </div>
+                      {/* Right Columns: Show on hover of either left item */}
+                      {isPerceptionOpen === 'research' && (
+                        <div className="w-3/4 bg-gray-50 p-6 border-l border-gray-200 flex flex-col justify-center">
+                          <div className="mb-3">
+                            <Image src="/perception.png" alt="PERCEPTION logo" width={180} height={40} className="object-contain" />
+                          </div>
+                          <ul className="space-y-2 text-sm text-gray-700">
+                            <li className="flex items-start">
+                              <span className="mr-2">•</span>
+                              <Link href="/perception/structured" className="hover:text-primary transition-colors">Structured Data Analysis</Link>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="mr-2">•</span>
+                              <Link href="/perception/unstructured" className="hover:text-primary transition-colors">Unstructured Data Analysis</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                      {isPerceptionOpen === 'business' && (
+                        <div className="w-3/4 p-6 flex flex-col justify-center">
+                          <div className="grid grid-cols-2 gap-x-8">
+                            <ul className="space-y-2 text-sm text-gray-700">
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/business-development" className="hover:text-primary transition-colors">Business Development</Link>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/brand-strategy" className="hover:text-primary transition-colors">Brand Strategy</Link>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/financial-planning" className="hover:text-primary transition-colors">Financial Planning</Link>
+                              </li>
+                            </ul>
+                            <ul className="space-y-2 text-sm text-gray-700">
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/driving-growth" className="hover:text-primary transition-colors">Driving Growth</Link>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/supply-chain-logistics" className="hover:text-primary transition-colors">Supply Chain & Logistics</Link>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <Link href="/services/route-to-market" className="hover:text-primary transition-colors">Route-to-market</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}

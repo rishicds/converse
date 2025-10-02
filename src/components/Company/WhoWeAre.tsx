@@ -38,7 +38,7 @@ const pillars: Pillar[] = [
 const WhoWeAre: React.FC = () => {
   return (
     <>
-      <section className="py-24 bg-white" id="who-we-are">
+      <section className="py-8 bg-white" id="who-we-are">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-10">Who we are</h2>
           <p className="text-center text-gray-700 max-w-4xl mx-auto text-lg mb-16">As the name Converse indicates, our approach is guided by the diverse meanings of the word.</p>
@@ -67,7 +67,7 @@ const WhoWeAre: React.FC = () => {
         <img
           src="/company/whoweare.png"
           alt="Business meeting illustration"
-          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
+          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', }}
         />
       </div>
       <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 my-10">How we operate</h2>
@@ -75,7 +75,7 @@ const WhoWeAre: React.FC = () => {
         <img
           src="/company/howweoperate.png"
           alt="Business meeting illustration"
-          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
+          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px',  }}
         />
       </div>
        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 my-10">Area of expertise</h2>

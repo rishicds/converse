@@ -35,7 +35,7 @@ const members = [
       'Core areas: Regional insights (Quantitative and Qualitative) across multiple regions and multiple industries (FMCG, Retail, Banking, Automotive, Government)',
       'Proactive and growth-oriented'
     ],
-    image: ''
+    image: '/company/team/anoop.jpg'
   },
   {
     name: 'Vivaswan Bhattarchaya',
@@ -55,7 +55,7 @@ const members = [
       '25+ years in Supply Chain and Logistics.',
       'Core areas: Establishing efficient & effective processes in sourcing and logistics. Supplier and logistic partner management. Demand and Supply planning.'
     ],
-    image: '/company/team/placeholder.png'
+    image: '/company/team/sajeev.jpg'
   },
   {
     name: 'Harish Bhambhaney',

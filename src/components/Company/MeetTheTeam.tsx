@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { a } from 'framer-motion/client';
 
 const team = [
   'Kray Ray',
@@ -19,7 +20,9 @@ const photos: Record<string, string> = {
   adriana: '/company/team/adriana.png',
   dina: '/company/team/dina.png',
   vivaswan: '/company/team/vivaswan.png',
-  harish: '/company/team/harish.png'
+  harish: '/company/team/harish.png',
+  anoop: '/company/team/anoop.jpg', // no photo
+  sajeev: '/company/team/sajeev.jpg' // no photo
 };
 
 const MeetTheTeam: React.FC = () => {
@@ -37,15 +40,15 @@ const MeetTheTeam: React.FC = () => {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12">Meet the team</h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12">Our Team</h2>
 
         {/* Top row: 3 members, centered */}
-        <div className="flex justify-center gap-12 mb-12">
+        <div className="flex justify-center gap-6 sm:gap-12 mb-12 flex-wrap">
           {topRow.map((name) => {
             const first = name.split(' ')[0].toLowerCase();
             const src = photos[first];
-            const sizeClass = 'w-44 h-44';
+            const sizeClass = 'w-32 h-32 sm:w-44 h-44';
             const ringClass = 'ring-2 ring-gray-200';
             const shadowClass = 'shadow-sm';
             const avatarWrapperClass = `${sizeClass} rounded-full overflow-hidden bg-white flex items-center justify-center ${ringClass} ${shadowClass}`;
@@ -64,23 +67,23 @@ const MeetTheTeam: React.FC = () => {
                   </div>
                 ) : (
                   <div
-                    className={`${sizeClass} rounded-full flex items-center justify-center text-2xl font-semibold text-white ${fallbackBg} ${ringClass} ${shadowClass}`}
+                    className={`${sizeClass} rounded-full flex items-center justify-center text-xl sm:text-2xl font-semibold text-white ${fallbackBg} ${ringClass} ${shadowClass}`}
                   >
                     {name.split(' ').map(n => n[0]).slice(0,2).join('')}
                   </div>
                 )}
-                <p className="mt-4 text-center text-sm text-gray-800">{name}</p>
+                <p className="mt-4 text-center text-xs sm:text-sm text-gray-800">{name}</p>
               </div>
             );
           })}
         </div>
 
         {/* Bottom row: 4 members, centered */}
-        <div className="flex justify-center gap-12">
+        <div className="flex justify-center gap-6 sm:gap-12 flex-wrap">
           {bottomRow.map((name) => {
             const first = name.split(' ')[0].toLowerCase();
             const src = photos[first];
-            const sizeClass = 'w-44 h-44';
+            const sizeClass = 'w-32 h-32 sm:w-44 h-44';
             const ringClass = 'ring-2 ring-gray-200';
             const shadowClass = 'shadow-sm';
             const avatarWrapperClass = `${sizeClass} rounded-full overflow-hidden bg-white flex items-center justify-center ${ringClass} ${shadowClass}`;
@@ -99,12 +102,12 @@ const MeetTheTeam: React.FC = () => {
                   </div>
                 ) : (
                   <div
-                    className={`${sizeClass} rounded-full flex items-center justify-center text-2xl font-semibold text-white ${fallbackBg} ${ringClass} ${shadowClass}`}
+                    className={`${sizeClass} rounded-full flex items-center justify-center text-xl sm:text-2xl font-semibold text-white ${fallbackBg} ${ringClass} ${shadowClass}`}
                   >
                     {name.split(' ').map(n => n[0]).slice(0,2).join('')}
                   </div>
                 )}
-                <p className="mt-4 text-center text-sm text-gray-800">{name}</p>
+                <p className="mt-4 text-center text-xs sm:text-sm text-gray-800">{name}</p>
               </div>
             );
           })}

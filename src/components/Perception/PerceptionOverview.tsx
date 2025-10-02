@@ -22,7 +22,7 @@ const PerceptionOverview: React.FC = () => {
             At CGC we augment traditional research with NextGen technology.
           </p>
         </div>
-        <div className="relative w-full aspect-video bg-black flex items-center justify-center text-center text-white text-xl font-medium rounded-sm">
+        <div className="relative w-full h-full aspect-video bg-black flex items-center justify-center text-center text-white text-xl font-medium rounded-sm">
           <span>video(work in progress)</span>
         </div>
       </div>

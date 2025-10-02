@@ -70,19 +70,19 @@ const insightItems: InsightItem[] = [
 
 const Section: React.FC<{ item: InsightItem; reverse?: boolean }> = ({ item, reverse }) => {
 	return (
-		<div className={`flex flex-col gap-6 md:gap-10 lg:gap-16 ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-start`}>      
-			<div className="relative w-full max-w-[340px] aspect-[4/3] flex-shrink-0 rounded-sm overflow-hidden border border-neutral-200 bg-neutral-50">
+		<div className={`flex flex-col md:flex-row gap-4 md:gap-6 ${reverse ? 'md:flex-row-reverse' : ''}`}>      
+			<div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-[4/3] flex-shrink-0 rounded-sm overflow-hidden border border-neutral-200 bg-neutral-50">
 				<Image
 					src={item.image}
 					alt={item.imageAlt}
 					fill
 					className="object-cover"
-					sizes="(max-width: 1024px) 100vw, 340px"
+					sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
 				/>
 			</div>
-			<div className="flex-1 max-w-xl">
-				<h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-3">{item.title}</h3>
-				<p className="text-sm md:text-base leading-relaxed text-neutral-700 whitespace-pre-line">{item.description}</p>
+			<div className="flex-1 md:flex-1">
+				<h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">{item.title}</h3>
+				<p className="text-sm leading-relaxed text-neutral-700 whitespace-pre-line">{item.description}</p>
 			</div>
 		</div>
 	);
@@ -92,7 +92,7 @@ export default function UnstructuredPerceptionPage() {
 		return (
 			<main className="px-4 md:px-8 lg:px-14 py-12 md:py-20 max-w-7xl mx-auto">
 				
-				<div className="grid gap-16 md:gap-20">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
 					{insightItems.map((item, idx) => (
 						<Section key={item.title} item={item} reverse={idx % 2 === 1} />
 					))}

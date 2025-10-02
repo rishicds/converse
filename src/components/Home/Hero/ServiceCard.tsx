@@ -45,7 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         </div>
       ) : (
-        <div className="relative w-full h-40 sm:h-56">
+        <div className="relative w-full h-40 sm:h-75">
           <Image
             src={image}
             alt={altText}

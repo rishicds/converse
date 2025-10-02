@@ -19,7 +19,7 @@ const reasons: Reason[] = [
   {
     title: 'Faster turnaround time',
     description:
-      'AI generated research can be turned around in days, not months as compared to traditional research methods',
+      'AI generated research can be turned around in days, not months as compared to traditional research methods.',
     icon: <BsArrowsAngleExpand className="w-7 h-7" />
   },
   {
@@ -36,7 +36,7 @@ const reasons: Reason[] = [
   {
     title: 'LLM Capability',
     description:
-      'Our tool understands and analyzes data in 79 languages using Large Language Models as opposed to other tools that rely on NLPs',
+      'Our tool understands and analyzes data in 79 languages using Large Language Models as opposed to other tools that rely on NLPs.',
     icon: <FaGlobeAmericas className="w-7 h-7" />
   },
   {
@@ -54,20 +54,20 @@ const reasons: Reason[] = [
   {
     title: 'Actionable storytelling',
     description:
-      'No more data dumps, our unique dashboard provides access to data cut in multiple formats as per client’s requirements',
+      'No more data dumps, our unique dashboard provides access to data cut in multiple formats as per client’s requirements.',
     icon: <FaChartLine className="w-7 h-7" />
   },
   {
     title: 'One-Stop-Shop',
     description:
-      'As a results driven company we are a one-stop-shop for our clients business needs',
+      'As a results driven company we are a one-stop-shop for our clients business needs.',
     icon: <FaCheckCircle className="w-7 h-7" />
   }
 ];
 
 const WhyClientsChooseUs = () => {
   return (
-    <section className="relative mt-28">
+    <section className="relative mt-8">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-fuchsia-50" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-10">
