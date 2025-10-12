@@ -50,8 +50,8 @@ const ClientLogos = () => {
     <section className="pb-8 pt-4 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Trusted by Leading Brands</h3>
-          <p className="text-lg text-gray-600">We work with industry leaders across various sectors</p>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">TRUSTED BY LEADING BRANDS</h3>
+          <p className="text-xl text-gray-600">We work with industry leaders across various sectors</p>
         </div>
         <div className="relative overflow-hidden" aria-label="Client logos">
           {/* track: duplicated sequences for seamless scroll (second sequence is aria-hidden) */}

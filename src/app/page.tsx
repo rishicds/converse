@@ -16,7 +16,7 @@ const HomePage = () => {
       title: (
         <>
           Research and Analytics
-          <img src="/perception.png" alt="Perception Logo" className="inline-block h-12 w-32 ml-2 align-middle" style={{display:'inline'}} />
+          <img src="/perception.png" alt="Perception Logo" className="inline-block h-10 w-32 ml-2 align-middle" style={{display:'inline'}} />
         </>
       ),
       description: "Unlock category and brand customer insights augmented by our LLM based AI tool that decodes authentic conversations.",

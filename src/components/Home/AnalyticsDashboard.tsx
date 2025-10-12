@@ -141,7 +141,7 @@ const AnalyticsDashboard = () => {
               {/* Counter */}
               <div className="mb-3 sm:mb-4">
                 <p className="text-white text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8">
-                  Number of online conversations analyzed
+                  Number of conversations analyzed
                 </p>
                 
                 {/* Animated Counter with individual digit boxes */}
