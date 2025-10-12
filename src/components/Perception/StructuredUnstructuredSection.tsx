@@ -35,7 +35,7 @@ const StructuredUnstructuredSection: React.FC = () => {
         {/* Unstructured Data - show first with image on left */}
         <div className="flex flex-col md:flex-row items-start gap-8">
           <div className="md:w-1/2 flex flex-col">
-            <h2 id="unstructured-heading" className="text-3xl font-extrabold font-raleway mb-6 text-[#0f1417]">Unstructured Data</h2>
+            <h2 id="unstructured-heading" className="text-3xl font-extrabold font-raleway mb-6 uppercase text-[#0f1417]">Unstructured Data</h2>
             <p className="text-[#303030] leading-relaxed text-lg mb-4">
               Our proprietary AI-powered research analytics tool PERCEPTION uncovers real, unbiased insights from unstructured data such as online sources and as well as from internal client data. It goes over and above what other AI tools can deliver.
             </p>
@@ -101,7 +101,7 @@ const StructuredUnstructuredSection: React.FC = () => {
         {/* Structured Data - show second with image on left */}
         <div className="flex flex-col md:flex-row items-start gap-8">
           <div className="md:w-1/2 flex flex-col">
-            <h2 className="text-3xl font-extrabold font-raleway mb-6 text-[#0f1417]">Structured Data</h2>
+              <h2 id="structured-heading" className="text-3xl font-extrabold font-raleway mb-6 uppercase text-[#0f1417]">Structured Data</h2>
             <div className="space-y-6 text-[#303030] leading-relaxed text-lg">
               <p>
                 In cases where there is a need for traditional research, such as qualitative and quantitative studies, we cater to such clients with integrated technology-driven market research solution.

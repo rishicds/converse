@@ -104,11 +104,11 @@ const Navbar = () => {
                           <ul className="space-y-2 text-sm text-gray-700">
                             <li className="flex items-start">
                               <span className="mr-2">•</span>
-                              <Link href="/perception/structured" className="hover:text-primary transition-colors">Structured Data Analysis</Link>
+                              <Link href="/perception#structured-heading" className="hover:text-primary transition-colors">Structured Data Analysis</Link>
                             </li>
                             <li className="flex items-start">
                               <span className="mr-2">•</span>
-                              <Link href="/perception/unstructured" className="hover:text-primary transition-colors">Unstructured Data Analysis</Link>
+                              <Link href="/perception#unstructured-heading" className="hover:text-primary transition-colors">Unstructured Data Analysis</Link>
                             </li>
                           </ul>
                         </div>

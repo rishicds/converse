@@ -58,7 +58,7 @@ const ContactSection = () => {
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="bg-[var(--background)]/80 rounded-lg p-8 backdrop-blur-sm ">
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--primary)' }}>
-              Get in touch with us
+              GET IN TOUCH WITH US
             </h2>
             <p className="text-[var(--foreground)] text-lg mb-8 max-w-2xl mx-auto opacity-80">
               Our team is ready to help you with your research & analytics as well as business related needs.
@@ -72,12 +72,12 @@ const ContactSection = () => {
           </div>
         </div>
         {/* Logo in bottom left */}
-        <img
+        {/* <img
           src="/logo.png"
           alt="Converse Global Consulting Logo"
           className="absolute left-8 bottom-8 w-62 h-auto z-20 hidden md:block"
           style={{ maxWidth: '290px' }}
-        />
+        /> */}
       </section>
 
       {/* Popup Modal */}
@@ -188,6 +188,7 @@ const ContactSection = () => {
                     <option value="research-analytics">Research & Analytics</option>
                     <option value="business-consulting">Business Consulting</option>
                     <option value="both">Both Services</option>
+                    <option value="perception-demo">Perception Demo</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

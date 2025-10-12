@@ -8,7 +8,11 @@ const UnstructuredPerceptionSection: React.FC = () => {
       <div className="grid gap-12 items-start">
         <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold font-raleway tracking-wide">Key Applications of Perception</h2>
+            <h2 className="text-2xl upper-case font-bold text-gray-500 font-raleway tracking-wide  uppercase flex items-center gap-3">
+              <span>KEY APPLICATIONS OF</span>
+              <img src="/perception.png" alt="Perception logo" className="h-8" />
+              <span>IN UNSTRUCTURED DATA ANALYSIS</span>
+            </h2>
           </div>
         </div>
       </div>

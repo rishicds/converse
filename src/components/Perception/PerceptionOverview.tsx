@@ -4,7 +4,7 @@ import Image from 'next/image';
 const PerceptionOverview: React.FC = () => {
   return (
     <>
-      <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-center text-[#3b3f42] mb-12 font-raleway">
+      <h1 className="text-3xl md:text-5xl uppercase font-extrabold tracking-tight text-center text-[#3b3f42] mb-12 font-raleway">
         AI Powered Advanced Analytics
       </h1>
       <div className="grid md:grid-cols-2 gap-10 items-start">

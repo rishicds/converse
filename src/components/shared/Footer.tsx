@@ -9,10 +9,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
         {/* Company Info */}
         <div className="flex-1 min-w-[220px]">
-          <h2 className="font-bold text-lg leading-tight mb-2">Converse Global Consulting FZE.</h2>
-          <p className="mb-2 text-sm">Al Barsha First<br />Dubai, U.A.E.</p>
-          <p className="mb-1 text-sm font-semibold">Phone: <span className="font-normal">+971 4 395 1294</span></p>
-          <p className="mb-1 text-sm font-semibold">Email: <span className="font-normal">kray@converseglobal.com</span></p>
+          <h2 className="font-bold text-lg leading-tight mb-2">Converse Global Consulting FZE</h2>
+          <p className="mb-2 text-sm">Dubai, U.A.E.</p>
+          <p className="mb-1 text-sm font-semibold">Email: <span className="font-normal">contactus@converseglobal.com</span></p>
           <a
             href="https://www.linkedin.com/company/converse-global-consulting/"
             className="inline-block mt-2 rounded-full p-2 transition"
@@ -43,50 +42,63 @@ const Footer = () => {
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/financial-planning" className="hover:underline">Financial Planning</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/route-to-market" className="hover:underline">Route to Market</Link></li>
             <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/services/supply-chain-logistics" className="hover:underline">Supply Chain & Logistics</Link></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception/structured" className="hover:underline">Structured Data Analysis</Link></li>
-            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception/unstructured" className="hover:underline">Unstructured Data Analysis</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception#structured-heading" className="hover:underline">Structured Data Analysis</Link></li>
+            <li className="flex items-center gap-2"><FaChevronRight size={14} /><Link href="/perception#unstructured-heading" className="hover:underline">Unstructured Data Analysis</Link></li>
           </ul>
         </div>
-        {/* Case Studies */}
+        {/* Case Studies (commented out) */}
         <div className="flex-1 min-w-[220px]">
-          <h3 className="font-bold mb-2">Case Studies</h3>
-          {/** Case Study Links */}
-          {(() => {
-            const caseStudies = [
-              {
-                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION+Snacking+GCC.pdf",
-                title: "Category Study in Snacks",
-              },
-              {
-                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Fan_Engagement_Football_SA.pdf",
-                title: "Fan Engagement in Football",
-              },
-              {
-                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Automobiles_India.pdf",
-                title: "Automobile in India",
-              },
-              {
-                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Banking_Saudi_Arabia.pdf",
-                title: "Banking in Saudi Arabia",
-              },
-              {
-                url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/Fintech_smart_by_CGC.pdf",
-                title: "AI in Financial Services",
-              },
-            ];
-            return (
-              <ul className="space-y-1 text-sm">
-                {caseStudies.map((item) => (
-                  <li key={item.url} className="flex items-center gap-2">
-                    <FaChevronRight size={14} />
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                      {item.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            );
-          })()}
+          <h3 className="font-bold mb-2">Privacy Policy & Terms of Use</h3>
+          <ul className="space-y-1 text-sm">
+            <li className="flex items-center gap-2">
+              <FaChevronRight size={14} />
+              <a href="/pptos.docx" target="_blank" rel="noopener noreferrer" className="hover:underline">Privacy Policy</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaChevronRight size={14} />
+              <a href="/pptos.docx" target="_blank" rel="noopener noreferrer" className="hover:underline">Terms of Use</a>
+            </li>
+          </ul>
+
+          {/*
+            Original Case Studies block (kept for reference)
+            {(() => {
+              const caseStudies = [
+                {
+                  url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION+Snacking+GCC.pdf",
+                  title: "Category Study in Snacks",
+                },
+                {
+                  url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Fan_Engagement_Football_SA.pdf",
+                  title: "Fan Engagement in Football",
+                },
+                {
+                  url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Automobiles_India.pdf",
+                  title: "Automobile in India",
+                },
+                {
+                  url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/PERCEPTION_Banking_Saudi_Arabia.pdf",
+                  title: "Banking in Saudi Arabia",
+                },
+                {
+                  url: "https://cgassets.s3-us-west-2.amazonaws.com/assets/Fintech_smart_by_CGC.pdf",
+                  title: "AI in Financial Services",
+                },
+              ];
+              return (
+                <ul className="space-y-1 text-sm">
+                  {caseStudies.map((item) => (
+                    <li key={item.url} className="flex items-center gap-2">
+                      <FaChevronRight size={14} />
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              );
+            })()}
+          */}
         </div>
       </div>
       <div

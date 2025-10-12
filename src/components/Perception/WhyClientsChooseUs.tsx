@@ -1,7 +1,15 @@
 import React from 'react';
-import { FaEye, FaFeatherAlt, FaComments, FaGlobeAmericas, FaLayerGroup, FaChartLine, FaCheckCircle } from 'react-icons/fa';
-import { BsArrowsAngleExpand } from 'react-icons/bs';
-import { PiFlowArrowBold } from 'react-icons/pi';
+import {
+  FaLightbulb,
+  FaBolt,
+  FaBalanceScale,
+  FaHistory,
+  FaLanguage,
+  FaComments,
+  FaSitemap,
+  FaChartLine,
+  FaToolbox
+} from 'react-icons/fa';
 
 type Reason = {
   title: string;
@@ -14,30 +22,30 @@ const reasons: Reason[] = [
     title: 'Insight driven + Tech centered',
     description:
       'Research tool built for uncovering deep insights from real conversations and complex data—fast, smart, and unbiased.',
-    icon: <FaEye className="w-7 h-7" />
+    icon: <FaLightbulb className="w-7 h-7" />
   },
   {
     title: 'Faster turnaround time',
     description:
       'AI generated research can be turned around in days, not months as compared to traditional research methods.',
-    icon: <BsArrowsAngleExpand className="w-7 h-7" />
+    icon: <FaBolt className="w-7 h-7" />
   },
   {
     title: 'Unbiased, unfiltered, uncut data sources',
     description:
       'All contextually relevant data is analyzed. There is no keyword search, which means zero bias and hence access to full data and insights.',
-    icon: <FaFeatherAlt className="w-7 h-7" />
+    icon: <FaBalanceScale className="w-7 h-7" />
   },
   {
     title: 'Time Travel',
     description: 'Unique ability to study data in the past (up to 18 months).',
-    icon: <PiFlowArrowBold className="w-7 h-7" />
+    icon: <FaHistory className="w-7 h-7" />
   },
   {
     title: 'LLM Capability',
     description:
       'Our tool understands and analyzes data in 79 languages using Large Language Models as opposed to other tools that rely on NLPs.',
-    icon: <FaGlobeAmericas className="w-7 h-7" />
+    icon: <FaLanguage className="w-7 h-7" />
   },
   {
     title: 'Conversational reasoning tool',
@@ -49,7 +57,7 @@ const reasons: Reason[] = [
     title: 'Multiple source analysis',
     description:
       'Integrates online and internal data—from social media to surveys, emails, and transcripts',
-    icon: <FaLayerGroup className="w-7 h-7" />
+    icon: <FaSitemap className="w-7 h-7" />
   },
   {
     title: 'Actionable storytelling',
@@ -61,7 +69,7 @@ const reasons: Reason[] = [
     title: 'One-Stop-Shop',
     description:
       'As a results driven company we are a one-stop-shop for our clients business needs.',
-    icon: <FaCheckCircle className="w-7 h-7" />
+    icon: <FaToolbox className="w-7 h-7" />
   }
 ];
 
