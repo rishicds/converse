@@ -79,9 +79,9 @@ const reasons: Reason[] = [
 
 const WhyClientsChooseUs = () => {
   return (
-    <section className="relative mt-8">
+    <section className="relative mt-8 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-fuchsia-50" aria-hidden="true" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-10">
           WHY CLIENTS CHOOSE TO WORK WITH US USING PERCEPTION
         </h2>

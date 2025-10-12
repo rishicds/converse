@@ -70,19 +70,19 @@ const insightItems: InsightItem[] = [
 
 const Section: React.FC<{ item: InsightItem; reverse?: boolean }> = ({ item, reverse }) => {
 	return (
-		<div className={`flex flex-col md:flex-row gap-4 md:gap-6 ${reverse ? 'md:flex-row-reverse' : ''}`}>      
-			<div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-[4/3] flex-shrink-0 rounded-sm overflow-hidden border border-neutral-200 bg-neutral-50">
+		<div className={`flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-6 ${reverse ? 'lg:flex-row-reverse' : ''} w-full`}>      
+			<div className="relative w-full lg:w-1/2 aspect-[16/10] sm:aspect-[4/3] flex-shrink-0 rounded-sm overflow-hidden border border-neutral-200 bg-neutral-50">
 				<Image
 					src={item.image}
 					alt={item.imageAlt}
 					fill
 					className="object-cover"
-					sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+					sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
 				/>
 			</div>
-			<div className="flex-1 md:flex-1">
-				<h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">{item.title}</h3>
-				<p className="text-sm leading-relaxed text-neutral-700 whitespace-pre-line">{item.description}</p>
+			<div className="flex-1 lg:flex lg:flex-col lg:justify-start min-w-0">
+				<h3 className="text-base sm:text-lg md:text-xl font-semibold tracking-tight mb-2 md:mb-3 leading-tight">{item.title}</h3>
+				<p className="text-sm md:text-base leading-relaxed text-neutral-700 break-words">{item.description}</p>
 			</div>
 		</div>
 	);
@@ -90,9 +90,9 @@ const Section: React.FC<{ item: InsightItem; reverse?: boolean }> = ({ item, rev
 
 export default function UnstructuredPerceptionPage() {
 		return (
-			<main className="px-4 md:px-8 lg:px-14 py-12 md:py-20 max-w-7xl mx-auto">
+			<main className="px-4 sm:px-6 md:px-8 lg:px-14 py-6 sm:py-8 md:py-12 lg:py-20 max-w-7xl mx-auto w-full overflow-hidden">
 				
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
 					{insightItems.map((item, idx) => (
 						<Section key={item.title} item={item} reverse={idx % 2 === 1} />
 					))}
