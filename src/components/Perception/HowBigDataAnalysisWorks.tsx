@@ -45,7 +45,7 @@ const HowBigDataAnalysisWorks = () => {
       <div className="text-center mb-12">
         <h2
           id="how-big-data-analysis-works"
-          className="inline-block bg-gray-100 px-8 py-4 font-semibold tracking-wide text-xl md:text-2xl"
+          className="inline-block text-gray-500 font-bold px-8 py-4  tracking-wide text-2xl md:text-3xl"
         >
           PERCEPTION BIG DATA ANALYSIS STEP-BY-STEP
         </h2>

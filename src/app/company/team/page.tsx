@@ -38,6 +38,17 @@ const members = [
     image: '/company/team/anoop.jpg'
   },
   {
+    name: 'Dina Dali',
+    title: 'Business Development Manager',
+    blurb: '(ex Philip Morris International, Nestle ME, Feedback Market Research).',
+    bullets: [
+      '15+ years in Research and Business development.',
+      'Core areas: Regional insights (Qualitative).',
+      'Proactive and detail-oriented'
+    ],
+    image: '/company/team/dina.png'
+  },
+  {
     name: 'Vivaswan Bhattarchaya',
     title: 'Technical Consultant',
     blurb: '(ex Telephone Networks Professional at Major Telecom Service Providers).',
@@ -75,7 +86,7 @@ const TeamPage: React.FC = () => {
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900">The Founding Team</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-900">The Team</h1>
         </div>
 
         <div className="space-y-12">

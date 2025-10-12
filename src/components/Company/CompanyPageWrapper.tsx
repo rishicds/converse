@@ -47,7 +47,7 @@ export const CompanyPageWrapper: React.FC = () => {
         <div className="absolute inset-0 bg-blue-900/60" />
         <div className="relative z-10 max-w-5xl mx-auto text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Meet the Team</h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">Our founding team brings together strategic, analytical and operational depth to convert market noise into growth clarity for our clients.</p>
+          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">Our team brings together strategic, analytical and operational depth to convert market noise into growth clarity for our clients.</p>
         </div>
       </section>
       <MeetTheTeam />
