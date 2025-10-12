@@ -8,8 +8,12 @@ import {
   FaComments,
   FaSitemap,
   FaChartLine,
-  FaToolbox
+  FaToolbox,
+  FaClock,
+  FaRegClock
 } from 'react-icons/fa';
+import { FaGear } from 'react-icons/fa6';
+import { GrServices } from 'react-icons/gr';
 
 type Reason = {
   title: string;
@@ -22,13 +26,13 @@ const reasons: Reason[] = [
     title: 'Insight driven + Tech centered',
     description:
       'Research tool built for uncovering deep insights from real conversations and complex data—fast, smart, and unbiased.',
-    icon: <FaLightbulb className="w-7 h-7" />
+    icon: <GrServices   className="w-7 h-7" />
   },
   {
     title: 'Faster turnaround time',
     description:
       'AI generated research can be turned around in days, not months as compared to traditional research methods.',
-    icon: <FaBolt className="w-7 h-7" />
+    icon: <FaRegClock className="w-7 h-7" />
   },
   {
     title: 'Unbiased, unfiltered, uncut data sources',
