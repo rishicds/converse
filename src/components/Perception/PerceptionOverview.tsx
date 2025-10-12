@@ -1,4 +1,30 @@
 "use client"
+
+interface YTPlayerOptions {
+  width?: string | number;
+  height?: string | number;
+  videoId: string;
+  playerVars?: Record<string, unknown>;
+  events?: Record<string, (event: { data: number }) => void>;
+}
+
+interface YTPlayer {
+  getPlayerState(): number;
+  destroy(): void;
+}
+
+interface YTPlayerConstructor {
+  new (element: HTMLElement | string, options: YTPlayerOptions): YTPlayer;
+}
+
+declare global {
+  interface Window {
+    YT?: {
+      Player: YTPlayerConstructor;
+    };
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -40,7 +66,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  const playerRef = useRef<any>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
   const playerContainerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
 
@@ -49,9 +75,10 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
 
     let mounted = true;
 
+    type YTEvent = { data: number };
     const createPlayer = () => {
       if (!mounted) return;
-      const YT = (window as any).YT;
+      const YT = window.YT;
       if (!YT || !playerContainerRef.current) return;
 
       playerRef.current = new YT.Player(playerContainerRef.current, {
@@ -64,17 +91,13 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           modestbranding: 1,
         },
         events: {
-          onStateChange: (event: any) => {
-            // YT.PlayerState.ENDED === 0
+          onStateChange: (event: YTEvent) => {
             if (event.data === 0) {
               setEnded(true);
             }
-
-            // YT.PlayerState.PLAYING === 1
             if (event.data === 1) {
               setEnded(false);
             }
-
             if (event.data === 2 || event.data === 3) {
               setEnded(false);
             }
@@ -83,33 +106,27 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
       });
     };
 
-    // polling fallback: check player state every 1s in case event isn't fired
-    let pollInterval: any = null;
+    let pollInterval: ReturnType<typeof setInterval> | null = null;
 
-    // If API already loaded, create player immediately
-    if ((window as any).YT && (window as any).YT.Player) {
+    if (window.YT && window.YT.Player) {
       createPlayer();
-      // start fallback poll
       pollInterval = setInterval(() => {
         try {
           const st = playerRef.current?.getPlayerState?.();
-          // ended state === 0
           if (st === 0) setEnded(true);
-          // playing states === 1 (playing), 2 (paused) or 3 (buffering)
           if (st === 1 || st === 2 || st === 3) setEnded(false);
-        } catch (e) {
+        } catch {
           // ignore
         }
       }, 1000);
 
       return () => {
         mounted = false;
-        clearInterval(pollInterval);
+        if (pollInterval) clearInterval(pollInterval);
         playerRef.current?.destroy?.();
       };
     }
 
-    // Load the YouTube IFrame API if not already present
     const scriptId = 'youtube-iframe-api';
     if (!document.getElementById(scriptId)) {
       const tag = document.createElement('script');
@@ -118,18 +135,16 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
       document.body.appendChild(tag);
     }
 
-    // Setup ready callback
-    const previous = (window as any).onYouTubeIframeAPIReady;
-    (window as any).onYouTubeIframeAPIReady = () => {
+    const previous = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
       previous?.();
       createPlayer();
-      // start fallback poll
       pollInterval = setInterval(() => {
         try {
           const st = playerRef.current?.getPlayerState?.();
           if (st === 0) setEnded(true);
           if (st === 1 || st === 2 || st === 3) setEnded(false);
-        } catch (e) {
+        } catch {
           // ignore
         }
       }, 1000);
@@ -137,11 +152,11 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
 
     return () => {
       mounted = false;
-      clearInterval(pollInterval);
-      (window as any).onYouTubeIframeAPIReady = previous;
+      if (pollInterval) clearInterval(pollInterval);
+      window.onYouTubeIframeAPIReady = previous;
       try {
         playerRef.current?.destroy?.();
-      } catch (e) {
+      } catch {
         // ignore
       }
     };
