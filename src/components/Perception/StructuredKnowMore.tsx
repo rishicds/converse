@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export const StructuredKnowMore: React.FC = () => {
 		return (
-			<section className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-16 min-h-screen">
+			<section className="mx-auto max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
 				<div className="text-center">
-					<h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 md:mb-8 lg:mb-12 w-full max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto leading-tight break-words hyphens-auto">
+					<h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-tight mb-3 sm:mb-4 md:mb-6 lg:mb-8 w-full max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto leading-tight break-words hyphens-auto">
 						Deeper understanding of our end-to-end AI augmentation of{" "}
 						<span className="inline sm:block mt-0 sm:mt-1 md:mt-2">Structured Data (qualitative and quantitative research)</span>
 					</h2>
@@ -27,7 +27,7 @@ export const StructuredKnowMore: React.FC = () => {
 						/>
 					</div>
 				</div>
-				<div className="flex justify-center mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-4 sm:mb-6">
+				<div className="flex justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10 mb-2 sm:mb-4">
 					<Link href="/perception">
 						<button className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-md bg-neutral-800 text-white font-semibold hover:bg-neutral-700 transition-colors shadow-md">
 							&larr; Back to Perception
