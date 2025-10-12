@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 
 interface ContactFormData {
@@ -48,10 +48,27 @@ const ContactSection = () => {
     });
   };
 
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const customEvent = event as CustomEvent<{ interestedIn?: string }>;
+      setIsPopupOpen(true);
+      setFormData(prev => ({
+        ...prev,
+        interestedIn: customEvent.detail?.interestedIn ?? prev.interestedIn
+      }));
+    };
+
+    window.addEventListener('open-contact-form', handler);
+
+    return () => {
+      window.removeEventListener('open-contact-form', handler);
+    };
+  }, []);
+
   return (
     <>
       {/* Contact Section */}
-  <section className="py-16 relative overflow-hidden" >
+  <section id="contact" className="py-16 relative overflow-hidden" >
         {/* Background pattern */}
        
 
