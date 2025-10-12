@@ -6,8 +6,8 @@ type PerceptionPageWrapperProps = {
 
 const PerceptionPageWrapper: React.FC<PerceptionPageWrapperProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-white py-16 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         {children}
       </div>
     </div>

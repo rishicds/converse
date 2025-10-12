@@ -70,10 +70,10 @@ const HomePage = () => {
         <BusinessConsultingSection />
       </div>
        
-       {/* Contact Section */}
-       <div id="contact">
-         <ContactSection />
-       </div>
+      {/* Contact Section */}
+      <div id="contact">
+        <ContactSection />
+      </div>
     </div>
   );
 };
