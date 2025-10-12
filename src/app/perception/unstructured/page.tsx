@@ -60,7 +60,7 @@ const insightItems: InsightItem[] = [
 		imageAlt: 'New product celebration graphic',
 	},
 	{
-		title: 'Consumer Switching Analysis',
+		title: 'Customer Switching Analysis',
 		description:
 			'What are customers’ key motivations for choosing a brand? What are the main factors influencing switching behavior? What triggered your customer to switch to your competitor? What do you need to do to retain your customers? Gain authentic insights through us.',
 		image: '/perception/unstructured/consumerswitching.png',
