@@ -43,7 +43,7 @@ const PerceptionOverview: React.FC = () => {
           <div>
             <h2 className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 font-raleway">Why AI?</h2>
             <p>
-              In today's rapidly evolving world, asking questions isn't enough—real insights live in the unstructured noise (data) you're ignoring.
+              In today&apos;s rapidly evolving world, asking questions isn&apos;t enough—real insights live in the unstructured noise (data) you&apos;re ignoring.
             </p>
           </div>
           <p className="font-semibold font-raleway text-[#1d2d3a]">
