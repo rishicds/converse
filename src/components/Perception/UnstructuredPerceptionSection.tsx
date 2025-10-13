@@ -6,7 +6,7 @@ const UnstructuredPerceptionSection: React.FC = () => {
   return (
     <section
       id="unstructured-perception"
-      className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 md:py-12 font-[family-name:var(--font-raleway)]"
+      className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 md:py- font-[family-name:var(--font-raleway)]"
     >
       {/* Header: stacks on mobile, inline on md+ */}
       <div className="max-w-3xl md:max-w-full mx-auto md:mx-0 text-center md:text-left">

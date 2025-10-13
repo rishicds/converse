@@ -227,19 +227,63 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
 
           {/* Get demo overlay shown when video ends */}
           {ended && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-sm">
+            <div className="absolute inset-0 z-50 flex items-center justify-center bg-blue-900/75 backdrop-blur-sm">
               <div className="flex flex-col items-center gap-4 text-center">
+                <Image
+                  src="/Perception_Logo-01[1].png"
+                  alt="CGC logo"
+                  width={120}
+                  height={40}
+                  className="w-30 h-auto bg-amber-50"
+                  priority
+                />
                 <p className="text-lg font-medium text-white max-w-sm">
                   Ready to see how our AI-powered analytics can transform your insights?
                 </p>
-                <button
-                  type="button"
-                  onClick={navigateToContact}
-                  className="rounded-full bg-white px-7 py-3 text-base font-semibold text-[#1d2d3a] shadow-lg transition hover:bg-[#1d2d3a] hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d2d3a]"
-                  aria-label="Go to contact form to request a demo"
-                >
-                  Get demo
-                </button>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={navigateToContact}
+                    className={
+                      "relative inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-[#063a52] " +
+                      "bg-gradient-to-b from-[#dff7ff] to-[#bfeeff] shadow-[0_10px_25px_rgba(6,58,82,0.18)] ring-1 ring-white/40 transition-colors " +
+                      "hover:from-[#d5f3ff] hover:to-[#aeeaff] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+                    }
+                    aria-label="Request a free demo"
+                  >
+                    {/* glossy highlight */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-1 left-6 right-6 h-6 rounded-full bg-white/60 opacity-80 blur-sm pointer-events-none"
+                    />
+                    <span className="relative">Free Demo</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      // attempt to seek to start and play again; use any to access full YT API
+                      try {
+                        (playerRef.current as any)?.seekTo?.(0);
+                        (playerRef.current as any)?.playVideo?.();
+                      } catch {
+                        // fallback: destroy and re-create by toggling playing state
+                        try {
+                          playerRef.current?.destroy?.();
+                          setPlaying(false);
+                          setTimeout(() => setPlaying(true), 50);
+                        } catch {
+                          // ignore
+                        }
+                      }
+                      setEnded(false);
+                    }}
+                    className="rounded-full px-5 py-2 text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
+                    aria-label="Play video again"
+                  >
+                    Play again
+                  </button>
+                </div>
               </div>
             </div>
           )}
