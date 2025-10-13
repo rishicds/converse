@@ -3,8 +3,10 @@ import Image from 'next/image'
 
 const AIPoweredAnalytics = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full py-8">
-      <h1 className='uppercase text-4xl font-bold mb-4'>AI Powered Analytics Comes to life</h1>
+    <div className="flex flex-col items-center justify-center w-full px-4 py-8 sm:px-6 md:py-12">
+      <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center leading-tight">
+        AI Powered Analytics Comes to life
+      </h1>
       <Image
         src="/perception/aipoweredanalytics.png"
         alt="AI Powered Advanced Analytics Flow"
