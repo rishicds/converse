@@ -229,20 +229,25 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
 
           {/* Get demo overlay shown when video ends */}
           {ended && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center bg-blue-900/75 backdrop-blur-sm">
-              <div className="flex flex-col items-center gap-4 text-center">
-                <Image
-                  src="/Perception_Logo-01[1].png"
-                  alt="CGC logo"
-                  width={120}
-                  height={40}
-                  className="w-30 h-auto bg-amber-50"
-                  priority
-                />
-                <p className="text-lg font-medium text-white max-w-sm">
-                  Ready to see how our AI-powered analytics can transform your insights?
-                </p>
-                <div className="flex items-center gap-3">
+            <div className="absolute inset-0 z-50 flex items-center justify-center">
+              {/* full-bleed background image (video thumbnail) */}
+              <Image
+                src="/image.png"
+                alt="Video thumbnail background"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+
+              {/* dim/blur overlay on top of image */}
+              <div  />
+
+              {/* content above the background */}
+              <div className="relative z-10 flex flex-col items-center gap-4 text-center px-4">
+                
+
+                <div className="flex pt-30 items-center gap-3">
                   <button
                     type="button"
                     onClick={navigateToContact}
