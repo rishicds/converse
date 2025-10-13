@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const WhyChoosePerceptionAI = () => {
   return (
-    <section className="w-full py-8 md:py-8 lg:py-8">
+    <section className="w-full ">
       <div className="mx-auto max-w-6xl px-6">
         {/* Title */}
         <div className="mb-8 md:mb-12">
