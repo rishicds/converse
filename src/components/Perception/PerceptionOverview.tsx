@@ -11,6 +11,8 @@ interface YTPlayerOptions {
 interface YTPlayer {
   getPlayerState(): number;
   destroy(): void;
+  seekTo(seconds: number): void;
+  playVideo(): void;
 }
 
 interface YTPlayerConstructor {
@@ -262,10 +264,10 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                   <button
                     type="button"
                     onClick={() => {
-                      // attempt to seek to start and play again; use any to access full YT API
+                      // attempt to seek to start and play again
                       try {
-                        (playerRef.current as any)?.seekTo?.(0);
-                        (playerRef.current as any)?.playVideo?.();
+                        (playerRef.current as YTPlayer)?.seekTo?.(0);
+                        (playerRef.current as YTPlayer)?.playVideo?.();
                       } catch {
                         // fallback: destroy and re-create by toggling playing state
                         try {

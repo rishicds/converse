@@ -13,7 +13,8 @@ const members = [
       'Core areas: Strategic planning and Analytics',
       'Started CGC in 2016, and AI analytics tool PERCEPTION in 2017/18.'
     ],
-    image: '/company/team/kray.png'
+    image: '/company/team/kray.png',
+    linkedin: 'https://www.linkedin.com/in/krishnashish-ray-kray-242b291/'
   },
   {
     name: 'Adriana Rohalova',
@@ -24,7 +25,8 @@ const members = [
       'Core areas: Creativity and communication',
       'Collaborative mindset fostering a “voice of reason”'
     ],
-    image: '/company/team/adriana.png'
+    image: '/company/team/adriana.png',
+    linkedin: 'https://www.linkedin.com/in/adriana-rohalova-671123b/'
   },
   {
     name: 'Anoop Sardeshpande',
@@ -35,7 +37,8 @@ const members = [
       'Core areas: Regional insights (Quantitative and Qualitative) across multiple regions and multiple industries (FMCG, Retail, Banking, Automotive, Government)',
       'Proactive and growth-oriented'
     ],
-    image: '/company/team/anoop.jpg'
+    image: '/company/team/anoop.jpg',
+    linkedin: 'https://www.linkedin.com/in/anoop-sardeshpande-6278106/'
   },
   {
     name: 'Dina Dali',
@@ -46,7 +49,8 @@ const members = [
       'Core areas: Regional insights (Qualitative).',
       'Proactive and detail-oriented'
     ],
-    image: '/company/team/dina.png'
+    image: '/company/team/dina.png',
+    linkedin: 'https://www.linkedin.com/in/dina-dali-4a842241/'
   },
   {
     name: 'Vivaswan Bhattarchaya',
@@ -56,7 +60,8 @@ const members = [
       '28+ years in Telecom and Network Management',
       'Core areas: Managing large technology operations across geographies. Innovation. Technology and organizational transformation'
     ],
-    image: '/company/team/vivaswan.png'
+    image: '/company/team/vivaswan.png',
+    linkedin: 'https://in.linkedin.com/in/vivaswan-bhattacharya-a415318'
   },
   {
     name: 'Sajeev Bhaskaran',
@@ -66,7 +71,8 @@ const members = [
       '25+ years in Supply Chain and Logistics.',
       'Core areas: Establishing efficient & effective processes in sourcing and logistics. Supplier and logistic partner management. Demand and Supply planning.'
     ],
-    image: '/company/team/sajeev.jpg'
+    image: '/company/team/sajeev.jpg',
+    linkedin: 'https://www.linkedin.com/in/sajeev-bhaskaran-866b7720/'
   },
   {
     name: 'Harish Bhambhaney',
@@ -77,7 +83,8 @@ const members = [
       'Core areas: M&A, Brand Assessment, Corporte Finance and Treasury',
       'Core Strengths: Strategy focused, Purpose Driven and Result Oriented'
     ],
-    image: '/company/team/harish.png'
+    image: '/company/team/harish.png',
+    linkedin: 'https://www.linkedin.com/in/harish-bhambhaney-8901b21b/'
   }
 ];
 
@@ -117,7 +124,7 @@ const TeamPage: React.FC = () => {
                 </ul>
 
                 <div className="mt-6">
-                  <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-2 text-blue-600">
+                  <a href={m.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                       <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6C1.1 6 0 4.88 0 3.5C0 2.12 1.1 1 2.48 1C3.86 1 4.98 2.12 4.98 3.5Z" fill="#1B66A7" />
                       <path d="M.5 8.5H4.5V24H.5V8.5Z" fill="#1B66A7" />
