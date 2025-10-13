@@ -18,15 +18,14 @@ const WhyChoosePerceptionAI = () => {
                 height={160}
                 className="h-10 w-40 md:h-16 md:w-12 lg:h-20 lg:w-42 object-contain"
                 priority
-                sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, (max-width: 1024px) 96px, (max-width: 1280px) 112px, 128px"
               />
+              
             </span>
           </h2>
-
-          <p className="mt-4 max-w-3xl text-sm md:text-base lg:text-lg leading-relaxed text-neutral-700 text-center mx-auto px-2 md:px-0">
-            Structured and unstructured data flow into <span className="font-semibold">PERCEPTION</span>, a proprietary AI-powered
-            analytics tool built on advanced Large Language Models (LLMs) with a conversational chatbot that answers queries about the
-            analyzed data.
+          <p className="mt-6 max-w-4xl text-base md:text-lg leading-relaxed text-neutral-700 text-center mx-auto">
+            Structured and Unstructured data flows into <span className="font-semibold">PERCEPTION</span>, a proprietary AI-powered
+            analytics tool based on advanced Large Language Models (LLMs) with a conversational AI chatbot which promptly
+            answers any queries related to the analyzed data.
           </p>
         </div>
 
