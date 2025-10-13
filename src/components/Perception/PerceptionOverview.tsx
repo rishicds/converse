@@ -32,25 +32,27 @@ import { useRouter } from 'next/navigation';
 const PerceptionOverview: React.FC = () => {
   return (
     <>
-      <h1 className="text-3xl md:text-5xl uppercase font-extrabold tracking-tight text-center text-[#3b3f42] mb-12 font-raleway">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl uppercase font-extrabold tracking-tight text-center text-[#3b3f42] mb-8 md:mb-12 font-raleway px-4 sm:px-0">
         AI Powered Advanced Analytics
       </h1>
-      <div className="grid md:grid-cols-2 gap-10 items-start">
-        <div className="text-lg md:text-xl leading-relaxed font-inter text-[#303030] space-y-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-start">
+        <div className="text-base sm:text-lg lg:text-xl leading-relaxed font-inter text-[#303030] space-y-6 md:space-y-8 lg:space-y-10 order-2 lg:order-1">
           <p>
             AI uses neural networks to learn like the human brain – connecting inputs to outputs without being manually programmed. Through deep learning, it trains itself by processing data repeatedly, improving its ability to analyze and make decisions.
           </p>
           <div>
-            <h2 className="text-2xl font-bold mb-4 font-raleway">Why AI?</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 md:mb-4 font-raleway">Why AI?</h2>
             <p>
-              In today’s rapidly evolving world, asking questions isn’t enough—real insights live in the unstructured noise (data) you’re ignoring.
+              In today&apos;s rapidly evolving world, asking questions isn&apos;t enough—real insights live in the unstructured noise (data) you&apos;re ignoring.
             </p>
           </div>
           <p className="font-semibold font-raleway text-[#1d2d3a]">
             At CGC we augment traditional research with NextGen technology.
           </p>
         </div>
-        <VideoEmbed videoId="pKGYXlf_BCo" />
+        <div className="order-1 lg:order-2">
+          <VideoEmbed videoId="pKGYXlf_BCo" />
+        </div>
       </div>
     </>
   );

@@ -68,7 +68,7 @@ const ContactSection = () => {
   return (
     <>
       {/* Contact Section */}
-  <section id="contact" className="py-16 relative overflow-hidden" >
+  <section id="contact" className="pt-8 pb-16 relative overflow-hidden" >
         {/* Background pattern */}
        
 

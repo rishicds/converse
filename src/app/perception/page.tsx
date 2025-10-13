@@ -16,7 +16,7 @@ const PerceptionPage = () => {
   return (
     <PerceptionPageWrapper>
       <PerceptionOverview />
-      <div className="mt-24">
+      <div className="mt-8 md:mt-12 lg:mt-16 space-y-8 md:space-y-12 lg:space-y-16 overflow-hidden">
         <StructuredUnstructuredSection />
         <AIPoweredAnalytics />
         <WhyChoosePerceptionAI />

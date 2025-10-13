@@ -41,7 +41,7 @@ const steps = [
 
 const HowBigDataAnalysisWorks = () => {
   return (
-    <section aria-labelledby="how-big-data-analysis-works" className="w-full mx-auto max-w-7xl px-4 md:px-8 py-12">
+    <section aria-labelledby="how-big-data-analysis-works" className="w-full mx-auto max-w-7xl px-4 md:px-8 py-12 overflow-hidden">
       <div className="text-center mb-12">
         <h2
           id="how-big-data-analysis-works"

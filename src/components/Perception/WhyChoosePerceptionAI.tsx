@@ -18,6 +18,7 @@ const WhyChoosePerceptionAI = () => {
                 height={160}
                 className="h-10 w-40 md:h-16 md:w-12 lg:h-20 lg:w-42 object-contain"
                 priority
+                sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, (max-width: 1024px) 96px, (max-width: 1280px) 112px, 128px"
               />
             </span>
           </h2>
