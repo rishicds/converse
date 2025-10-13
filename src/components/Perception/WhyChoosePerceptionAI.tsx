@@ -31,7 +31,7 @@ const WhyChoosePerceptionAI = () => {
 
         {/* Infographic image only (cards removed) */}
         <div className="mt-6">
-          <div className="w-full rounded-lg overflow-hidden shadow-sm">
+          <div className="w-full rounded-lg overflow-hidden ">
             <Image
               src="/perception/whychooseperception.png"
               alt="Why choose Perception AI infographic"
