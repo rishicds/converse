@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import Image from 'next/image';
 import HeroSection from '@/components/Home/Hero/HeroSection';
 import ServiceCard from '@/components/Home/Hero/ServiceCard';
 import ClientLogos from '@/components/Home/ClientLogos';
@@ -13,12 +14,21 @@ const HomePage = () => {
     {
       id: 1,
       image: "/home/hero/ai.png",
-        title: (
-          <div className="flex items-center gap-2">
-            <span className="whitespace-nowrap">Research and Analytics</span>
-            <img src="/perception.png" alt="Perception Logo" className="h-8 w-auto sm:h-10 ml" />
-          </div>
-        ),
+      title: (
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full">
+          <span className="whitespace-nowrap text-center sm:text-left">Research and Analytics</span>
+          <span className="mt-2 sm:mt-0 sm:ml-2 flex justify-center sm:justify-start w-full sm:w-auto">
+            <Image
+              src="/perception.png"
+              alt="Perception Logo"
+              width={120}
+              height={34}
+              className="object-contain"
+              sizes="(max-width: 640px) 80px, 120px"
+            />
+          </span>
+        </div>
+      ),
       description: "Unlock category and brand customer insights augmented by our LLM based AI tool that decodes authentic conversations.",
       isLogo: false,
       targetId: 'research'
