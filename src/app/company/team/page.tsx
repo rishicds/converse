@@ -31,7 +31,7 @@ const members = [
   {
     name: 'Anoop Sardeshpande',
     title: 'Research & Analytics Lead',
-    blurb: '(ex Nielsen, Kantar / IMRB, TNs).',
+    blurb: '(ex Nielsen, Kantar / IMRB, TNS).',
     bullets: [
       '25+ years in Research and Analytics.',
       'Core areas: Regional insights (Quantitative and Qualitative) across multiple regions and multiple industries (FMCG, Retail, Banking, Automotive, Government)',
