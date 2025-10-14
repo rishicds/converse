@@ -34,7 +34,7 @@ const ResearchSection = () => {
   };
 
   return (
-  <section className="py-16 px-4 md:px-8 lg:px-16" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+  <section className="py-2 px-4 md:px-8 lg:px-16" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -120,7 +120,7 @@ const ResearchSection = () => {
             )}
 
             {/* Perception Logo above Know More */}
-            <div className="flex flex-col items-start pt-6 gap-4">
+            <div className="flex flex-col items-start  gap-4">
               <div className="bg-white/90 p-3 rounded">
                 <Image
                   src="/perception.png"
