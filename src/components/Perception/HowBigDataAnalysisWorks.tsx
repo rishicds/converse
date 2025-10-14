@@ -23,7 +23,7 @@ const steps = [
     number: 4,
     title: 'Dashboard preparation',
     description:
-      'On the basis of expected deliverables, customised client dashboard gets set up where all researched data will be loaded for viewing. Genie, our conversational reasoning AI tool is part of the dashboard, ready to answer any queries related to the research.'
+      'On the basis of expected deliverables, customized client dashboard gets set up where all researched data is loaded for viewing.'
   },
   {
     number: 5,
