@@ -55,7 +55,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
       )}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-xl font-bold text-gray-900 mb-3 font-raleway">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 font-raleway flex items-center">
           {title}
         </h3>
         <p className="text-gray-600 mb-6 font-open-sans leading-relaxed flex-grow">

@@ -142,7 +142,7 @@ const StructuredUnstructuredSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="lg:w-1/2 pt-0 lg:pt-40 flex-shrink-0 max-w-full overflow-hidden">
+          <div className="w-full lg:w-1/2 pt-0 lg:pt-40 flex-shrink-0 max-w-full overflow-hidden">
             <Image
               src="/perception/struct.png"
               alt="Structured data visualization"

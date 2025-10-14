@@ -13,12 +13,12 @@ const HomePage = () => {
     {
       id: 1,
       image: "/home/hero/ai.png",
-      title: (
-        <>
-          Research and Analytics
-          <img src="/perception.png" alt="Perception Logo" className="inline-block h-10 w-32 ml-2 align-middle" style={{display:'inline'}} />
-        </>
-      ),
+        title: (
+          <div className="flex items-center gap-2">
+            <span className="whitespace-nowrap">Research and Analytics</span>
+            <img src="/perception.png" alt="Perception Logo" className="h-8 w-auto sm:h-10 ml" />
+          </div>
+        ),
       description: "Unlock category and brand customer insights augmented by our LLM based AI tool that decodes authentic conversations.",
       isLogo: false,
       targetId: 'research'
@@ -38,7 +38,7 @@ const HomePage = () => {
       <HeroSection />
       
       {/* Services Section */}
-      <section className="py-16">
+      <section className="py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service) => (
