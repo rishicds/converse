@@ -10,6 +10,7 @@ interface ContactFormData {
   workEmail: string;
   interestedIn: string;
   details: string;
+  website: string;
 }
 
 const ContactSection = () => {
@@ -20,8 +21,11 @@ const ContactSection = () => {
     phone: '',
     workEmail: '',
     interestedIn: '',
-    details: ''
+    details: '',
+    website: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,21 +35,46 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
-    setIsPopupOpen(false);
-    // Reset form
-    setFormData({
-      name: '',
-      company: '',
-      phone: '',
-      workEmail: '',
-      interestedIn: '',
-      details: ''
-    });
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage({ type: 'success', text: 'Message sent successfully! We\'ll get back to you soon.' });
+        // Reset form after successful submission
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            company: '',
+            phone: '',
+            workEmail: '',
+            interestedIn: '',
+            details: '',
+            website: ''
+          });
+          setIsPopupOpen(false);
+          setSubmitMessage(null);
+        }, 2000);
+      } else {
+        const error = await response.json();
+        setSubmitMessage({ type: 'error', text: error.error || 'Failed to send message. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage({ type: 'error', text: 'An error occurred. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -170,8 +199,8 @@ const ContactSection = () => {
                     </label>
                     <input
                       type="text"
-                      name="phone"
-                      value={formData.phone}
+                      name="website"
+                      value={formData.website}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-[var(--primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent bg-[var(--background)] text-[var(--foreground)]"
                     />
@@ -227,13 +256,20 @@ const ContactSection = () => {
                   I agree with Terms and Conditions, Privacy Policy and Cookie Policy
                 </div>
 
+                {submitMessage && (
+                  <div className={`p-3 rounded-md mb-4 ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {submitMessage.text}
+                  </div>
+                )}
+
                 <div className="flex justify-end">
-                  <Button
+                  <button
                     type="submit"
-                    className="bg-[var(--primary)] text-[var(--background)] px-6 py-2 rounded-md hover:bg-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-300"
+                    disabled={isSubmitting}
+                    className="bg-[var(--primary)] text-[var(--background)] px-6 py-2 rounded-md hover:bg-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send message
-                  </Button>
+                    {isSubmitting ? 'Sending...' : 'Send message'}
+                  </button>
                 </div>
               </form>
             </div>
