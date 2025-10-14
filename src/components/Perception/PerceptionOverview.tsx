@@ -202,7 +202,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           aria-label="Play video"
         >
           <Image
-            src={thumbnail}
+            src="/image.png"
             alt="Video thumbnail"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
