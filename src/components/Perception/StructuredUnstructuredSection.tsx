@@ -6,6 +6,11 @@ import React from 'react';
 // This component implements the "Structured Data" vs "Unstructured Data" comparison
 // based on the provided design reference. Content adapted into semantic HTML.
 
+// Image size constants
+const IMAGE_WIDTH = 410;
+const IMAGE_HEIGHT = 320;
+const IMAGE_MAX_WIDTH = `${IMAGE_WIDTH}px`;
+
 const issues = [
   'Their slow and static nature',
   'Influence of gratuity culture',
@@ -84,20 +89,20 @@ const StructuredUnstructuredSection: React.FC = () => {
             <Image
               src="/perception/uns.png"
               alt="Unstructured data visualization"
-              width={660}
-              height={340}
-              className="w-full max-w-full h-auto object-contain rounded"
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
               priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
              <Image
               src="/perception/uns2.png"
               alt="Unstructured data visualization"
-              width={660}
-              height={340}
-              className="w-full max-w-full pt-4 h-auto object-contain rounded"
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] pt-4 h-auto object-contain rounded`}
               priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
           </div>
         </div>
@@ -146,11 +151,11 @@ const StructuredUnstructuredSection: React.FC = () => {
             <Image
               src="/perception/struct.png"
               alt="Structured data visualization"
-              width={960}
-              height={640}
-              className="w-full max-w-full h-auto object-contain rounded"
+              width={IMAGE_WIDTH}
+              height={IMAGE_HEIGHT}
+              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
               priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
           </div>
         </div>

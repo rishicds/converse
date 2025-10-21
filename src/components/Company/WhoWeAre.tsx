@@ -86,12 +86,12 @@ const WhoWeAre: React.FC = () => {
           style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
         />
       </div>
-      <h1 className='text-2xl md:text-3xl font-bold text-center text-blue-900 my-10'>Safeguarding your data, ensuring confidentiality</h1>
+  <h1 className='text-2xl md:text-3xl font-bold uppercase text-center text-blue-900 my-10'>Safeguarding your data, ensuring confidentiality</h1>
       <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
         <img
           src="/company/partnerwithus.png"
           alt="Business meeting illustration"
-          style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '' }}
+          style={{ maxWidth: '1200px', width: '100%', borderRadius: '16px', boxShadow: '' }}
         />
       </div>
     </>
