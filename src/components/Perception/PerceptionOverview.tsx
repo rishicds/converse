@@ -242,7 +242,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
               <div  />
 
               {/* content above the background */}
-              <div className="relative z-10 flex flex-col items-center gap-4 text-center px-4">
+              <div className="relative z-10 flex flex-col items-center gap-4 text-center px-4 md:mt-16">
                 
 
                 <div className="flex pt-30 items-center gap-3">
