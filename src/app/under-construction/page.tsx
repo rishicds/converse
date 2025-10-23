@@ -20,3 +20,8 @@ export default function ComingSoon() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Under Construction — Converse',
+  description: 'This page is under construction. Come back soon.',
+};

@@ -1,4 +1,4 @@
-"use client"
+
 import React from 'react';
 import Image from 'next/image';
 import HeroSection from '@/components/Home/Hero/HeroSection';
@@ -8,6 +8,12 @@ import AnalyticsDashboard from '@/components/Home/AnalyticsDashboard';
 import ResearchSection from '@/components/Home/ResearchSection';
 import BusinessConsultingSection from '@/components/Home/BusinessConsultingSection';
 import ContactSection from '@/components/Home/ContactSection';
+
+export const metadata = {
+  title: 'Converse Global Consulting — Research & Consulting',
+  description:
+    "Research and analytics augmented by AI (Perception) plus business & marketing consulting for CPG/FMCG brands.",
+};
 
 const HomePage = () => {
   const services = [
