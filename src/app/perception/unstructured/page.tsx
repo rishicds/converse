@@ -88,11 +88,11 @@ const Section: React.FC<{ item: InsightItem; reverse?: boolean }> = ({ item, rev
 	);
 };
 
-export const metadata = {
-		title: 'Perception — Unstructured Insights',
-		description:
-			'Unstructured data insights: influencer impact, brand health, campaign evaluation and customer experience analysis.',
-}
+// export const metadata = {
+// 		title: 'Perception — Unstructured Insights',
+// 		description:
+// 			'Unstructured data insights: influencer impact, brand health, campaign evaluation and customer experience analysis.',
+// }
 
 export default function UnstructuredPerceptionPage() {
 		return (

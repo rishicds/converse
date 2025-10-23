@@ -7,10 +7,10 @@ import WhyChoosePerceptionAI from '@/components/Perception/WhyChoosePerceptionAI
 import UnstructuredPerceptionSection from '@/components/Perception/UnstructuredPerceptionSection';
 import WhyClientsChooseUs from '@/components/Perception/WhyClientsChooseUs';
 import HowBigDataAnalysisWorks from '@/components/Perception/HowBigDataAnalysisWorks';
-export const metadata = {
-  title: 'Perception | AI Powered Advanced Analytics',
-  description: 'AI powered advanced analytics and research augmentation.'
-};
+// export const metadata = {
+//   title: 'Perception | AI Powered Advanced Analytics',
+//   description: 'AI powered advanced analytics and research augmentation.'
+// };
 
 const PerceptionPage = () => {
   return (
