@@ -104,3 +104,36 @@ h1, h2, h3, h4, h5, h6 {
   /* Prevent children from growing/shrinking during load */
   flex: 0 0 auto;
 }
+
+/* Reduce specific Perception images by 20% and center them.
+   These rules are intentionally scoped to `.perception-global-img` so
+   other components' images are not affected. Use transform: scale(0.8)
+   so intrinsic layout is preserved; use display:block and margin:auto to center. */
+.perception-global-img,
+.perception-global-img img,
+.perception-global-img picture img,
+.perception-global-img figure img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: scale(0.8);
+  transform-origin: center center;
+}
+
+/* Next.js Image component renders an inline wrapper; target image-like wrappers and children
+   but only when the component/root has the perception-global-img class. */
+.perception-global-img > span > img[src],
+.perception-global-img > img[src] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transform: scale(0.8);
+  transform-origin: center center;
+}
+
+/* Utility: if a component wants original sizing, they can opt-out with .no-global-image-style */
+.no-global-image-style,
+.no-global-image-style img {
+  transform: none !important;
+  margin: 0 !important;
+}

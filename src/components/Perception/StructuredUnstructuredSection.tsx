@@ -91,7 +91,7 @@ const StructuredUnstructuredSection: React.FC = () => {
               alt="Unstructured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
-              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
+              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
               priority
               sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
@@ -100,7 +100,7 @@ const StructuredUnstructuredSection: React.FC = () => {
               alt="Unstructured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
-              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] pt-4 h-auto object-contain rounded`}
+              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] pt-4 h-auto object-contain rounded`}
               priority
               sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
@@ -153,7 +153,7 @@ const StructuredUnstructuredSection: React.FC = () => {
               alt="Structured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
-              className={`w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
+              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
               priority
               sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />

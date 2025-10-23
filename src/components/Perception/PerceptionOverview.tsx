@@ -37,8 +37,8 @@ const PerceptionOverview: React.FC = () => {
       <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl uppercase font-extrabold tracking-tight text-center text-[#3b3f42] mb-8 md:mb-12 font-raleway px-4 sm:px-0">
         AI Powered Advanced Analytics
       </h1>
-      <div className="w-full mb-8 md:mb-12 lg:mb-16">
-        <VideoEmbed videoId="pKGYXlf_BCo" />
+      <div className="w-[80%] mx-auto mb-8 md:mb-12 lg:mb-16">
+        <VideoEmbed videoId="wWkdi0OQTeE" />
       </div>
       <div className="text-base sm:text-lg lg:text-xl leading-relaxed font-inter text-[#303030] space-y-6 md:space-y-8 lg:space-y-10 max-w-5xl mx-auto">
         <p>
