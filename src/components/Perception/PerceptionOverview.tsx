@@ -72,6 +72,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
     const handleEnded = () => {
       console.log('Video ended - showing overlay');
       setEnded(true);
+      setShowOverlay(true);
       setLoading(false);
     };
 
@@ -94,10 +95,10 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
     };
 
     const handleTimeUpdate = () => {
-      // Check if video is near the end (last 2 seconds)
-      if (video.currentTime >= video.duration - 0.3 && video.duration > 0) {
+      // Check if video is near the end (last 4 seconds for smooth fade-in animation)
+      if (video.currentTime >= video.duration - 4 && video.duration > 0) {
         if (!showOverlay) {
-          console.log('Video in last 2 seconds, showing overlay');
+          console.log('Video in last 4 seconds, showing overlay with fade-in');
           setShowOverlay(true);
         }
       }
@@ -112,12 +113,18 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
 
     // Polling fallback to detect video end
     const checkInterval = setInterval(() => {
-      if (video.ended && !ended) {
+      if (video.ended && !showOverlay) {
         console.log('Video detected as ended via polling');
         setEnded(true);
+        setShowOverlay(true);
         setLoading(false);
       }
-    }, 500);
+      // Also check if we're in last 4 seconds
+      if (video.duration > 0 && video.currentTime >= video.duration - 4 && !showOverlay) {
+        console.log('Video in last 4 seconds via polling');
+        setShowOverlay(true);
+      }
+    }, 100);
 
     return () => {
       video.removeEventListener('ended', handleEnded);
@@ -163,7 +170,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
   };
 
   return (
-    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-black">
+    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
       {!playing ? (
         <button
           type="button"
@@ -201,29 +208,34 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
           <video
             ref={videoRef}
             src={videoUrl}
-            className={`w-full h-full object-contain transition-opacity duration-500 ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
+            className={`w-full h-full object-contain transition-opacity duration-[2000ms] ease-in-out ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
             controls
             autoPlay
             playsInline
             preload="auto"
-            controlsList="nodownload"
+            controlsList="nodownload nofullscreen"
+            disablePictureInPicture
             onEnded={() => {
               console.log('Video onEnded callback fired');
               setEnded(true);
+              setShowOverlay(true);
               setLoading(false);
             }}
           />
 
           {/* Loading spinner overlay */}
           {loading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-40 pointer-events-none">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10 pointer-events-none">
               <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin" />
             </div>
           )}
 
-          {/* Get demo overlay shown in last 2 seconds of video */}
+          {/* Get demo overlay shown in last 4 seconds of video with fade-in animation */}
           {showOverlay && (
-            <div className="absolute inset-0 z-[60] flex items-center justify-center bg-cover bg-center animate-fade-in" style={{ backgroundImage: 'url(/image.png)' }}>
+            <div 
+              className="absolute inset-0 z-20 flex items-center justify-center bg-cover bg-center animate-in fade-in duration-[2000ms]" 
+              style={{ backgroundImage: 'url(/image.png)' }}
+            >
               {/* dim overlay on top of image */}
               <div className="absolute inset-0 bg-black/10" />
 
