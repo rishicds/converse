@@ -1,32 +1,5 @@
 "use client"
 
-interface YTPlayerOptions {
-  width?: string | number;
-  height?: string | number;
-  videoId: string;
-  playerVars?: Record<string, unknown>;
-  events?: Record<string, (event: { data: number }) => void>;
-}
-
-interface YTPlayer {
-  getPlayerState(): number;
-  destroy(): void;
-  seekTo(seconds: number): void;
-  playVideo(): void;
-}
-
-interface YTPlayerConstructor {
-  new (element: HTMLElement | string, options: YTPlayerOptions): YTPlayer;
-}
-
-declare global {
-  interface Window {
-    YT?: {
-      Player: YTPlayerConstructor;
-    };
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -38,8 +11,20 @@ const PerceptionOverview: React.FC = () => {
         AI Powered Advanced Analytics
       </h1>
       <div className="w-[80%] mx-auto mb-8 md:mb-12 lg:mb-16">
-        <VideoEmbed videoId="wWkdi0OQTeE" />
+        <VideoEmbed videoUrl="https://cgassets.s3.us-west-2.amazonaws.com/assets/Perception+final+video+(1).mp4" />
       </div>
+      {/* Debug button - remove after testing */}
+      {/* <div className="text-center mb-4">
+        <button 
+          onClick={() => {
+            const event = new CustomEvent('test-video-overlay');
+            window.dispatchEvent(event);
+          }}
+          className="px-4 py-2 bg-red-500 text-white rounded"
+        >
+          Test Overlay (Debug)
+        </button>
+      </div> */}
       <div className="text-base sm:text-lg lg:text-xl leading-relaxed font-inter text-[#303030] space-y-6 md:space-y-8 lg:space-y-10 max-w-5xl mx-auto">
         <p>
           AI uses neural networks to learn like the human brain – connecting inputs to outputs without being manually programmed. Through deep learning, it trains itself by processing data repeatedly, improving its ability to analyze and make decisions.
@@ -61,108 +46,76 @@ const PerceptionOverview: React.FC = () => {
 export default PerceptionOverview;
 
 type VideoEmbedProps = {
-  videoId: string;
+  videoUrl: string;
 };
 
-const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
+const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  const playerRef = useRef<YTPlayer | null>(null);
-  const playerContainerRef = useRef<HTMLDivElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (!playing) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-    let mounted = true;
-
-    type YTEvent = { data: number };
-    const createPlayer = () => {
-      if (!mounted) return;
-      const YT = window.YT;
-      if (!YT || !playerContainerRef.current) return;
-
-      playerRef.current = new YT.Player(playerContainerRef.current, {
-        width: '100%',
-        height: '100%',
-        videoId,
-        playerVars: {
-          autoplay: 1,
-          rel: 0,
-          modestbranding: 1,
-        },
-        events: {
-          onStateChange: (event: YTEvent) => {
-            if (event.data === 0) {
-              setEnded(true);
-            }
-            if (event.data === 1) {
-              setEnded(false);
-            }
-            if (event.data === 2 || event.data === 3) {
-              setEnded(false);
-            }
-          },
-        },
-      });
+    const handleEnded = () => {
+      console.log('Video ended - showing overlay');
+      setEnded(true);
+      setLoading(false);
     };
 
-    let pollInterval: ReturnType<typeof setInterval> | null = null;
-
-    if (window.YT && window.YT.Player) {
-      createPlayer();
-      pollInterval = setInterval(() => {
-        try {
-          const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) setEnded(true);
-          if (st === 1 || st === 2 || st === 3) setEnded(false);
-        } catch {
-          // ignore
-        }
-      }, 1000);
-
-      return () => {
-        mounted = false;
-        if (pollInterval) clearInterval(pollInterval);
-        playerRef.current?.destroy?.();
-      };
-    }
-
-    const scriptId = 'youtube-iframe-api';
-    if (!document.getElementById(scriptId)) {
-      const tag = document.createElement('script');
-      tag.id = scriptId;
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(tag);
-    }
-
-    const previous = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previous?.();
-      createPlayer();
-      pollInterval = setInterval(() => {
-        try {
-          const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) setEnded(true);
-          if (st === 1 || st === 2 || st === 3) setEnded(false);
-        } catch {
-          // ignore
-        }
-      }, 1000);
+    const handlePlay = () => {
+      console.log('Video playing');
+      setEnded(false);
     };
 
-    return () => {
-      mounted = false;
-      if (pollInterval) clearInterval(pollInterval);
-      window.onYouTubeIframeAPIReady = previous;
-      try {
-        playerRef.current?.destroy?.();
-      } catch {
-        // ignore
+    const handleWaiting = () => {
+      setLoading(true);
+    };
+
+    const handleCanPlay = () => {
+      setLoading(false);
+    };
+
+    const handlePlaying = () => {
+      setLoading(false);
+    };
+
+    const handleTimeUpdate = () => {
+      // Check if video is near the end or at the end
+      if (video.currentTime >= video.duration - 0.5 && video.duration > 0) {
+        console.log('Video near end, preparing overlay');
       }
     };
-  }, [playing, videoId]);
+
+    video.addEventListener('ended', handleEnded);
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('waiting', handleWaiting);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('playing', handlePlaying);
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    // Polling fallback to detect video end
+    const checkInterval = setInterval(() => {
+      if (video.ended && !ended) {
+        console.log('Video detected as ended via polling');
+        setEnded(true);
+        setLoading(false);
+      }
+    }, 500);
+
+    return () => {
+      video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('waiting', handleWaiting);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('playing', handlePlaying);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      clearInterval(checkInterval);
+    };
+  }, [ended]);
 
   const openContactForm = () => {
     if (typeof window === 'undefined') return;
@@ -195,6 +148,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           onClick={() => {
             setPlaying(true);
             setEnded(false);
+            videoRef.current?.play();
           }}
           className="w-full h-full relative flex items-center justify-center focus:outline-none"
           aria-label="Play video"
@@ -222,12 +176,32 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
         </button>
       ) : (
         <div className="w-full h-full relative">
-          {/* player container will be replaced by YT iframe */}
-          <div ref={playerContainerRef} className="w-full h-full z-10" />
+          <video
+            ref={videoRef}
+            src={videoUrl}
+            className={`w-full h-full object-contain transition-opacity ${ended ? 'opacity-0' : 'opacity-100'}`}
+            controls
+            autoPlay
+            playsInline
+            preload="auto"
+            controlsList="nodownload"
+            onEnded={() => {
+              console.log('Video onEnded callback fired');
+              setEnded(true);
+              setLoading(false);
+            }}
+          />
+
+          {/* Loading spinner overlay */}
+          {loading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-40 pointer-events-none">
+              <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+            </div>
+          )}
 
           {/* Get demo overlay shown when video ends */}
           {ended && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center">
+            <div className="absolute inset-0 z-[60] flex items-center justify-center">
               {/* full-bleed background image (video thumbnail) */}
               <Image
                 src="/image.png"
@@ -239,18 +213,18 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
               />
 
               {/* dim/blur overlay on top of image */}
-              <div  />
+              <div className="absolute inset-0 bg-black/10" />
 
               {/* content above the background */}
-              <div className="relative z-10 flex flex-col items-center gap-4 text-center px-4 md:mt-16">
-                
+              <div className="relative z-10 flex flex-col items-center gap-6 text-center px-4">
+               
 
-                <div className="flex pt-30 items-center gap-3">
+                <div className="flex mt-16 md:mt-38 flex-wrap justify-center items-center gap-3">
                   <button
                     type="button"
                     onClick={navigateToContact}
                     className={
-                      "relative inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-[#063a52] " +
+                      "relative  inline-flex items-center justify-center rounded-full px-6 py-2 text-sm font-semibold text-[#063a52] sm:px-8 sm:py-3 sm:text-base " +
                       "bg-gradient-to-b from-[#dff7ff] to-[#bfeeff] shadow-[0_10px_25px_rgba(6,58,82,0.18)] ring-1 ring-white/40 transition-colors " +
                       "hover:from-[#d5f3ff] hover:to-[#aeeaff] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
                     }
@@ -267,23 +241,13 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                   <button
                     type="button"
                     onClick={() => {
-                      // attempt to seek to start and play again
-                      try {
-                        (playerRef.current as YTPlayer)?.seekTo?.(0);
-                        (playerRef.current as YTPlayer)?.playVideo?.();
-                      } catch {
-                        // fallback: destroy and re-create by toggling playing state
-                        try {
-                          playerRef.current?.destroy?.();
-                          setPlaying(false);
-                          setTimeout(() => setPlaying(true), 50);
-                        } catch {
-                          // ignore
-                        }
+                      if (videoRef.current) {
+                        videoRef.current.currentTime = 0;
+                        videoRef.current.play();
                       }
                       setEnded(false);
                     }}
-                    className="rounded-full px-5 py-2 text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
+                    className="rounded-full px-3 py-1 text-xs sm:px-5 sm:py-2 sm:text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
                     aria-label="Play video again"
                   >
                     Play again
