@@ -13,6 +13,8 @@ interface YTPlayer {
   destroy(): void;
   seekTo(seconds: number): void;
   playVideo(): void;
+  getCurrentTime(): number;
+  getDuration(): number;
 }
 
 interface YTPlayerConstructor {
@@ -66,9 +68,7 @@ type VideoEmbedProps = {
 
 const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
   const [playing, setPlaying] = useState(false);
-  const [ended, setEnded] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const playerRef = useRef<YTPlayer | null>(null);
   const playerContainerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
@@ -96,14 +96,13 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
         events: {
           onStateChange: (event: YTEvent) => {
             if (event.data === 0) {
-              setEnded(true);
               setShowOverlay(true);
             }
             if (event.data === 1) {
-              setEnded(false);
+              setShowOverlay(false);
             }
             if (event.data === 2 || event.data === 3) {
-              setEnded(false);
+              // paused or buffering - don't change overlay state
             }
           },
         },
@@ -119,10 +118,11 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
         try {
           const st = playerRef.current?.getPlayerState?.();
           if (st === 0) {
-            setEnded(true);
             setShowOverlay(true);
           }
-          if (st === 1 || st === 2 || st === 3) setEnded(false);
+          if (st === 1 || st === 2 || st === 3) {
+            // playing, paused, or buffering
+          }
         } catch {
           // ignore
         }
@@ -131,7 +131,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
       // Check video time to show overlay 2 seconds before end
       timeCheckInterval = setInterval(() => {
         try {
-          const player = playerRef.current as any;
+          const player = playerRef.current;
           if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
             const currentTime = player.getCurrentTime();
             const duration = player.getDuration();
@@ -168,10 +168,11 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
         try {
           const st = playerRef.current?.getPlayerState?.();
           if (st === 0) {
-            setEnded(true);
             setShowOverlay(true);
           }
-          if (st === 1 || st === 2 || st === 3) setEnded(false);
+          if (st === 1 || st === 2 || st === 3) {
+            // playing, paused, or buffering
+          }
         } catch {
           // ignore
         }
@@ -180,7 +181,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
       // Check video time to show overlay 2 seconds before end
       timeCheckInterval = setInterval(() => {
         try {
-          const player = playerRef.current as any;
+          const player = playerRef.current;
           if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
             const currentTime = player.getCurrentTime();
             const duration = player.getDuration();
@@ -237,7 +238,6 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           type="button"
           onClick={() => {
             setPlaying(true);
-            setEnded(false);
             setShowOverlay(false);
           }}
           className="w-full h-full relative flex items-center justify-center focus:outline-none"
@@ -328,7 +328,6 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                           // ignore
                         }
                       }
-                      setEnded(false);
                       setShowOverlay(false);
                     }}
                     className="rounded-full px-5 py-2 text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
