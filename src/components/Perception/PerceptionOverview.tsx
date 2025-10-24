@@ -117,6 +117,15 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
     };
   }, [ended]);
 
+  // Auto-play video when playing state becomes true
+  useEffect(() => {
+    if (playing && videoRef.current) {
+      videoRef.current.play().catch(err => {
+        console.error('Error playing video:', err);
+      });
+    }
+  }, [playing]);
+
   const openContactForm = () => {
     if (typeof window === 'undefined') return;
     window.dispatchEvent(
@@ -146,9 +155,8 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
         <button
           type="button"
           onClick={() => {
-            setPlaying(true);
             setEnded(false);
-            videoRef.current?.play();
+            setPlaying(true);
           }}
           className="w-full h-full relative flex items-center justify-center focus:outline-none"
           aria-label="Play video"
