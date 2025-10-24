@@ -53,8 +53,17 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [overlayImageLoaded, setOverlayImageLoaded] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
+
+  // Preload the overlay image when component mounts
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = '/image.png';
+    img.onload = () => setOverlayImageLoaded(true);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -69,6 +78,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
     const handlePlay = () => {
       console.log('Video playing');
       setEnded(false);
+      setShowOverlay(false);
     };
 
     const handleWaiting = () => {
@@ -84,11 +94,14 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
     };
 
     const handleTimeUpdate = () => {
-      // Check if video is near the end or at the end
-      if (video.currentTime >= video.duration - 0.5 && video.duration > 0) {
-        console.log('Video near end, preparing overlay');
+      // Check if video is near the end (last 2 seconds)
+      if (video.currentTime >= video.duration - 0.3 && video.duration > 0) {
+        if (!showOverlay) {
+          console.log('Video in last 2 seconds, showing overlay');
+          setShowOverlay(true);
+        }
       }
-    };
+    };  
 
     video.addEventListener('ended', handleEnded);
     video.addEventListener('play', handlePlay);
@@ -115,7 +128,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
       clearInterval(checkInterval);
     };
-  }, [ended]);
+  }, [ended, showOverlay]);
 
   // Auto-play video when playing state becomes true
   useEffect(() => {
@@ -156,6 +169,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
           type="button"
           onClick={() => {
             setEnded(false);
+            setShowOverlay(false);
             setPlaying(true);
           }}
           className="w-full h-full relative flex items-center justify-center focus:outline-none"
@@ -183,11 +197,11 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
           </svg>
         </button>
       ) : (
-        <div className="w-full h-full relative">
+        <div className="w-full h-full relative bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
           <video
             ref={videoRef}
             src={videoUrl}
-            className={`w-full h-full object-contain transition-opacity ${ended ? 'opacity-0' : 'opacity-100'}`}
+            className={`w-full h-full object-contain transition-opacity duration-500 ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
             controls
             autoPlay
             playsInline
@@ -207,20 +221,10 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
             </div>
           )}
 
-          {/* Get demo overlay shown when video ends */}
-          {ended && (
-            <div className="absolute inset-0 z-[60] flex items-center justify-center">
-              {/* full-bleed background image (video thumbnail) */}
-              <Image
-                src="/image.png"
-                alt="Video thumbnail background"
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-              />
-
-              {/* dim/blur overlay on top of image */}
+          {/* Get demo overlay shown in last 2 seconds of video */}
+          {showOverlay && (
+            <div className="absolute inset-0 z-[60] flex items-center justify-center bg-cover bg-center animate-fade-in" style={{ backgroundImage: 'url(/image.png)' }}>
+              {/* dim overlay on top of image */}
               <div className="absolute inset-0 bg-black/10" />
 
               {/* content above the background */}
@@ -254,6 +258,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
                         videoRef.current.play();
                       }
                       setEnded(false);
+                      setShowOverlay(false);
                     }}
                     className="rounded-full px-3 py-1 text-xs sm:px-5 sm:py-2 sm:text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
                     aria-label="Play video again"
