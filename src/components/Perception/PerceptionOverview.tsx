@@ -67,6 +67,7 @@ type VideoEmbedProps = {
 const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
   const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const playerRef = useRef<YTPlayer | null>(null);
   const playerContainerRef = useRef<HTMLDivElement | null>(null);
@@ -96,6 +97,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           onStateChange: (event: YTEvent) => {
             if (event.data === 0) {
               setEnded(true);
+              setShowOverlay(true);
             }
             if (event.data === 1) {
               setEnded(false);
@@ -109,22 +111,43 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
     };
 
     let pollInterval: ReturnType<typeof setInterval> | null = null;
+    let timeCheckInterval: ReturnType<typeof setInterval> | null = null;
 
     if (window.YT && window.YT.Player) {
       createPlayer();
       pollInterval = setInterval(() => {
         try {
           const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) setEnded(true);
+          if (st === 0) {
+            setEnded(true);
+            setShowOverlay(true);
+          }
           if (st === 1 || st === 2 || st === 3) setEnded(false);
         } catch {
           // ignore
         }
       }, 1000);
 
+      // Check video time to show overlay 2 seconds before end
+      timeCheckInterval = setInterval(() => {
+        try {
+          const player = playerRef.current as any;
+          if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
+            const currentTime = player.getCurrentTime();
+            const duration = player.getDuration();
+            if (duration > 0 && currentTime >= duration - 2) {
+              setShowOverlay(true);
+            }
+          }
+        } catch {
+          // ignore
+        }
+      }, 200);
+
       return () => {
         mounted = false;
         if (pollInterval) clearInterval(pollInterval);
+        if (timeCheckInterval) clearInterval(timeCheckInterval);
         playerRef.current?.destroy?.();
       };
     }
@@ -144,17 +167,37 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
       pollInterval = setInterval(() => {
         try {
           const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) setEnded(true);
+          if (st === 0) {
+            setEnded(true);
+            setShowOverlay(true);
+          }
           if (st === 1 || st === 2 || st === 3) setEnded(false);
         } catch {
           // ignore
         }
       }, 1000);
+
+      // Check video time to show overlay 2 seconds before end
+      timeCheckInterval = setInterval(() => {
+        try {
+          const player = playerRef.current as any;
+          if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
+            const currentTime = player.getCurrentTime();
+            const duration = player.getDuration();
+            if (duration > 0 && currentTime >= duration - 2) {
+              setShowOverlay(true);
+            }
+          }
+        } catch {
+          // ignore
+        }
+      }, 200);
     };
 
     return () => {
       mounted = false;
       if (pollInterval) clearInterval(pollInterval);
+      if (timeCheckInterval) clearInterval(timeCheckInterval);
       window.onYouTubeIframeAPIReady = previous;
       try {
         playerRef.current?.destroy?.();
@@ -188,13 +231,14 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
   };
 
   return (
-    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-black">
+    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
       {!playing ? (
         <button
           type="button"
           onClick={() => {
             setPlaying(true);
             setEnded(false);
+            setShowOverlay(false);
           }}
           className="w-full h-full relative flex items-center justify-center focus:outline-none"
           aria-label="Play video"
@@ -221,13 +265,16 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           </svg>
         </button>
       ) : (
-        <div className="w-full h-full relative">
+        <div className="w-full h-full relative bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
           {/* player container will be replaced by YT iframe */}
-          <div ref={playerContainerRef} className="w-full h-full z-10" />
+          <div 
+            ref={playerContainerRef} 
+            className={`w-full h-full z-10 transition-opacity duration-[2000ms] ease-in-out ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
+          />
 
-          {/* Get demo overlay shown when video ends */}
-          {ended && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center">
+          {/* Get demo overlay shown 2 seconds before video ends */}
+          {showOverlay && (
+            <div className="absolute inset-0 z-20 flex items-center justify-center animate-in fade-in duration-[2000ms]">
               {/* full-bleed background image (video thumbnail) */}
               <Image
                 src="/image.png"
@@ -238,8 +285,8 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                 priority
               />
 
-              {/* dim/blur overlay on top of image */}
-              <div  />
+              {/* dim overlay on top of image */}
+              <div className="absolute inset-0 bg-black/10" />
 
               {/* content above the background */}
               <div className="relative z-10 flex flex-col items-center gap-4 text-center px-4 md:mt-16">
@@ -282,6 +329,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                         }
                       }
                       setEnded(false);
+                      setShowOverlay(false);
                     }}
                     className="rounded-full px-5 py-2 text-sm font-medium text-white bg-white/10 border border-white/25 hover:bg-white/20 transition focus-visible:ring-2 focus-visible:ring-white"
                     aria-label="Play video again"
