@@ -1,0 +1,50 @@
+[
+  {
+    "type": "click",
+    "payload": {
+      "element": "get-in-touch-cta"
+    },
+    "timestamp": "2025-10-27T07:57:15.772Z"
+  },
+  {
+    "type": "form_submission",
+    "payload": {
+      "interestedIn": "perception-demo",
+      "email": "nirjharbarma@gmail.com"
+    },
+    "timestamp": "2025-10-27T07:57:24.110Z"
+  },
+  {
+    "type": "form_submission",
+    "timestamp": "2025-10-27T07:57:24.348Z",
+    "meta": {
+      "workEmail": "nirjharbarma@gmail.com",
+      "name": "Nirjhar Barma",
+      "interestedIn": "perception-demo"
+    }
+  },
+  {
+    "type": "click",
+    "payload": {
+      "element": "get-in-touch-cta"
+    },
+    "timestamp": "2025-10-27T08:03:21.997Z"
+  },
+  {
+    "type": "form_submission",
+    "payload": {
+      "interestedIn": "research-analytics",
+      "email": "nirjharbarma@gmail.com"
+    },
+    "timestamp": "2025-10-27T08:03:25.784Z"
+  },
+  {
+    "type": "form_submission",
+    "timestamp": "2025-10-27T08:03:25.792Z",
+    "meta": {
+      "workEmail": "nirjharbarma@gmail.com",
+      "name": "Nirjhar Barma",
+      "interestedIn": "research-analytics"
+    }
+  }
+]

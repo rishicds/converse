@@ -1,5 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import fs from 'fs/promises';
+import path from 'path';
+
+type Submission = {
+  name: string;
+  company?: string;
+  phone?: string;
+  workEmail: string;
+  interestedIn?: string;
+  details?: string;
+  website?: string;
+  timestamp: string;
+  userAgent?: string | null;
+};
+
+const ensureDataDir = async () => {
+  const dataDir = path.join(process.cwd(), 'data');
+  await fs.mkdir(dataDir, { recursive: true });
+  return dataDir;
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,6 +32,52 @@ export async function POST(request: NextRequest) {
         { error: 'Name and email are required' },
         { status: 400 }
       );
+    }
+
+    // Persist submission to JSON file (data/submissions.json)
+    try {
+      const dataDir = await ensureDataDir();
+      const submissionsPath = path.join(dataDir, 'submissions.json');
+
+      let submissions: Submission[] = [];
+      try {
+        const raw = await fs.readFile(submissionsPath, 'utf-8');
+        submissions = JSON.parse(raw);
+      } catch (e) {
+        // file may not exist yet; start with empty
+        submissions = [];
+      }
+
+      const newSubmission: Submission = {
+        name,
+        company,
+        phone,
+        workEmail,
+        interestedIn,
+        details,
+        website,
+        timestamp: new Date().toISOString(),
+        userAgent: request.headers.get('user-agent'),
+      };
+
+      submissions.push(newSubmission);
+      await fs.writeFile(submissionsPath, JSON.stringify(submissions, null, 2), 'utf-8');
+
+      // Also append an event to events.json for reporting
+      const eventsPath = path.join(dataDir, 'events.json');
+      let events: any[] = [];
+      try {
+        const raw = await fs.readFile(eventsPath, 'utf-8');
+        events = JSON.parse(raw);
+      } catch (e) {
+        events = [];
+      }
+
+      events.push({ type: 'form_submission', timestamp: new Date().toISOString(), meta: { workEmail, name, interestedIn } });
+      await fs.writeFile(eventsPath, JSON.stringify(events, null, 2), 'utf-8');
+    } catch (fsErr) {
+      console.error('Failed to persist submission to disk:', fsErr);
+      // Do not fail the whole request — continue to attempt sending email
     }
 
     // Create transporter using SMTP credentials from environment variables

@@ -41,6 +41,18 @@ const ContactSection = () => {
     setSubmitMessage(null);
 
     try {
+      // Track form submission event (for reporting)
+      try {
+        fetch('/api/track-event', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'form_submission', payload: { interestedIn: formData.interestedIn, email: formData.workEmail } }),
+        });
+      } catch (e) {
+        // non-fatal
+        console.warn('Failed to send tracking event', e);
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -110,7 +122,19 @@ const ContactSection = () => {
               Our team is ready to help you with your research & analytics as well as business related needs.
             </p>
             <Button
-              onClick={() => setIsPopupOpen(true)}
+                onClick={() => {
+                  // Track CTA click event
+                  try {
+                    fetch('/api/track-event', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ type: 'click', payload: { element: 'get-in-touch-cta' } }),
+                    });
+                  } catch (e) {
+                    console.warn('Failed to send click tracking', e);
+                  }
+                  setIsPopupOpen(true);
+                }}
               className="bg-[var(--button-primary)] text-white px-8 py-3 rounded-full border-2 border-[var(--button-primary)] hover:bg-[var(--button-primary-hover] hover:text-white transition-all duration-300 font-semibold"
             >
               GET IN TOUCH
