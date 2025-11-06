@@ -40,7 +40,7 @@ const PerceptionOverview: React.FC = () => {
         AI Powered Advanced Analytics
       </h1>
       <div className="w-[80%] mx-auto mb-8 md:mb-12 lg:mb-16">
-        <VideoEmbed videoId="wWkdi0OQTeE" />
+        <VideoEmbed videoId="SVlhmKBeTWY" />
       </div>
       <div className="text-base sm:text-lg lg:text-xl leading-relaxed font-inter text-[#303030] space-y-6 md:space-y-8 lg:space-y-10 max-w-5xl mx-auto">
         <p>
