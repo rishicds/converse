@@ -14,11 +14,11 @@ export async function POST(request: NextRequest) {
     const dataDir = await ensureDataDir();
     const eventsPath = path.join(dataDir, 'events.json');
 
-    let events: any[] = [];
+    let events: Array<Record<string, unknown>> = [];
     try {
       const raw = await fs.readFile(eventsPath, 'utf-8');
       events = JSON.parse(raw);
-    } catch (e) {
+    } catch {
       events = [];
     }
 

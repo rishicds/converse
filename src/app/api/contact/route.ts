@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       try {
         const raw = await fs.readFile(submissionsPath, 'utf-8');
         submissions = JSON.parse(raw);
-      } catch (e) {
+      } catch {
         // file may not exist yet; start with empty
         submissions = [];
       }
@@ -65,11 +65,11 @@ export async function POST(request: NextRequest) {
 
       // Also append an event to events.json for reporting
       const eventsPath = path.join(dataDir, 'events.json');
-      let events: any[] = [];
+      let events: Array<{ type: string; timestamp: string; meta?: Record<string, unknown> }> = [];
       try {
         const raw = await fs.readFile(eventsPath, 'utf-8');
         events = JSON.parse(raw);
-      } catch (e) {
+      } catch {
         events = [];
       }
 
