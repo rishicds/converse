@@ -23,7 +23,7 @@ const BusinessConsultingSection = () => {
         'SWOT Analysis',
         'Business Strategy and Implementation'
       ],
-      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80',
+      image: 'https://i.postimg.cc/521K3DXn/businessdev.png',
       description: 'Transform your business with strategic development solutions that drive sustainable growth and market leadership through comprehensive analysis and implementation.',
       href: '/services/business-development'
     },
@@ -36,7 +36,7 @@ const BusinessConsultingSection = () => {
         'Innovation Strategy',
         'Concept to Execution'
       ],
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80',
+      image: 'https://i.postimg.cc/MK1r1zpd/brandstrat.png',
       description: 'Build powerful brand strategies that resonate with your target audience and differentiate you from competitors through innovative campaigns and execution.',
       href: '/services/brand-strategy'
     },
@@ -47,7 +47,7 @@ const BusinessConsultingSection = () => {
         'Planning and Tracking',
         'P&L Management'
       ],
-      image: '/services/finplan.png',
+      image: 'https://i.postimg.cc/cLZkmPvk/financialplanning.png',
       description: 'Strategic financial planning to maximize profitability and ensure long-term business sustainability through comprehensive modeling and P&L management.',
       href: '/services/financial-planning'
     },
@@ -58,7 +58,7 @@ const BusinessConsultingSection = () => {
         'Implementing Best Practices',
         'Leadership & CXO Advisory'
       ],
-      image: '/services/drivegrowth.png',
+      image: 'https://i.postimg.cc/K8FpNC1V/drivinggrowth.png',
       description: 'Accelerate your business growth with data-driven strategies, proven methodologies, and executive-level advisory services.',
       href: '/services/driving-growth'
     },
@@ -69,7 +69,7 @@ const BusinessConsultingSection = () => {
         'Distributor Vetting and Management',
         'Food Service'
       ],
-      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&q=80',
+      image: 'https://i.postimg.cc/fRZqK1Vr/routetomarket.png',
       description: 'Optimize your path to market with strategic distribution and channel management solutions tailored for your industry.',
       href: '/services/route-to-market'
     },
@@ -80,7 +80,7 @@ const BusinessConsultingSection = () => {
         'Procurement',
         'Logistics'
       ],
-      image: '/services/supplychain.png',
+      image: 'https://i.postimg.cc/0yxXfhzT/supplychain.png',
       description: 'Streamline operations with efficient supply chain and logistics management strategies through integrated business planning.',
       href: '/services/supply-chain-logistics'
     }
