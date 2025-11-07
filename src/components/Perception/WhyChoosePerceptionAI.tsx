@@ -12,7 +12,7 @@ const WhyChoosePerceptionAI = () => {
             <span className="flex items-center justify-center">
               {/* Brand image sized responsively */}
               <Image
-                src="/perception.png"
+                src="/perception.png?v=2"
                 alt="Perception AI brand"
                 width={160}
                 height={160}
@@ -33,7 +33,7 @@ const WhyChoosePerceptionAI = () => {
         <div className="mt-6">
           <div className="w-full rounded-lg overflow-hidden ">
             <Image
-              src="/perception/whychooseperception.png"
+              src="/perception/whychooseperception.png?v=2"
               alt="Why choose Perception AI infographic"
               width={1200}
               height={675}

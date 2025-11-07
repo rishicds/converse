@@ -12,7 +12,7 @@ const UnstructuredPerceptionSection: React.FC = () => {
       <div className="max-w-3xl md:max-w-full mx-auto md:mx-0 text-center md:text-left">
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-600 tracking-wide uppercase flex flex-col md:flex-row items-center gap-3 whitespace-normal md:whitespace-nowrap">
           <span className="block md:inline-block">KEY APPLICATIONS OF</span>
-          <img src="/perception.png" alt="Perception logo" className="h-8 md:h-10 mx-auto md:mx-0" />
+          <img src="/perception.png?v=2" alt="Perception logo" className="h-8 md:h-10 mx-auto md:mx-0" />
           <span className="block md:inline-block">IN UNSTRUCTURED DATA ANALYSIS</span>
         </h2>
       </div>

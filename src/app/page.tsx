@@ -19,7 +19,7 @@ const HomePage = () => {
   const services = [
     {
       id: 1,
-      image: "/home/hero/ai.png",
+      image: "/home/hero/ai.png?v=2",
       title: (
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full">
           <span className="whitespace-nowrap text-center sm:text-left">Research and Analytics</span>
@@ -41,7 +41,7 @@ const HomePage = () => {
     },
     {
       id: 2,
-      image: "/home/hero/business.png",
+      image: "/home/hero/business.png?v=2",
       title: "Business and Marketing Consulting",
       description: "With deep CPG / FMCG expertise, we provide strategic consulting in marketing and operations, acting as an embedded extension of our clients' teams wherever support is needed.",
       targetId: 'consulting'
@@ -95,3 +95,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

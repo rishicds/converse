@@ -17,21 +17,21 @@ const pillars: Pillar[] = [
     title: 'Converse',
     subtitle: '(Verb)',
     description: 'Conversation is central to our approach. We come in with a neutral perspective and an open mind.',
-    image: '/company/verb.png'
+    image: '/company/verb.png?v=2'
   },
   {
     id: 'noun',
     title: 'Converse',
     subtitle: '(Noun/Adjective)',
     description: 'Our approach often involves practices that are contrary to those of standard business consultancies.',
-    image: '/company/noun.png'
+    image: '/company/noun.png?v=2'
   },
   {
     id: 'conversion',
     title: '... resulting in',
     subtitle: 'Conversion',
     description: 'We are a results driven company. A one-stop shop for our clients\' needs.',
-    image: '/company/conversion.png'
+    image: '/company/conversion.png?v=2'
   }
 ];
 
@@ -65,7 +65,7 @@ const WhoWeAre: React.FC = () => {
       {/* Added image below existing content */}
       <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
         <img
-          src="/company/whoweare.png"
+          src="/company/whoweare.png?v=2"
           alt="Business meeting illustration"
           style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', }}
         />
@@ -73,7 +73,7 @@ const WhoWeAre: React.FC = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 my-10">How we operate</h2>
       <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
         <img
-          src="/company/howweoperate.png"
+          src="/company/howweoperate.png?v=2"
           alt="Business meeting illustration"
           style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px',  }}
         />
@@ -81,7 +81,7 @@ const WhoWeAre: React.FC = () => {
        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900 my-10">Area of expertise</h2>
       <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
         <img
-          src="/company/areaofexpertise.png"
+          src="/company/areaofexpertise.png?v=2"
           alt="Business meeting illustration"
           style={{ maxWidth: '1600px', width: '100%', borderRadius: '16px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
         />
@@ -89,7 +89,7 @@ const WhoWeAre: React.FC = () => {
   <h1 className='text-2xl md:text-3xl font-bold uppercase text-center text-blue-900 my-10'>Safeguarding your data, ensuring confidentiality</h1>
       <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
         <img
-          src="/company/partnerwithus.png"
+          src="/company/partnerwithus.png?v=2"
           alt="Business meeting illustration"
           style={{ maxWidth: '1200px', width: '100%', borderRadius: '16px', boxShadow: '' }}
         />
@@ -99,3 +99,4 @@ const WhoWeAre: React.FC = () => {
 };
 
 export default WhoWeAre;
+

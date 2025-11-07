@@ -65,7 +65,7 @@ const ClientLogos = () => {
               {logos.map((logo, i) => (
                 <div key={`${logo.file}-1-${i}`} className="flex-shrink-0 w-32 h-20 flex items-center justify-center p-2 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow mr-8">
                   <Image
-                    src={`/clients/${logo.file}`}
+                    src={`/clients/${logo.file}?v=2`}
                     alt={`${logo.name} logo`}
                     width={120}
                     height={60}
@@ -81,7 +81,7 @@ const ClientLogos = () => {
               {logos.map((logo, i) => (
                 <div key={`${logo.file}-2-${i}`} className="flex-shrink-0 w-32 h-20 flex items-center justify-center p-2 rounded-lg bg-white border border-gray-200 shadow-sm mr-8">
                   <Image
-                    src={`/clients/${logo.file}`}
+                    src={`/clients/${logo.file}?v=2`}
                     alt={`${logo.name} logo`}
                     width={120}
                     height={60}

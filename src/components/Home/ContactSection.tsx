@@ -143,7 +143,7 @@ const ContactSection = () => {
         </div>
         {/* Logo in bottom left */}
         {/* <img
-          src="/logo.png"
+          src="/logo.png?v=2"
           alt="Converse Global Consulting Logo"
           className="absolute left-8 bottom-8 w-62 h-auto z-20 hidden md:block"
           style={{ maxWidth: '290px' }}
@@ -305,3 +305,4 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+

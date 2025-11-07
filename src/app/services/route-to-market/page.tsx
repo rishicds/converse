@@ -16,19 +16,19 @@ const services: ServiceItem[] = [
     id: 'rtm-strategy',
     title: 'RTM STRATEGY',
     description: "Making products/ services available at the right place, at the right time is the key to success. We'll help you to understand your Shoppers and their buying habits and then develop a strategy that determines which distribution channels is best suited to deliver your products / services to your target customers.",
-    image: '/services/routetomarket.png'
+    image: '/services/routetomarket.png?v=2'
   },
   {
     id: 'distributor-vetting-management',
     title: 'DISTRIBUTOR VETTING AND MANAGEMENT', 
     description: "We'll vet and recommend a range of distributors most suitable for your product (based on the brand criteria) in our region. We'll manage this customer, be your eyes and ears in the market, ensuring your product is available, visible and supported.",
-    image: '/services/routetomarket.png'
+    image: '/services/routetomarket.png?v=2'
   },
   {
     id: 'food-service',
     title: 'FOOD SERVICE',
     description: "Working alongside the brands and distributors we forecast, create opportunities and manage different facets of the HORECA categories.",
-    image: '/services/routetomarket.png'
+    image: '/services/routetomarket.png?v=2'
   }
 ]
 
@@ -140,3 +140,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

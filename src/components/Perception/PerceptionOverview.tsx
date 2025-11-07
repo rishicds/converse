@@ -233,7 +233,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
   };
 
   return (
-    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
+    <div className="relative w-full h-full aspect-video rounded-sm overflow-hidden bg-cover bg-center" style={{ backgroundImage: 'url(/image.png?v=2)' }}>
       {!playing ? (
         <button
           type="button"
@@ -245,7 +245,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           aria-label="Play video"
         >
           <Image
-            src="/image.png"
+            src="/image.png?v=2"
             alt="Video thumbnail"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -266,7 +266,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
           </svg>
         </button>
       ) : (
-        <div className="w-full h-full relative bg-cover bg-center" style={{ backgroundImage: 'url(/image.png)' }}>
+        <div className="w-full h-full relative bg-cover bg-center" style={{ backgroundImage: 'url(/image.png?v=2)' }}>
           {/* player container will be replaced by YT iframe */}
           <div 
             ref={playerContainerRef} 
@@ -278,7 +278,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
             <div className="absolute inset-0 z-20 flex items-center justify-center animate-in fade-in duration-[2000ms]">
               {/* full-bleed background image (video thumbnail) */}
               <Image
-                src="/image.png"
+                src="/image.png?v=2"
                 alt="Video thumbnail background"
                 fill
                 sizes="100vw"

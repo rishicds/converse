@@ -16,13 +16,13 @@ const team = [
 
 // Map of simple first-name -> image filename in public/company/team
 const photos: Record<string, string> = {
-  kray: '/company/team/kray.png',
-  adriana: '/company/team/adriana.png',
-  dina: '/company/team/dina.png',
-  vivaswan: '/company/team/vivaswan.png',
-  harish: '/company/team/harish.png',
-  anoop: '/company/team/anoop.jpg', // no photo
-  sajeev: '/company/team/sajeev.jpg' // no photo
+  kray: '/company/team/kray.png?v=2',
+  adriana: '/company/team/adriana.png?v=2',
+  dina: '/company/team/dina.png?v=2',
+  vivaswan: '/company/team/vivaswan.png?v=2',
+  harish: '/company/team/harish.png?v=2',
+  anoop: '/company/team/anoop.jpg?v=2', // no photo
+  sajeev: '/company/team/sajeev.jpg?v=2' // no photo
 };
 
 const MeetTheTeam: React.FC = () => {
@@ -124,3 +124,4 @@ const MeetTheTeam: React.FC = () => {
 };
 
 export default MeetTheTeam;
+

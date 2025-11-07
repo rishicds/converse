@@ -17,7 +17,7 @@ export const StructuredKnowMore: React.FC = () => {
 				<div className="flex justify-center items-center px-1 sm:px-2 md:px-4 lg:px-6 overflow-hidden">
 					<div className="w-full max-w-[95vw] sm:max-w-sm md:max-w-xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
 						<Image
-							src="/perception/deeper.png"
+							src="/perception/deeper.png?v=2"
 							alt="Deeper understanding of AI augmentation for structured data research"
 							width={1200}
 							height={800}

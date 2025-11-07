@@ -16,31 +16,31 @@ const services: ServiceItem[] = [
     id: 'brand-equity',
     title: 'BRAND EQUITY',
     description: "A strong brand is the most valuable asset for any business. Understand what's the value your brand carries, how consumers think, feel and act through the relationship they have with your brand. We'll help you influence and grow your brand worth over time.",
-    image: '/services/brandstrat.png'
+    image: '/services/brandstrat.png?v=2'
   },
   {
     id: 'campaign-strategy',
     title: 'CAMPAIGN STRATEGY', 
     description: "Boost your campaign performance through the right mix of channel strategies (TV, radio, digital) and creative concepts. We'll guide you in crafting and executing marketing initiatives that effectively communicate your brand identity, resonate with your target audience and drive measurable outcomes. At the same time, we will ensure alignment between brand values and campaign execution, optimizing performance across platforms while adapting to evolving market dynamics.",
-    image: '/services/brandstrat.png'
+    image: '/services/brandstrat.png?v=2'
   },
   {
     id: 'marketing-mix-development',
     title: 'MARKETING MIX DEVELOPMENT',
     description: "Building a portfolio of products/ services in sync with Brand strategy by using our network of Legal, Regulatory, Procurement and Quality experts. Product, Packaging, Positioning, Pricing and Placement strategies that will make the mix distinctive in the market.",
-    image: '/services/brandstrat.png'
+    image: '/services/brandstrat.png?v=2'
   },
   {
     id: 'innovation-strategy',
     title: 'INNOVATION STRATEGY',
     description: "We'll guide you on how to create new ideas, that customers are willing to pay for, through innovation. We'll also develop a comprehensive strategy for harnessing marketing, operations, finance and R&D to ensure your innovation is a success.",
-    image: '/services/brandstrat.png'
+    image: '/services/brandstrat.png?v=2'
   },
   {
     id: 'concept-to-execution',
     title: 'CONCEPT TO EXECUTION',
     description: "We'll work with you closely to put a robust plan of Activation. Getting the \"last mile\" right, with the right in-store and Online elements is key to making a good Concept successful. With you, at every step..",
-    image: '/services/brandstrat.png'
+    image: '/services/brandstrat.png?v=2'
   }
 ]
 
@@ -130,7 +130,7 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/brandstrat.png"
+                  src="/services/brandstrat.png?v=2"
                   alt="Brand Strategy"
                   fill
                   className="object-cover rounded-lg"
@@ -152,3 +152,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

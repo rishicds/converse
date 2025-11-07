@@ -13,7 +13,7 @@ const members = [
       'Core areas: Strategic planning and Analytics',
       'Started CGC in 2016, and AI analytics tool PERCEPTION in 2017/18.'
     ],
-    image: '/company/team/kray.png',
+    image: '/company/team/kray.png?v=2',
     linkedin: 'https://www.linkedin.com/in/krishnashish-ray-kray-242b291/'
   },
   {
@@ -25,7 +25,7 @@ const members = [
       'Core areas: Creativity and communication',
       'Collaborative mindset fostering a “voice of reason”'
     ],
-    image: '/company/team/adriana.png',
+    image: '/company/team/adriana.png?v=2',
     linkedin: 'https://www.linkedin.com/in/adriana-rohalova-671123b/'
   },
   {
@@ -37,7 +37,7 @@ const members = [
       'Core areas: Regional insights (Quantitative and Qualitative) across multiple regions and multiple industries (FMCG, Retail, Banking, Automotive, Government)',
       'Proactive and growth-oriented'
     ],
-    image: '/company/team/anoop.jpg',
+    image: '/company/team/anoop.jpg?v=2',
     linkedin: 'https://www.linkedin.com/in/anoop-sardeshpande-6278106/'
   },
   {
@@ -49,7 +49,7 @@ const members = [
       'Core areas: Regional insights (Qualitative).',
       'Proactive and detail-oriented'
     ],
-    image: '/company/team/dina.png',
+    image: '/company/team/dina.png?v=2',
     linkedin: 'https://www.linkedin.com/in/dina-dali-4a842241/'
   },
   {
@@ -60,7 +60,7 @@ const members = [
       '28+ years in Telecom and Network Management',
       'Core areas: Managing large technology operations across geographies. Innovation. Technology and organizational transformation'
     ],
-    image: '/company/team/vivaswan.png',
+    image: '/company/team/vivaswan.png?v=2',
     linkedin: 'https://in.linkedin.com/in/vivaswan-bhattacharya-a415318'
   },
   {
@@ -71,7 +71,7 @@ const members = [
       '25+ years in Supply Chain and Logistics.',
       'Core areas: Establishing efficient & effective processes in sourcing and logistics. Supplier and logistic partner management. Demand and Supply planning.'
     ],
-    image: '/company/team/sajeev.jpg',
+    image: '/company/team/sajeev.jpg?v=2',
     linkedin: 'https://www.linkedin.com/in/sajeev-bhaskaran-866b7720/'
   },
   {
@@ -83,7 +83,7 @@ const members = [
       'Core areas: M&A, Brand Assessment, Corporte Finance and Treasury',
       'Core Strengths: Strategy focused, Purpose Driven and Result Oriented'
     ],
-    image: '/company/team/harish.png',
+    image: '/company/team/harish.png?v=2',
     linkedin: 'https://www.linkedin.com/in/harish-bhambhaney-8901b21b/'
   }
 ];
@@ -147,3 +147,4 @@ const TeamPage: React.FC = () => {
 };
 
 export default TeamPage;
+

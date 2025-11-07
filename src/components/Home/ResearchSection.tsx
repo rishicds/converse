@@ -14,22 +14,22 @@ const ResearchSection = () => {
         'Understand Wants: Target the appropriate products or services based on customer preferences.',
         'Tap into Desires: Build deeper brand connections and long-term loyalty by addressing aspirational drivers'
       ],
-      image: '/home/iwant.png'
+      image: '/home/iwant.png?v=2'
     },
     'I SEARCH': {
       title: 'Customer Research Journey',
       description: 'This stage marks the beginning of the customer’s research process, during which they explore options for products or services. Customers search online, compare brands, read reviews and testimonials, and consult friends and family. Though this phase is largely invisible to marketers, it presents a valuable opportunity to shape brand awareness, relevance, and preference while customers are actively engaged.',
-      image: '/home/isearch.png'
+      image: '/home/isearch.png?v=2'
     },
     'I BUY & USE': {
       title: 'Purchase and Usage Behavior',
       description: 'At this point, customers finalize their decision regarding which product and brand to purchase and use. Their opinions are shaped by their direct experience, particularly in terms of how well the product or brand fulfils their needs, wants, or desires. Marketers can influence the final choice through store activations—both online and offline—such as promotions, product demonstrations, and engaging displays.',
-      image: '/home/ibuy.png'
+      image: '/home/ibuy.png?v=2'
     },
     'I RECOMMEND': {
       title: 'Customer Advocacy and Referrals',
       description: 'After consumption, customers reflect on their experience and evaluate whether the product delivered on its brand promise. Satisfied customers often become brand advocates, sharing their opinions and influencing potential buyers. This advocacy not only enhances brand equity and loyalty but also encourages repeat purchases. Businesses benefit through sustained revenue and the potential for incremental growth via product innovation and brand extensions.',
-      image: '/home/irecommend.png'
+      image: '/home/irecommend.png?v=2'
     }
   };
 
@@ -42,7 +42,7 @@ const ResearchSection = () => {
       HUMAN BEHAVIOUR-LED RESEARCH, AUGMENTED BY
       <span className="inline-block align-middle">
         <Image
-          src="/perception.png"
+          src="/perception.png?v=2"
           alt="Perception logo"
           width={128}
           height={38}
@@ -123,7 +123,7 @@ const ResearchSection = () => {
             <div className="flex flex-col items-start  gap-4">
               <div className="bg-white/90 p-3 rounded">
                 <Image
-                  src="/perception.png"
+                  src="/perception.png?v=2"
                   alt="Perception logo"
                   width={100}
                   height={40}
@@ -151,3 +151,4 @@ const ResearchSection = () => {
 };
 
 export default ResearchSection;
+

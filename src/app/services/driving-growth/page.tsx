@@ -16,19 +16,19 @@ const services: ServiceItem[] = [
     id: 'strategic-growth-model',
     title: 'STRATEGIC GROWTH MODEL',
     description: "We'll guide you on taking a fresh look at the business. Setting a Vision, long term goals. By using strategic frameworks, we will put together a Growth model that works for the customers and community it serves in a sustainable manner.",
-    image: '/services/drivegrowth.png'
+    image: '/services/drivegrowth.png?v=2'
   },
   {
     id: 'implementing-best-practices',
     title: 'IMPLEMENTING BEST PRACTICES', 
     description: "We'll expose the Leadership team to best-in-class management practices and processes that build a strong foundation for growth. Tools like IBP (Integrated business planning), ZBB (Zero based budgeting), I2M (Ideas to market) are some of the examples.",
-    image: '/services/drivegrowth.png'
+    image: '/services/drivegrowth.png?v=2'
   },
   {
     id: 'leadership-cxo-advisory',
     title: 'LEADERSHIP & CXO ADVISORY',
     description: "Provide hands on Leadership to the team by joining the Board as \"shadow\" CEO, CMO for 1–2-year assignments and train the next rung of leaders in Strategic thinking, Business acumen, People management and Financial discipline.",
-    image: '/services/drivegrowth.png'
+    image: '/services/drivegrowth.png?v=2'
   }
 ]
 
@@ -118,7 +118,7 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/drivegrowth.png"
+                  src="/services/drivegrowth.png?v=2"
                   alt="Driving Growth"
                   fill
                   className="object-cover rounded-lg"
@@ -140,3 +140,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

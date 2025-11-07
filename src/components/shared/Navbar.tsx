@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center" passHref>
-          <Image src="/logo.png" alt="Converse Global Consulting Logo" width={200} height={67} priority />
+          <Image src="/logo.png?v=2" alt="Converse Global Consulting Logo" width={200} height={67} priority />
           </Link>
           {/* Logo */}
           
@@ -99,7 +99,7 @@ const Navbar = () => {
                       {isPerceptionOpen === 'research' && (
                         <div className="w-3/4 bg-gray-50 p-6 border-l border-gray-200 flex flex-col justify-center">
                           <div className="mb-3">
-                            <Image src="/perception.png" alt="PERCEPTION logo" width={180} height={40} className="object-contain" />
+                            <Image src="/perception.png?v=2" alt="PERCEPTION logo" width={180} height={40} className="object-contain" />
                           </div>
                           <ul className="space-y-2 text-sm text-gray-700">
                             <li className="flex items-start">

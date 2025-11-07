@@ -16,19 +16,19 @@ const services: ServiceItem[] = [
     id: 'integrated-business-planning',
     title: 'INTEGRATED BUSINESS PLANNING (IBP)',
     description: "IBP focuses on ensuring continuous alignment among demand, inventory, supply (manufacturing and dispatch) and maintenance plans on the one hand, and between the tactical and strategic business plans on the other, to maximize operational performance and meet financial objectives",
-    image: '/services/supplychain.png'
+    image: '/services/supplychain.png?v=2'
   },
   {
     id: 'procurement',
     title: 'PROCUREMENT', 
     description: "We network with global experts/ consultants to ensure right products/ services are sourced (as per Marketing briefs) from Suppliers competitively.",
-    image: '/services/supplychain.png'
+    image: '/services/supplychain.png?v=2'
   },
   {
     id: 'logistics',
     title: 'LOGISTICS',
     description: "We'll use our vast knowledge and connections to work with the most reliable, agile and cost-effective shipping companies to help your product reach its destination, ensure smooth clearance and availability for distribution.",
-    image: '/services/supplychain.png'
+    image: '/services/supplychain.png?v=2'
   }
 ]
 
@@ -118,7 +118,7 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/supplychain.png"
+                  src="/services/supplychain.png?v=2"
                   alt="Supply Chain and Logistics"
                   fill
                   className="object-cover rounded-lg"
@@ -140,3 +140,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

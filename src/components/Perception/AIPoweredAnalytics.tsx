@@ -8,7 +8,7 @@ const AIPoweredAnalytics = () => {
         AI Powered Analytics Comes to life
       </h1>
       <Image
-        src="/perception/aipoweredanalytics.png"
+        src="/perception/aipoweredanalytics.png?v=2"
         alt="AI Powered Advanced Analytics Flow"
         width={900}
         height={480}

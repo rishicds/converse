@@ -16,19 +16,19 @@ const services: ServiceItem[] = [
     id: 'financial-modelling',
     title: 'FINANCIAL MODELLING',
     description: "Financial modeling and analysis play a crucial role in decision-making for businesses and investors. It provides a structured framework to forecast financial performance, assess investment opportunities and evaluate risk. Our experts in financial modelling will aid your business in making informed choices, optimizing resource allocation, and maximizing profitability, contributing significantly to informed financial planning and strategic decision-making.",
-    image: '/services/finplan.png'
+    image: '/services/finplan.png?v=2'
   },
   {
     id: 'planning-tracking',
     title: 'PLANNING AND TRACKING', 
     description: "Bringing best-in-class processes like Zero based budgeting (ZBB) to yearly, Strategic planning (3–5-year plans) processes Setting KPIs for the business in terms of Revenue, Gross margins, Productivity, Cash flows to ensure a financially sustainable model in sync with business strategy. Presenting to Leadership team/ Board and setting in place systems, processes for implementation.",
-    image: '/services/finplan.png'
+    image: '/services/finplan.png?v=2'
   },
   {
     id: 'pl-management',
     title: 'P&L MANAGEMENT',
     description: "Regular management and reporting of P&L as per global standards (e.g. US GAAP). Highlighting stress points, opportunities in product mix, and other analytical inputs for improving performance.",
-    image: '/services/finplan.png'
+    image: '/services/finplan.png?v=2'
   }
 ]
 
@@ -118,7 +118,7 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/finplan.png"
+                  src="/services/finplan.png?v=2"
                   alt="Financial Planning"
                   fill
                   className="object-cover rounded-lg"
@@ -140,3 +140,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

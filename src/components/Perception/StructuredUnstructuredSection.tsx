@@ -87,7 +87,7 @@ const StructuredUnstructuredSection: React.FC = () => {
           </div>
           <div className="lg:w-1/2 flex-shrink-0 max-w-full overflow-hidden">
             <Image
-              src="/perception/uns.png"
+              src="/perception/uns.png?v=2"
               alt="Unstructured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
@@ -96,7 +96,7 @@ const StructuredUnstructuredSection: React.FC = () => {
               sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
             />
              <Image
-              src="/perception/uns2.png"
+              src="/perception/uns2.png?v=2"
               alt="Unstructured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
@@ -149,7 +149,7 @@ const StructuredUnstructuredSection: React.FC = () => {
           </div>
           <div className="w-full lg:w-1/2 pt-0 lg:pt-40 flex-shrink-0 max-w-full overflow-hidden">
             <Image
-              src="/perception/struct.png"
+              src="/perception/struct.png?v=2"
               alt="Structured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}

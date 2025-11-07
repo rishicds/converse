@@ -16,25 +16,25 @@ const services: ServiceItem[] = [
     id: 'strategic-value-customer',
     title: 'STRATEGIC VALUE CUSTOMER',
     description: "We'll help you define the Strategic Value Customer (SVC), that will position your product/ service to have the best chance of success.",
-    image: '/services/businessdev.png'
+    image: '/services/businessdev.png?v=2'
   },
   {
     id: 'mapping-competitive-intelligence',
     title: 'MAPPING COMPETITIVE INTELLIGENCE', 
     description: "We'll help you understand and learn about what's happening in the world outside your business. Evaluate your key competitors without bias, identify competitive risks and challenges. Discover new opportunities that can help your brand grow faster.",
-    image: '/services/businessdev.png'
+    image: '/services/businessdev.png?v=2'
   },
   {
     id: 'swot-analysis',
     title: 'SWOT ANALYSIS',
     description: "Deep dive into your proposition versus competition to understand how your Brand stacks up vis-à-vis others. This will help to understand the assets that are ownable and can be leveraged.",
-    image: '/services/businessdev.png'
+    image: '/services/businessdev.png?v=2'
   },
   {
     id: 'business-strategy-implementation',
     title: 'BUSINESS STRATEGY & IMPLEMENTATION',
     description: "We'll help you to put together a Go-to market strategy that best leverages strengths, whilst also tapping into \"low hanging fruits\" for a robust start. A time-based resource and action plan, that lays down clear KPIs and milestones for various functions to follow and deliver.",
-    image: '/services/businessdev.png'
+    image: '/services/businessdev.png?v=2'
   }
 ]
 
@@ -124,7 +124,7 @@ const ServicesPage = () => {
             <div className="relative">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/services/businessdev.png"
+                  src="/services/businessdev.png?v=2"
                   alt="Business Development"
                   fill
                   className="object-cover rounded-lg"
@@ -146,3 +146,5 @@ const ServicesPage = () => {
 }
 
 export default ServicesPage
+
+

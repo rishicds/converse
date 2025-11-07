@@ -65,22 +65,22 @@ const AnimatedCounter = ({ targetNumber }: AnimatedCounterProps) => {
 const AnalyticsDashboard = () => {
   // Client images data
   const clientImages = [
-    { id: 1, name: 'Client 1', image: '/clientpics/c1.png' },
-    { id: 2, name: 'Client 2', image: '/clientpics/c2.png' },
-    { id: 3, name: 'Client 3', image: '/clientpics/c3.png' },
-    { id: 4, name: 'Client 4', image: '/clientpics/c4.png' },
-    { id: 5, name: 'Client 5', image: '/clientpics/c5.png' },
-    { id: 6, name: 'Client 6', image: '/clientpics/c6.png' },
-    { id: 7, name: 'Client 7', image: '/clientpics/c7.png' },
-    { id: 8, name: 'Client 8', image: '/clientpics/c8.png' },
-    { id: 9, name: 'Client 9', image: '/clientpics/c9.png' },
-    { id: 10, name: 'Client 10', image: '/clientpics/c10.png' },
-    { id: 11, name: 'Client 11', image: '/clientpics/c11.png' },
-    { id: 12, name: 'Client 12', image: '/clientpics/c12.png' },
-    { id: 13, name: 'Client 13', image: '/clientpics/c13.png' },
-    { id: 14, name: 'Client 14', image: '/clientpics/c14.png' },
-    { id: 15, name: 'Client 15', image: '/clientpics/c15.png' },
-    { id: 16, name: 'Client 16', image: '/clientpics/c16.png' },
+    { id: 1, name: 'Client 1', image: '/clientpics/c1.png?v=2' },
+    { id: 2, name: 'Client 2', image: '/clientpics/c2.png?v=2' },
+    { id: 3, name: 'Client 3', image: '/clientpics/c3.png?v=2' },
+    { id: 4, name: 'Client 4', image: '/clientpics/c4.png?v=2' },
+    { id: 5, name: 'Client 5', image: '/clientpics/c5.png?v=2' },
+    { id: 6, name: 'Client 6', image: '/clientpics/c6.png?v=2' },
+    { id: 7, name: 'Client 7', image: '/clientpics/c7.png?v=2' },
+    { id: 8, name: 'Client 8', image: '/clientpics/c8.png?v=2' },
+    { id: 9, name: 'Client 9', image: '/clientpics/c9.png?v=2' },
+    { id: 10, name: 'Client 10', image: '/clientpics/c10.png?v=2' },
+    { id: 11, name: 'Client 11', image: '/clientpics/c11.png?v=2' },
+    { id: 12, name: 'Client 12', image: '/clientpics/c12.png?v=2' },
+    { id: 13, name: 'Client 13', image: '/clientpics/c13.png?v=2' },
+    { id: 14, name: 'Client 14', image: '/clientpics/c14.png?v=2' },
+    { id: 15, name: 'Client 15', image: '/clientpics/c15.png?v=2' },
+    { id: 16, name: 'Client 16', image: '/clientpics/c16.png?v=2' },
   ];
 
   return (
@@ -129,7 +129,7 @@ const AnalyticsDashboard = () => {
               {/* Perception Logo */}
               <div className="mb-3 sm:mb-4 lg:mb-6 flex justify-center">
                 <Image
-                  src="/perception.png"
+                  src="/perception.png?v=2"
                   alt="Perception Logo"
                   width={200}
                   height={200}
@@ -223,3 +223,4 @@ const AnalyticsDashboard = () => {
 };
 
 export default AnalyticsDashboard;
+

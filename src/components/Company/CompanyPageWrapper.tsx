@@ -10,21 +10,21 @@ const founders = [
     id: 'ritu',
     name: 'Ritu Soni Srivastava',
     title: 'Co-founder & CEO',
-    image: '/home/businessdev.png',
+    image: '/home/businessdev.png?v=2',
     bio: 'Seasoned entrepreneur focused on building scalable insight engines. Led cross-industry growth initiatives combining consumer behavior analysis, AI enabled research and commercialization strategy.'
   },
   {
     id: 'yogesh',
     name: 'Yogesh Sachdeva',
     title: 'Co-founder',
-    image: '/home/business.png',
+    image: '/home/business.png?v=2',
     bio: 'Growth strategist with deep experience in category development, pricing and route-to-market. Passionate about blending structured KPIs with qualitative market signals.'
   },
   {
     id: 'vishal',
     name: 'Vishal Soni',
     title: 'Co-founder',
-    image: '/home/ibuy.png',
+    image: '/home/ibuy.png?v=2',
     bio: 'Data & analytics leader specializing in unstructured signal processing, LLM powered pipelines and decision acceleration for commercial teams.'
   }
 ];
@@ -38,7 +38,7 @@ export const CompanyPageWrapper: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[380px] w-full overflow-hidden flex items-center justify-center">
         <Image
-          src="/home/hero/business.png"
+          src="/home/hero/business.png?v=2"
           alt="About Us"
           fill
           priority
@@ -79,3 +79,5 @@ export const CompanyPageWrapper: React.FC = () => {
 };
 
 export default CompanyPageWrapper;
+
+
