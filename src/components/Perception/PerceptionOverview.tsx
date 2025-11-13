@@ -1,34 +1,5 @@
 "use client"
 
-interface YTPlayerOptions {
-  width?: string | number;
-  height?: string | number;
-  videoId: string;
-  playerVars?: Record<string, unknown>;
-  events?: Record<string, (event: { data: number }) => void>;
-}
-
-interface YTPlayer {
-  getPlayerState(): number;
-  destroy(): void;
-  seekTo(seconds: number): void;
-  playVideo(): void;
-  getCurrentTime(): number;
-  getDuration(): number;
-}
-
-interface YTPlayerConstructor {
-  new (element: HTMLElement | string, options: YTPlayerOptions): YTPlayer;
-}
-
-declare global {
-  interface Window {
-    YT?: {
-      Player: YTPlayerConstructor;
-    };
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -40,7 +11,7 @@ const PerceptionOverview: React.FC = () => {
         AI Powered Advanced Analytics
       </h1>
       <div className="w-[80%] mx-auto mb-8 md:mb-12 lg:mb-16">
-        <VideoEmbed videoId="SVlhmKBeTWY" />
+        <VideoEmbed videoUrl="https://cgassets.s3.us-west-2.amazonaws.com/WhatsApp+Video+2025-11-07+at+21.09.01_37655882.mp4" />
       </div>
       <div className="text-base sm:text-lg lg:text-xl leading-relaxed font-inter text-[#303030] space-y-6 md:space-y-8 lg:space-y-10 max-w-5xl mx-auto">
         <p>
@@ -63,151 +34,61 @@ const PerceptionOverview: React.FC = () => {
 export default PerceptionOverview;
 
 type VideoEmbedProps = {
-  videoId: string;
+  videoUrl: string;
 };
 
-const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
+const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
   const [playing, setPlaying] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
-  const playerRef = useRef<YTPlayer | null>(null);
-  const playerContainerRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (!playing) return;
+    if (!playing || !videoRef.current) return;
 
-    let mounted = true;
-
-    type YTEvent = { data: number };
-    const createPlayer = () => {
-      if (!mounted) return;
-      const YT = window.YT;
-      if (!YT || !playerContainerRef.current) return;
-
-      playerRef.current = new YT.Player(playerContainerRef.current, {
-        width: '100%',
-        height: '100%',
-        videoId,
-        playerVars: {
-          autoplay: 1,
-          rel: 0,
-          modestbranding: 1,
-          fs: 0,
-        },
-        events: {
-          onStateChange: (event: YTEvent) => {
-            if (event.data === 0) {
-              setShowOverlay(true);
-            }
-            if (event.data === 1) {
-              setShowOverlay(false);
-            }
-            if (event.data === 2 || event.data === 3) {
-              // paused or buffering - don't change overlay state
-            }
-          },
-        },
-      });
-    };
-
-    let pollInterval: ReturnType<typeof setInterval> | null = null;
+    const video = videoRef.current;
     let timeCheckInterval: ReturnType<typeof setInterval> | null = null;
 
-    if (window.YT && window.YT.Player) {
-      createPlayer();
-      pollInterval = setInterval(() => {
-        try {
-          const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) {
-            setShowOverlay(true);
-          }
-          if (st === 1 || st === 2 || st === 3) {
-            // playing, paused, or buffering
-          }
-        } catch {
-          // ignore
-        }
-      }, 1000);
-
-      // Check video time to show overlay 2 seconds before end
-      timeCheckInterval = setInterval(() => {
-        try {
-          const player = playerRef.current;
-          if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
-            const currentTime = player.getCurrentTime();
-            const duration = player.getDuration();
-            if (duration > 0 && currentTime >= duration - 2) {
-              setShowOverlay(true);
-            }
-          }
-        } catch {
-          // ignore
-        }
-      }, 200);
-
-      return () => {
-        mounted = false;
-        if (pollInterval) clearInterval(pollInterval);
-        if (timeCheckInterval) clearInterval(timeCheckInterval);
-        playerRef.current?.destroy?.();
-      };
-    }
-
-    const scriptId = 'youtube-iframe-api';
-    if (!document.getElementById(scriptId)) {
-      const tag = document.createElement('script');
-      tag.id = scriptId;
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(tag);
-    }
-
-    const previous = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previous?.();
-      createPlayer();
-      pollInterval = setInterval(() => {
-        try {
-          const st = playerRef.current?.getPlayerState?.();
-          if (st === 0) {
-            setShowOverlay(true);
-          }
-          if (st === 1 || st === 2 || st === 3) {
-            // playing, paused, or buffering
-          }
-        } catch {
-          // ignore
-        }
-      }, 1000);
-
-      // Check video time to show overlay 2 seconds before end
-      timeCheckInterval = setInterval(() => {
-        try {
-          const player = playerRef.current;
-          if (player && typeof player.getCurrentTime === 'function' && typeof player.getDuration === 'function') {
-            const currentTime = player.getCurrentTime();
-            const duration = player.getDuration();
-            if (duration > 0 && currentTime >= duration - 2) {
-              setShowOverlay(true);
-            }
-          }
-        } catch {
-          // ignore
-        }
-      }, 200);
+    const handleTimeUpdate = () => {
+      const currentTime = video.currentTime;
+      const duration = video.duration;
+      if (duration > 0 && currentTime >= duration - 2) {
+        setShowOverlay(true);
+      }
     };
 
-    return () => {
-      mounted = false;
-      if (pollInterval) clearInterval(pollInterval);
-      if (timeCheckInterval) clearInterval(timeCheckInterval);
-      window.onYouTubeIframeAPIReady = previous;
+    const handleEnded = () => {
+      setShowOverlay(true);
+    };
+
+    const handlePlay = () => {
+      setShowOverlay(false);
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleEnded);
+    video.addEventListener('play', handlePlay);
+
+    // Fallback polling for time check (in case timeupdate doesn't fire frequently enough)
+    timeCheckInterval = setInterval(() => {
       try {
-        playerRef.current?.destroy?.();
+        const currentTime = video.currentTime;
+        const duration = video.duration;
+        if (duration > 0 && currentTime >= duration - 2) {
+          setShowOverlay(true);
+        }
       } catch {
         // ignore
       }
+    }, 200);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('play', handlePlay);
+      if (timeCheckInterval) clearInterval(timeCheckInterval);
     };
-  }, [playing, videoId]);
+  }, [playing]);
 
   const openContactForm = () => {
     if (typeof window === 'undefined') return;
@@ -267,10 +148,14 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
         </button>
       ) : (
         <div className="w-full h-full relative bg-cover bg-center" style={{ backgroundImage: 'url(/image.png?v=2)' }}>
-          {/* player container will be replaced by YT iframe */}
-          <div 
-            ref={playerContainerRef} 
-            className={`w-full h-full z-10 transition-opacity duration-[2000ms] ease-in-out ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
+          {/* HTML5 video player */}
+          <video
+            ref={videoRef}
+            src={videoUrl}
+            className={`w-full h-full object-cover z-10 transition-opacity duration-[2000ms] ease-in-out ${showOverlay ? 'opacity-0' : 'opacity-100'}`}
+            autoPlay
+            playsInline
+            controls
           />
 
           {/* Get demo overlay shown 2 seconds before video ends */}
@@ -315,19 +200,16 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoId }) => {
                   <button
                     type="button"
                     onClick={() => {
-                      // attempt to seek to start and play again
+                      // seek to start and play again
                       try {
-                        (playerRef.current as YTPlayer)?.seekTo?.(0);
-                        (playerRef.current as YTPlayer)?.playVideo?.();
-                      } catch {
-                        // fallback: destroy and re-create by toggling playing state
-                        try {
-                          playerRef.current?.destroy?.();
-                          setPlaying(false);
-                          setTimeout(() => setPlaying(true), 50);
-                        } catch {
-                          // ignore
+                        if (videoRef.current) {
+                          videoRef.current.currentTime = 0;
+                          videoRef.current.play();
                         }
+                      } catch {
+                        // fallback: reset playing state
+                        setPlaying(false);
+                        setTimeout(() => setPlaying(true), 50);
                       }
                       setShowOverlay(false);
                     }}
