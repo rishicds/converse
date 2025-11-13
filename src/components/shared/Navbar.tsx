@@ -197,17 +197,24 @@ const Navbar = () => {
                   </svg>
                 </button>
                 {isServicesOpen && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    <div className="text-sm font-semibold text-blue-900">Business/Marketing</div>
-                    <div className="ml-4 space-y-1 text-sm text-gray-600">
-                      <Link href="/services/business-development" className="block hover:text-primary">Business Development</Link>
-                      <Link href="/services/brand-strategy" className="block hover:text-primary">Brand Strategy</Link>
-<Link href="/services/driving-growth" className="block hover:text-primary">Driving Growth</Link>
-                      <Link href="/services/financial-planning" className="block hover:text-primary">Financial Planning</Link>
-<Link href="/services/route-to-market" className="block hover:text-primary">Route-to-market</Link>
-                      
-                      <Link href="/services/supply-chain-logistics" className="block hover:text-primary">Supply Chain & Logistics</Link>
-                      
+                  <div className="mt-2 ml-4 space-y-4">
+                    <div>
+                      <div className="text-sm font-semibold text-blue-900">Research & Analytics</div>
+                      <div className="ml-4 space-y-1 text-sm text-gray-600 mt-2">
+                        <Link href="/perception#structured-heading" className="block hover:text-primary">Structured Data Analysis</Link>
+                        <Link href="/perception#unstructured-heading" className="block hover:text-primary">Unstructured Data Analysis</Link>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-blue-900">Business/Marketing</div>
+                      <div className="ml-4 space-y-1 text-sm text-gray-600 mt-2">
+                        <Link href="/services/business-development" className="block hover:text-primary">Business Development</Link>
+                        <Link href="/services/brand-strategy" className="block hover:text-primary">Brand Strategy</Link>
+                        <Link href="/services/driving-growth" className="block hover:text-primary">Driving Growth</Link>
+                        <Link href="/services/financial-planning" className="block hover:text-primary">Financial Planning</Link>
+                        <Link href="/services/route-to-market" className="block hover:text-primary">Route-to-market</Link>
+                        <Link href="/services/supply-chain-logistics" className="block hover:text-primary">Supply Chain & Logistics</Link>
+                      </div>
                     </div>
                   </div>
                 )}
