@@ -94,6 +94,20 @@ const WhoWeAre: React.FC = () => {
           style={{ maxWidth: '1100px', width: '100%', borderRadius: '16px', boxShadow: '' }}
         />
       </div>
+      <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
+        <img
+          src="/company/Picture3.png?v=2"
+          alt="Business meeting illustration"
+          style={{ maxWidth: '1100px', width: '100%', borderRadius: '16px', boxShadow: '' }}
+        />
+      </div>
+      <div style={{ marginTop: '2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
+        <img
+          src="/company/Picture2.png?v=2"
+          alt="Business meeting illustration"
+          style={{ maxWidth: '1100px', width: '100%', borderRadius: '16px', boxShadow: '' }}
+        />
+      </div>
     </>
   );
 };
