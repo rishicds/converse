@@ -91,7 +91,7 @@ const WhoWeAre: React.FC = () => {
         <img
           src="/company/partnerwithus.png?v=2"
           alt="Business meeting illustration"
-          style={{ maxWidth: '1200px', width: '100%', borderRadius: '16px', boxShadow: '' }}
+          style={{ maxWidth: '1100px', width: '100%', borderRadius: '16px', boxShadow: '' }}
         />
       </div>
     </>
