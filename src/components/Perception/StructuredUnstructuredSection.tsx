@@ -85,14 +85,14 @@ const StructuredUnstructuredSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 flex-shrink-0">
-            <div className="flex flex-row lg:flex-col gap-1 md:gap-2 lg:gap-4">
+                    <div className="w-screen lg:w-1/2 flex-shrink-0 -ml-3 sm:-ml-4 md:-ml-6 lg:ml-0">
+            <div className="flex flex-row lg:flex-col gap-0 lg:gap-4">
               <Image
                 src="/perception/uns.png?v=2"
                 alt="Unstructured data visualization"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="perception-global-img w-1/2 lg:w-full h-auto object-cover rounded shadow-lg"
+                className="perception-global-img w-1/2 lg:w-full h-auto object-cover lg:rounded lg:shadow-lg"
                 priority
                 sizes="(max-width: 1024px) 50vw, 100vw"
               />
@@ -101,7 +101,7 @@ const StructuredUnstructuredSection: React.FC = () => {
                 alt="Unstructured data visualization"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="perception-global-img w-1/2 lg:w-full h-auto object-cover rounded shadow-lg"
+                className="perception-global-img w-1/2 lg:w-full h-auto pr-4 object-cover lg:rounded lg:shadow-lg"
                 priority
                 sizes="(max-width: 1024px) 50vw, 100vw"
               />
