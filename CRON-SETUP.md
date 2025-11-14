@@ -1,6 +1,6 @@
 # 📧 Automated Email Report Setup
 
-This guide explains how to set up automated daily email reports for Converse Global Consulting.
+This guide explains how to set up automated daily and monthly email reports for Converse Global Consulting.
 
 ## 🚀 Quick Start
 
@@ -22,11 +22,19 @@ SMTP_SECURE=true
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-app-password
 SMTP_FROM=your-email@gmail.com
-REPORT_EMAIL_TO=recipient@example.com
 
-# Cron Schedule (Daily at 9 AM)
-CRON_SCHEDULE=0 9 * * *
+# Email Recipients (comma-separated for multiple recipients)
+REPORT_EMAIL_TO=recipient1@example.com,recipient2@example.com,recipient3@example.com
+
+# Cron Schedules
+CRON_SCHEDULE=0 9 * * *              # Daily at 9 AM
+CRON_MONTHLY_SCHEDULE=0 9 1 * *      # 1st of month at 9 AM
 CRON_TIMEZONE=UTC
+```
+
+**Multiple Recipients:** You can send reports to multiple email addresses by separating them with commas in the `REPORT_EMAIL_TO` variable. For example:
+```env
+REPORT_EMAIL_TO=boss@company.com,manager@company.com,analyst@company.com
 ```
 
 ### 2. Gmail Setup (If using Gmail)
@@ -36,9 +44,37 @@ CRON_TIMEZONE=UTC
 3. Generate an "App Password" for this application
 4. Use that 16-character password as `SMTP_PASS`
 
+## 📧 Sending to Multiple Recipients
+
+You can send reports to multiple email addresses by specifying them as a comma-separated list in the `REPORT_EMAIL_TO` environment variable:
+
+```env
+REPORT_EMAIL_TO=executive@company.com,manager@company.com,analyst@company.com
+```
+
+**Features:**
+- Support for unlimited recipients
+- Each recipient receives the same report
+- Automatic trimming of whitespace around email addresses
+- Works for both daily and monthly reports
+- Works for both data reports and "no data" notifications
+
+**Example configurations:**
+
+```env
+# Single recipient
+REPORT_EMAIL_TO=reports@company.com
+
+# Multiple recipients
+REPORT_EMAIL_TO=ceo@company.com,cfo@company.com,coo@company.com
+
+# Multiple recipients with spaces (will be trimmed automatically)
+REPORT_EMAIL_TO=alice@company.com, bob@company.com, charlie@company.com
+```
+
 ### 3. Run the Cron Scheduler
 
-Start the automated report scheduler:
+Start the automated report scheduler (runs both daily and monthly reports):
 
 ```bash
 npm run report:cron
@@ -50,7 +86,9 @@ Or if using pnpm:
 pnpm report:cron
 ```
 
-The scheduler will run continuously and send reports at the scheduled time.
+The scheduler will run continuously and send:
+- **Daily reports** at 9:00 AM every day (or your configured time)
+- **Monthly reports** at 9:00 AM on the 1st of every month
 
 ## 📅 Cron Schedule Examples
 
@@ -81,12 +119,20 @@ The `CRON_SCHEDULE` environment variable uses standard cron syntax:
 
 ## 🛠️ Manual Commands
 
-### Generate Report Once
+### Generate Daily Report Once
 
-Generate and send a report immediately:
+Generate and send a daily report immediately:
 
 ```bash
 npm run report
+```
+
+### Generate Monthly Report Once
+
+Generate and send a monthly report immediately:
+
+```bash
+npm run report:monthly
 ```
 
 ### Generate Report Without Email
@@ -95,14 +141,21 @@ Generate a report but don't send email:
 
 ```bash
 node scripts/generate-report.js --no-email
+node scripts/generate-monthly-report.js --no-email
 ```
 
 ### Test the Scheduler Immediately
 
-Run the scheduler and generate a report right away:
+Run the scheduler and generate a daily report right away:
 
 ```bash
 node scripts/cron-scheduler.js --run-now
+```
+
+Run the scheduler and generate a monthly report right away:
+
+```bash
+node scripts/cron-scheduler.js --run-monthly-now
 ```
 
 ## 🔧 Environment Variables Reference
@@ -115,9 +168,10 @@ node scripts/cron-scheduler.js --run-now
 | `SMTP_USER` | Yes | - | SMTP username/email |
 | `SMTP_PASS` | Yes | - | SMTP password/app password |
 | `SMTP_FROM` | No | SMTP_USER | From email address |
-| `REPORT_EMAIL_TO` | No | SMTP_USER | Recipient email(s) |
+| `REPORT_EMAIL_TO` | No | SMTP_USER | Recipient email(s) - comma-separated for multiple |
 | `REPORT_SKIP_EMAIL` | No | false | Skip email sending |
-| `CRON_SCHEDULE` | No | 0 9 * * * | Cron schedule expression |
+| `CRON_SCHEDULE` | No | 0 9 * * * | Daily report cron schedule |
+| `CRON_MONTHLY_SCHEDULE` | No | 0 9 1 * * | Monthly report cron schedule |
 | `CRON_TIMEZONE` | No | UTC | Timezone for scheduling |
 
 ## 📨 Email Providers
@@ -240,14 +294,26 @@ The automated report system uses:
 
 ## 📊 Report Contents
 
-The automated report includes:
-
+### Daily Report
+The automated daily report includes:
 - Total events and submissions count
 - Events breakdown by type
-- Recent events timeline
+- Recent events timeline (last 20 events)
 - Submissions by interest area
 - Detailed submission information
 - Professional PDF formatting with company branding
+- **Note:** If no data is found for the day, a notification email is sent instead of generating an empty report
+
+### Monthly Report
+The automated monthly report includes:
+- Executive summary with total counts
+- Events analysis with weekly breakdown
+- Submissions analysis by interest and company
+- Top 10 companies by submission volume
+- Key metrics and insights (averages, trends)
+- Detailed submission records from the previous month
+- Professional PDF formatting with company branding
+- **Note:** If no data is found for the month, a notification email is sent instead of generating an empty report
 
 ---
 

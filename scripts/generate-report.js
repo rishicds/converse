@@ -200,11 +200,52 @@ async function generatePdfReport(outPath, events, submissions) {
   const events = await readJsonSafe(eventsPath);
   const submissions = await readJsonSafe(submissionsPath);
 
+  // Check if there's any data
+  const hasData = events.length > 0 || submissions.length > 0;
+  const skipEmailFlag = process.env.REPORT_SKIP_EMAIL === 'true' || process.argv.includes('--no-email');
+
+  // Parse multiple email recipients (comma-separated)
+  const getEmailRecipients = () => {
+    const emailTo = process.env.REPORT_EMAIL_TO || process.env.SMTP_USER;
+    return emailTo.split(',').map(email => email.trim()).filter(email => email);
+  };
+
+  if (!hasData) {
+    // No data - send email notification without generating report
+    if (!skipEmailFlag && process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: parseInt(process.env.SMTP_PORT || '465'),
+        secure: process.env.SMTP_SECURE === 'true',
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      const recipients = getEmailRecipients();
+
+      const mailOptions = {
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: recipients.join(', '),
+        subject: `Daily Report - ${new Date().toISOString().slice(0,10)} - No Data`,
+        text: 'No reports today - there were no events or submissions to report.',
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log(`No data found. Email notification sent to ${recipients.length} recipient(s): ${recipients.join(', ')}`);
+    } else {
+      console.log('No data found. No report generated.');
+      if (skipEmailFlag) console.log('Email skipped because --no-email or REPORT_SKIP_EMAIL=true');
+      else console.log('Email skipped because SMTP config missing (SMTP_HOST/USER/PASS)');
+    }
+    return;
+  }
+
+  // Generate report only if there's data
   await generatePdfReport(outPdf, events, submissions);
 
   // send email with attachment
-  const skipEmailFlag = process.env.REPORT_SKIP_EMAIL === 'true' || process.argv.includes('--no-email');
-
   if (!skipEmailFlag && process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -216,9 +257,11 @@ async function generatePdfReport(outPath, events, submissions) {
       },
     });
 
+    const recipients = getEmailRecipients();
+
     const mailOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: process.env.REPORT_EMAIL_TO || process.env.SMTP_USER,
+      to: recipients.join(', '),
       subject: `Daily Report - ${new Date().toISOString().slice(0,10)}`,
       text: 'Please find attached the daily events & submissions report.',
       attachments: [
@@ -230,7 +273,8 @@ async function generatePdfReport(outPath, events, submissions) {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log('Report generated and emailed:', outPdf);
+    console.log(`Report generated and emailed to ${recipients.length} recipient(s): ${recipients.join(', ')}`);
+    console.log('File:', outPdf);
   } else {
     console.log('Report generated (email skipped). File:', outPdf);
     if (skipEmailFlag) console.log('Skipping email because --no-email or REPORT_SKIP_EMAIL=true');
