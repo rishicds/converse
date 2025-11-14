@@ -156,6 +156,7 @@ const VideoEmbed: React.FC<VideoEmbedProps> = ({ videoUrl }) => {
             autoPlay
             playsInline
             controls
+            controlsList="nofullscreen"
           />
 
           {/* Get demo overlay shown 2 seconds before video ends */}

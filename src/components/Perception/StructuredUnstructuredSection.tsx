@@ -101,7 +101,7 @@ const StructuredUnstructuredSection: React.FC = () => {
                 alt="Unstructured data visualization"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className="perception-global-img w-1/2 lg:w-full h-auto pr-4 object-cover lg:rounded lg:shadow-lg"
+                className="perception-global-img w-1/2 lg:w-full h-auto object-cover lg:rounded lg:shadow-lg"
                 priority
                 sizes="(max-width: 1024px) 50vw, 100vw"
               />
