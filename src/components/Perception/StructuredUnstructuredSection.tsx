@@ -86,24 +86,26 @@ const StructuredUnstructuredSection: React.FC = () => {
             </div>
           </div>
           <div className="lg:w-1/2 flex-shrink-0 max-w-full overflow-hidden">
-            <Image
-              src="/perception/uns.png?v=2"
-              alt="Unstructured data visualization"
-              width={IMAGE_WIDTH}
-              height={IMAGE_HEIGHT}
-              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
-              priority
-              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
-            />
-             <Image
-              src="/perception/uns2.png?v=2"
-              alt="Unstructured data visualization"
-              width={IMAGE_WIDTH}
-              height={IMAGE_HEIGHT}
-              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] pt-4 h-auto object-contain rounded`}
-              priority
-              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
-            />
+            <div className="flex flex-row lg:flex-col gap-2 sm:gap-4">
+              <Image
+                src="/perception/uns.png?v=2"
+                alt="Unstructured data visualization"
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
+                className={`perception-global-img w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded flex-1 min-w-0`}
+                priority
+                sizes={`(max-width: 640px) 48vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
+              />
+              <Image
+                src="/perception/uns2.png?v=2"
+                alt="Unstructured data visualization"
+                width={IMAGE_WIDTH}
+                height={IMAGE_HEIGHT}
+                className={`perception-global-img w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded flex-1 min-w-0`}
+                priority
+                sizes={`(max-width: 640px) 48vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
+              />
+            </div>
           </div>
         </div>
 

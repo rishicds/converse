@@ -51,13 +51,25 @@ const AnimatedCounter = ({ targetNumber }: AnimatedCounterProps) => {
 
   return (
     <div ref={ref} className="flex items-center justify-center gap-1">
-      {formattedNumber.split('').map((char, index) => (
-        <CounterDigit 
-          key={index} 
-          digit={char} 
-          isComma={char === ','} 
-        />
-      ))}
+      {formattedNumber.split('').map((digit, idx) =>
+        digit === ',' ? (
+          <span
+            key={idx}
+            className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mx-0.5"
+            style={{ minWidth: '1rem', textAlign: 'center' }}
+          >
+            ,
+          </span>
+        ) : (
+          <span
+            key={idx}
+            className="bg-white text-blue-900 font-bold rounded px-2 py-1 text-2xl sm:text-3xl md:text-5xl lg:text-6xl shadow"
+            style={{ minWidth: '2rem', textAlign: 'center' }}
+          >
+            {digit}
+          </span>
+        )
+      )}
     </div>
   );
 };
@@ -133,7 +145,7 @@ const AnalyticsDashboard = () => {
                   alt="Perception Logo"
                   width={200}
                   height={200}
-                  style={{ height: '120px', width: 'auto' }}
+                  className="h-16 w-auto sm:h-24 md:h-28 lg:h-[120px]"
                   priority
                 />
               </div>
