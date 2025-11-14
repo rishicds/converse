@@ -7,8 +7,8 @@ import React from 'react';
 // based on the provided design reference. Content adapted into semantic HTML.
 
 // Image size constants
-const IMAGE_WIDTH = 410;
-const IMAGE_HEIGHT = 320;
+const IMAGE_WIDTH = 1200;
+const IMAGE_HEIGHT = 900;
 const IMAGE_MAX_WIDTH = `${IMAGE_WIDTH}px`;
 
 const issues = [
@@ -39,7 +39,7 @@ const StructuredUnstructuredSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 space-y-12 md:space-y-16 lg:space-y-20">
         {/* Unstructured Data - show first with image on left */}
         <div className="flex flex-col lg:flex-row items-start gap-6 md:gap-8 max-w-full">
-          <div className="lg:w-1/2 flex flex-col">
+          <div className="w-full lg:w-1/2 flex flex-col">
             <h2 id="unstructured-heading" className="text-2xl sm:text-3xl font-extrabold font-raleway mb-4 md:mb-6 uppercase text-[#0f1417]">Unstructured Data</h2>
             <p className="text-[#303030] leading-relaxed text-base md:text-lg mb-4">
               Our proprietary AI-powered research analytics tool PERCEPTION uncovers real, unbiased insights from unstructured data such as online sources and as well as from internal client data. It goes over and above what other AI tools can deliver.
@@ -85,25 +85,25 @@ const StructuredUnstructuredSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="lg:w-1/2 flex-shrink-0 max-w-full overflow-hidden">
-            <div className="flex flex-row lg:flex-col gap-2 sm:gap-4">
+          <div className="w-full lg:w-1/2 flex-shrink-0">
+            <div className="flex flex-row lg:flex-col gap-1 md:gap-2 lg:gap-4">
               <Image
                 src="/perception/uns.png?v=2"
                 alt="Unstructured data visualization"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className={`perception-global-img w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded flex-1 min-w-0`}
+                className="perception-global-img w-1/2 lg:w-full h-auto object-cover rounded shadow-lg"
                 priority
-                sizes={`(max-width: 640px) 48vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
+                sizes="(max-width: 1024px) 50vw, 100vw"
               />
               <Image
                 src="/perception/uns2.png?v=2"
                 alt="Unstructured data visualization"
                 width={IMAGE_WIDTH}
                 height={IMAGE_HEIGHT}
-                className={`perception-global-img w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded flex-1 min-w-0`}
+                className="perception-global-img w-1/2 lg:w-full h-auto object-cover rounded shadow-lg"
                 priority
-                sizes={`(max-width: 640px) 48vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
+                sizes="(max-width: 1024px) 50vw, 100vw"
               />
             </div>
           </div>
@@ -149,15 +149,15 @@ const StructuredUnstructuredSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 pt-0 lg:pt-40 flex-shrink-0 max-w-full overflow-hidden">
+          <div className="w-full lg:w-1/2 pt-0 lg:pt-40 flex-shrink-0">
             <Image
               src="/perception/struct.png?v=2"
               alt="Structured data visualization"
               width={IMAGE_WIDTH}
               height={IMAGE_HEIGHT}
-              className={`perception-global-img w-full max-w-[${IMAGE_MAX_WIDTH}] h-auto object-contain rounded`}
+              className="perception-global-img w-full h-auto object-cover rounded shadow-lg"
               priority
-              sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${IMAGE_MAX_WIDTH}`}
+              sizes="100vw"
             />
           </div>
         </div>
