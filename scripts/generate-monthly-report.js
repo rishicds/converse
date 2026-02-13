@@ -33,6 +33,33 @@ async function readJsonSafe(p) {
   }
 }
 
+/**
+ * Read data from both the live JSON file and the monthly archive file.
+ * The daily report prunes old data into archive files, so the monthly report
+ * needs to read from both sources to get the full month's data.
+ */
+async function readWithArchive(livePath, monthDate) {
+  const live = await readJsonSafe(livePath);
+  
+  // Also read from the archive for the target month
+  const baseName = path.basename(livePath, '.json'); // "events" or "submissions"
+  const monthKey = monthDate.toISOString().slice(0, 7); // YYYY-MM
+  const archivePath = path.join(path.dirname(livePath), 'archive', `${baseName}-${monthKey}.json`);
+  const archived = await readJsonSafe(archivePath);
+  
+  // Merge and deduplicate by timestamp
+  const merged = [...archived, ...live];
+  const seen = new Set();
+  const deduped = merged.filter(item => {
+    const key = item.timestamp + JSON.stringify(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  return deduped;
+}
+
 // Filter data to only include items from the last month
 function filterLastMonth(items) {
   const now = new Date();
@@ -307,8 +334,9 @@ async function main() {
 
   await fsp.mkdir(path.dirname(outPdf), { recursive: true });
 
-  const allEvents = await readJsonSafe(eventsPath);
-  const allSubmissions = await readJsonSafe(submissionsPath);
+  // Read from both live data and monthly archives (daily pruning moves old data to archives)
+  const allEvents = await readWithArchive(eventsPath, reportMonth);
+  const allSubmissions = await readWithArchive(submissionsPath, reportMonth);
 
   // Filter to last month's data
   const events = filterLastMonth(allEvents);

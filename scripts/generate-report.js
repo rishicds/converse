@@ -33,6 +33,83 @@ async function readJsonSafe(p) {
   }
 }
 
+async function writeJsonSafe(p, data) {
+  await fsp.writeFile(p, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+/**
+ * Filter items to only those from the last 24 hours.
+ */
+function filterLast24Hours(items) {
+  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000);
+  return items.filter(item => {
+    const ts = new Date(item.timestamp);
+    return ts >= cutoff;
+  });
+}
+
+/**
+ * Remove items older than 24 hours from the JSON file.
+ * Old items are archived to a monthly archive file for the monthly report.
+ * Returns the remaining (recent) items.
+ */
+async function pruneOldData(filePath, allItems) {
+  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000);
+  const recent = [];
+  const old = [];
+
+  for (const item of allItems) {
+    if (new Date(item.timestamp) >= cutoff) {
+      recent.push(item);
+    } else {
+      old.push(item);
+    }
+  }
+
+  // Archive old items into monthly archive files (e.g. data/archive/events-2026-02.json)
+  if (old.length > 0) {
+    const archiveDir = path.join(path.dirname(filePath), 'archive');
+    await fsp.mkdir(archiveDir, { recursive: true });
+
+    // Group old items by month
+    const byMonth = old.reduce((acc, item) => {
+      const monthKey = new Date(item.timestamp).toISOString().slice(0, 7); // YYYY-MM
+      if (!acc[monthKey]) acc[monthKey] = [];
+      acc[monthKey].push(item);
+      return acc;
+    }, {});
+
+    const baseName = path.basename(filePath, '.json'); // "events" or "submissions"
+
+    for (const [monthKey, items] of Object.entries(byMonth)) {
+      const archivePath = path.join(archiveDir, `${baseName}-${monthKey}.json`);
+      let existing = [];
+      try {
+        const raw = await fsp.readFile(archivePath, 'utf-8');
+        existing = JSON.parse(raw);
+      } catch { /* file doesn't exist yet */ }
+
+      // Deduplicate by timestamp to avoid double-archiving
+      const existingTimestamps = new Set(existing.map(e => e.timestamp));
+      const newItems = items.filter(i => !existingTimestamps.has(i.timestamp));
+      const merged = [...existing, ...newItems];
+
+      await writeJsonSafe(archivePath, merged);
+      if (newItems.length > 0) {
+        console.log(`📦 Archived ${newItems.length} entries to ${path.basename(archivePath)}`);
+      }
+    }
+  }
+
+  // Write only the recent items back to the live file
+  await writeJsonSafe(filePath, recent);
+  const removed = allItems.length - recent.length;
+  if (removed > 0) {
+    console.log(`🧹 Pruned ${removed} old entries from ${path.basename(filePath)} (kept ${recent.length})`);
+  }
+  return recent;
+}
+
 async function generatePdfReport(outPath, events, submissions) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({ size: 'A4', margin: 50 });
@@ -197,8 +274,19 @@ async function generatePdfReport(outPath, events, submissions) {
 
   await fsp.mkdir(path.dirname(outPdf), { recursive: true });
 
-  const events = await readJsonSafe(eventsPath);
-  const submissions = await readJsonSafe(submissionsPath);
+  const allEvents = await readJsonSafe(eventsPath);
+  const allSubmissions = await readJsonSafe(submissionsPath);
+
+  // Filter to last 24 hours only — daily report should only contain today's data
+  const events = filterLast24Hours(allEvents);
+  const submissions = filterLast24Hours(allSubmissions);
+
+  console.log(`📊 Found ${allEvents.length} total events, ${events.length} from the last 24h`);
+  console.log(`📊 Found ${allSubmissions.length} total submissions, ${submissions.length} from the last 24h`);
+
+  // Prune old data (older than 24h) from JSON files so they don't accumulate
+  await pruneOldData(eventsPath, allEvents);
+  await pruneOldData(submissionsPath, allSubmissions);
 
   // Check if there's any data
   const hasData = events.length > 0 || submissions.length > 0;
